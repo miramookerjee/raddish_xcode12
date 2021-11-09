@@ -53,7 +53,7 @@ struct ContentView: View {
         }
         .tabItem {Label("Pantry", systemImage: "leaf.fill")}
         RecipesView(viewModel: viewModel)
-            .tabItem {Label("Recipes", systemImage: "list.bullet.rectangle.portrait.fill")}
+        .tabItem {Label("Recipes", systemImage: "list.bullet.rectangle.portrait.fill")}
       }
     }
         

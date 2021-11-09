@@ -42,8 +42,8 @@ struct DeleteButton: View {
 }
 
 struct MealPlanContentView: View {
-    @State private var showingSheet = false
-    @State private var showingDetailSheet = false
+    @State var showingSheet = false
+    @State var showingDetailSheet = false
     var viewModel: ViewModel
     //var indexSet = IndexSet(viewModel.recipes)
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -74,41 +74,10 @@ struct MealPlanContentView: View {
                                   }
                             ForEach(viewModel.meals, id: \.self) { i in
                               if (i.day_of_week == "Monday") {
-                                VStack {
-                                  Button {
-                                    showingDetailSheet.toggle()
-                                  }
-                                  label: {
-                                      
-                                      if #available(iOS 15.0, *) {
-                                        AsyncImage(url: URL(string: i.displayimageURL()))
-                                        { image in
-                                            image.resizable()
-                                        } placeholder: {
-                                            ProgressView()
-                                        }
-//                                        .overlay(DeleteButton(mealItem: i, meals: viewModel.$meals, onDelete: delet) , alignment: .topTrailing)
-                                        
-                                        .frame(width: 107, height: 115)
-                                        .cornerRadius(15)
-                                        //TODO: shadow
-                                        //.shadow(color: Color.black.opacity(0.3), radius: 20, x: -10, y: 10)
-
-                                      } else {
-                                        fatalError("Oh no! Upgrade your phone")
-                                      }
-                                    }
-                        
-                                  .sheet(isPresented: $showingDetailSheet) {
-                                    RecipeDetailsView(recipe: Recipe(strMeal: i.displayName(), strInstructions: "", strMealThumb: i.displayimageURL()), viewModel: viewModel)
-                                }
-                                  //Button(Text("Delete"), action: viewModel.deleteMealItem(i))
-                                  Text(i.displayName())
-                                }
-                               
+                                DayOfWeekView(i: i, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
                               }
                             }
-                            .onDelete(perform: delet)
+                            //.onDelete(perform: delet)
                         }
                       }
                   }
@@ -126,33 +95,7 @@ struct MealPlanContentView: View {
                                 }
                         ForEach(viewModel.meals, id: \.self) { i in
                           if (i.day_of_week == "Tuesday") {
-                            VStack {
-                              Button {
-                                showingDetailSheet.toggle()
-                              }
-                              label: {
-                                  
-                                  if #available(iOS 15.0, *) {
-                                    AsyncImage(url: URL(string: i.displayimageURL()))
-                                    { image in
-                                        image.resizable()
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                    .frame(width: 107, height: 115)
-                                    .cornerRadius(15)
-                                    //TODO: shadow
-                                    //.shadow(color: Color.black.opacity(0.3), radius: 20, x: -10, y: 10)
-
-                                  } else {
-                                    fatalError("Oh no! Upgrade your phone")
-                                  }
-                                }
-                              .sheet(isPresented: $showingDetailSheet) {
-                                RecipeDetailsView(recipe: Recipe(strMeal: i.displayName(), strInstructions: "", strMealThumb: i.displayimageURL()), viewModel: viewModel)
-                            }
-                              Text(i.displayName())
-                            }
+                            DayOfWeekView(i: i, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
                           }
                         }
                       }
@@ -172,33 +115,7 @@ struct MealPlanContentView: View {
                                 }
                         ForEach(viewModel.meals, id: \.self) { i in
                           if (i.day_of_week == "Wednesday") {
-                            VStack {
-                              Button {
-                                showingDetailSheet.toggle()
-                              }
-                              label: {
-                                  
-                                  if #available(iOS 15.0, *) {
-                                    AsyncImage(url: URL(string: i.displayimageURL()))
-                                    { image in
-                                        image.resizable()
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                    .frame(width: 107, height: 115)
-                                    .cornerRadius(15)
-                                    //TODO: shadow
-                                    //.shadow(color: Color.black.opacity(0.3), radius: 20, x: -10, y: 10)
-
-                                  } else {
-                                    fatalError("Oh no! Upgrade your phone")
-                                  }
-                                }
-                              .sheet(isPresented: $showingDetailSheet) {
-                                RecipeDetailsView(recipe: Recipe(strMeal: i.displayName(), strInstructions: "", strMealThumb: i.displayimageURL()), viewModel: viewModel)
-                            }
-                              Text(i.displayName())
-                            }
+                            DayOfWeekView(i: i, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
                           }
                         }
                       }
@@ -218,33 +135,7 @@ struct MealPlanContentView: View {
                                 }
                         ForEach(viewModel.meals, id: \.self) { i in
                           if (i.day_of_week == "Thursday") {
-                            VStack {
-                              Button {
-                                showingDetailSheet.toggle()
-                              }
-                              label: {
-                                  
-                                  if #available(iOS 15.0, *) {
-                                    AsyncImage(url: URL(string: i.displayimageURL()))
-                                    { image in
-                                        image.resizable()
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                    .frame(width: 107, height: 115)
-                                    .cornerRadius(15)
-                                    //TODO: shadow
-                                    //.shadow(color: Color.black.opacity(0.3), radius: 20, x: -10, y: 10)
-
-                                  } else {
-                                    fatalError("Oh no! Upgrade your phone")
-                                  }
-                                }
-                              .sheet(isPresented: $showingDetailSheet) {
-                                RecipeDetailsView(recipe: Recipe(strMeal: i.displayName(), strInstructions: "", strMealThumb: i.displayimageURL()), viewModel: viewModel)
-                            }
-                              Text(i.displayName())
-                            }
+                            DayOfWeekView(i: i, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
                           }
                         }
                       }
@@ -264,33 +155,7 @@ struct MealPlanContentView: View {
                                 }
                         ForEach(viewModel.meals, id: \.self) { i in
                           if (i.day_of_week == "Friday") {
-                            VStack {
-                              Button {
-                                showingDetailSheet.toggle()
-                              }
-                              label: {
-                                  
-                                  if #available(iOS 15.0, *) {
-                                    AsyncImage(url: URL(string: i.displayimageURL()))
-                                    { image in
-                                        image.resizable()
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                    .frame(width: 107, height: 115)
-                                    .cornerRadius(15)
-                                    //TODO: shadow
-                                    //.shadow(color: Color.black.opacity(0.3), radius: 20, x: -10, y: 10)
-
-                                  } else {
-                                    fatalError("Oh no! Upgrade your phone")
-                                  }
-                                }
-                              .sheet(isPresented: $showingDetailSheet) {
-                                RecipeDetailsView(recipe: Recipe(strMeal: i.displayName(), strInstructions: "", strMealThumb: i.displayimageURL()), viewModel: viewModel)
-                            }
-                              Text(i.displayName())
-                            }
+                            DayOfWeekView(i: i, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
                           }
                         }
                       }
@@ -310,33 +175,7 @@ struct MealPlanContentView: View {
                                 }
                         ForEach(viewModel.meals, id: \.self) { i in
                           if (i.day_of_week == "Saturday") {
-                            VStack {
-                              Button {
-                                showingDetailSheet.toggle()
-                              }
-                              label: {
-                                  
-                                  if #available(iOS 15.0, *) {
-                                    AsyncImage(url: URL(string: i.displayimageURL()))
-                                    { image in
-                                        image.resizable()
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                    .frame(width: 107, height: 115)
-                                    .cornerRadius(15)
-                                    //TODO: shadow
-                                    //.shadow(color: Color.black.opacity(0.3), radius: 20, x: -10, y: 10)
-
-                                  } else {
-                                    fatalError("Oh no! Upgrade your phone")
-                                  }
-                                }
-                              .sheet(isPresented: $showingDetailSheet) {
-                                RecipeDetailsView(recipe: Recipe(strMeal: i.displayName(), strInstructions: "", strMealThumb: i.displayimageURL()), viewModel: viewModel)
-                            }
-                              Text(i.displayName())
-                            }
+                            DayOfWeekView(i: i, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
                           }
                         }
                       }
@@ -356,33 +195,7 @@ struct MealPlanContentView: View {
                                 }
                         ForEach(viewModel.meals, id: \.self) { i in
                           if (i.day_of_week == "Sunday") {
-                            VStack {
-                              Button {
-                                showingDetailSheet.toggle()
-                              }
-                              label: {
-                                  
-                                  if #available(iOS 15.0, *) {
-                                    AsyncImage(url: URL(string: i.displayimageURL()))
-                                    { image in
-                                        image.resizable()
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                    .frame(width: 107, height: 115)
-                                    .cornerRadius(15)
-                                    //TODO: shadow
-                                    //.shadow(color: Color.black.opacity(0.3), radius: 20, x: -10, y: 10)
-
-                                  } else {
-                                    fatalError("Oh no! Upgrade your phone")
-                                  }
-                                }
-                              .sheet(isPresented: $showingDetailSheet) {
-                                RecipeDetailsView(recipe: Recipe(strMeal: i.displayName(), strInstructions: "", strMealThumb: i.displayimageURL()), viewModel: viewModel)
-                            }
-                              Text(i.displayName())
-                            }
+                            DayOfWeekView(i: i, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
                           }
                         }
                       }

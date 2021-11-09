@@ -2,7 +2,7 @@ import CoreData
 import UIKit
 
 //@UIApplicationMain
-@main
+//@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   

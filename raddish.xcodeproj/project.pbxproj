@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06410E18273B01CF009CFE41 /* DayOfWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06410E17273B01CF009CFE41 /* DayOfWeekView.swift */; };
 		06EAD2BA273A0BBF004E1928 /* raddishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD2B9273A0BBF004E1928 /* raddishApp.swift */; };
 		06EAD2BE273A0BC0004E1928 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06EAD2BD273A0BC0004E1928 /* Assets.xcassets */; };
 		06EAD2C1273A0BC0004E1928 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06EAD2C0273A0BC0004E1928 /* Preview Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06410E17273B01CF009CFE41 /* DayOfWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekView.swift; sourceTree = "<group>"; };
 		06EAD2B6273A0BBF004E1928 /* raddish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = raddish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06EAD2B9273A0BBF004E1928 /* raddishApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = raddishApp.swift; sourceTree = "<group>"; };
 		06EAD2BD273A0BC0004E1928 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		06EAD2B8273A0BBF004E1928 /* raddish */ = {
 			isa = PBXGroup;
 			children = (
+				06EAD2C7273A0BC0004E1928 /* Info.plist */,
 				06EAD2F0273A0C2C004E1928 /* Meal Plan */,
 				06EAD2EF273A0BDE004E1928 /* Resources */,
 				06EAD2ED273A0BCE004E1928 /* Recipes */,
@@ -187,7 +190,6 @@
 				06EAD2B9273A0BBF004E1928 /* raddishApp.swift */,
 				06EAD2BD273A0BC0004E1928 /* Assets.xcassets */,
 				06EAD2C2273A0BC0004E1928 /* Persistence.swift */,
-				06EAD2C7273A0BC0004E1928 /* Info.plist */,
 				06EAD2C4273A0BC0004E1928 /* raddish.xcdatamodeld */,
 				06EAD321273A0DFA004E1928 /* ContentView.swift */,
 				06EAD2FE273A0CAB004E1928 /* SceneDelegate.swift */,
@@ -203,6 +205,7 @@
 			children = (
 				06EAD2F1273A0C55004E1928 /* Meal.swift */,
 				06EAD2F9273A0C68004E1928 /* MealPlanContentView.swift */,
+				06410E17273B01CF009CFE41 /* DayOfWeekView.swift */,
 			);
 			path = "Meal Plan";
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				06EAD327273A0E0C004E1928 /* PantryItemDetail.swift in Sources */,
 				06EAD30E273A0D75004E1928 /* AppDelegate.swift in Sources */,
 				06EAD2C6273A0BC0004E1928 /* raddish.xcdatamodeld in Sources */,
+				06410E18273B01CF009CFE41 /* DayOfWeekView.swift in Sources */,
 				06EAD318273A0DCD004E1928 /* PantryItemRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
