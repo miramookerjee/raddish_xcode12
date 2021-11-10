@@ -9,9 +9,10 @@ import SwiftUI
 
 struct DayOfWeekView: View {
     var i: MealItem
-  @State var showingSheet: Bool
-  @State var showingDetailSheet: Bool
+    @State var showingSheet: Bool
+    @State var showingDetailSheet: Bool
     var viewModel: ViewModel
+  
     var body: some View {
       VStack {
         Button {
@@ -36,6 +37,7 @@ struct DayOfWeekView: View {
 //              } else {
 //                fatalError("Oh no! Upgrade your phone")
 //                }
+          viewModel.downloadImage(from: URL(string: i.displayimageURL()) ?? URL("https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"))
           }
 
         .sheet(isPresented: $showingDetailSheet) {

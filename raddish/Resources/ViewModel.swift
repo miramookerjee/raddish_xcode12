@@ -253,6 +253,26 @@ class ViewModel: ObservableObject {
 
     meals.remove(at: meals.firstIndex(of: mealItem) ?? -1)
   }
+  
+  // source: https://stackoverflow.com/questions/38841127/why-can-the-keyword-weak-only-be-applied-to-class-and-class-bound-protocol-typ
+  
+  func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+      URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+  }
+
+  func downloadImage(from url: URL) {
+      print("Download Started")
+      getData(from: url) { data, response, error in
+          guard let data = data, error == nil else { return }
+          print(response?.suggestedFilename ?? url.lastPathComponent)
+          print("Download Finished")
+          // always update the UI from the main thread
+          DispatchQueue.main.async() { [weak self] in
+              self?.imageView.image = UIImage(data: data)
+          }
+      }
+  }
+
    
    
 }
