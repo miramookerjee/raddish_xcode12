@@ -70,10 +70,11 @@ struct MealPlanContentView: View {
                                   }
                                   .frame(minHeight: 150)
                                   .sheet(isPresented: $showingSheet) {
-                                      RecipesView(viewModel: viewModel)
+                                      RecipesModalView(viewModel: viewModel)
                                   }
                             ForEach(viewModel.meals, id: \.self) { i in
                               if (i.day_of_week == "Monday") {
+                                Text("Hello")
                                 DayOfWeekView(i: i, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
                               }
                             }
@@ -91,7 +92,7 @@ struct MealPlanContentView: View {
                                 }
                                 .frame(minHeight: 150)
                                 .sheet(isPresented: $showingSheet) {
-                                    RecipesView(viewModel: viewModel)
+                                    RecipesModalView(viewModel: viewModel)
                                 }
                         ForEach(viewModel.meals, id: \.self) { i in
                           if (i.day_of_week == "Tuesday") {
@@ -111,7 +112,7 @@ struct MealPlanContentView: View {
                                 }
                                 .frame(minHeight: 150)
                                 .sheet(isPresented: $showingSheet) {
-                                    RecipesView(viewModel: viewModel)
+                                    RecipesModalView(viewModel: viewModel)
                                 }
                         ForEach(viewModel.meals, id: \.self) { i in
                           if (i.day_of_week == "Wednesday") {
@@ -131,7 +132,7 @@ struct MealPlanContentView: View {
                                 }
                                 .frame(minHeight: 150)
                                 .sheet(isPresented: $showingSheet) {
-                                    RecipesView(viewModel: viewModel)
+                                    RecipesModalView(viewModel: viewModel)
                                 }
                         ForEach(viewModel.meals, id: \.self) { i in
                           if (i.day_of_week == "Thursday") {
@@ -151,7 +152,7 @@ struct MealPlanContentView: View {
                                 }
                                 .frame(minHeight: 150)
                                 .sheet(isPresented: $showingSheet) {
-                                    RecipesView(viewModel: viewModel)
+                                    RecipesModalView(viewModel: viewModel)
                                 }
                         ForEach(viewModel.meals, id: \.self) { i in
                           if (i.day_of_week == "Friday") {

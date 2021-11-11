@@ -95,6 +95,27 @@ struct ContentView: View {
     }
 }
 
+// source: https://stackoverflow.com/questions/60677622/how-to-display-image-from-a-url-in-swiftui
+//struct ImageView: View {
+//    @ObservedObject var imageLoader:ImageLoader
+//    @State var image:UIImage = UIImage()
+//
+//    init(withURL url:String) {
+//        imageLoader = ImageLoader(urlString: URL("https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"))
+//    }
+//
+//    var body: some View {
+//        
+//            Image(uiImage: image)
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .frame(width:100, height:100)
+//                .onReceive(imageLoader.didChange) { data in
+//                self.image = UIImage(data: data) ?? UIImage()
+//        }
+//    }
+//}
+
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
