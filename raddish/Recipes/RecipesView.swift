@@ -25,10 +25,14 @@ struct RecipesView: View {
                                     showingSheet.toggle()
                                   }
                                   label: {
-                                    AsyncImage(
-                                      url: URL(string: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")!,
-                                                    placeholder: {Text("Loading ...")}
-                                                ).aspectRatio(contentMode: .fit)
+                                    AsyncImage(url: URL(string: i.strMealThumb)!,
+                                               placeholder: { Text("Loading...") })
+                                      .frame(width: 107, height: 115)
+                                      .cornerRadius(15)
+//                                    AsyncImage(
+//                                      url: URL(string: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")!,
+//                                                    placeholder: {Text("Loading ...")}
+//                                                ).aspectRatio(contentMode: .fit)
 //                                        URLImage(url: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")
 //                                          .frame(width: 107, height: 115)
 //                                          .cornerRadius(15)
