@@ -34,17 +34,17 @@ struct RecipeDetailsView: View {
               }
               
           }
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-              Button("Back") {
-                  mode.wrappedValue.dismiss()
-              }
+          .toolbar {
+              ToolbarItem(placement: .navigationBarLeading) {
+                Button("Back") {
+                    mode.wrappedValue.dismiss()
+                }
 
-            }
-        }
-      .navigationBarTitle(recipe.strMeal)
+              }
+          }
+        .navigationBarTitle(recipe.strMeal)
       }
+    }
   
   private func addToMealPlan(_ dayOfWeek: String) {
     self.viewModel.saveMealItem(day_of_week: dayOfWeek, name: recipe.strMeal, imageURL: recipe.strMealThumb)
