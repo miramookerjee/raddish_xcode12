@@ -74,7 +74,6 @@ struct MealPlanContentView: View {
                                   }
                             ForEach(viewModel.meals, id: \.self) { i in
                               if (i.day_of_week == "Monday") {
-                                Text("Hello")
                                 DayOfWeekView(i: i, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
                               }
                             }
