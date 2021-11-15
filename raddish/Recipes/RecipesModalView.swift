@@ -25,22 +25,10 @@ struct RecipesModalView: View {
                                       showingSheet.toggle()
                                     }
                                     label: {
-                                          Text("Hello")
-//                                        if #available(iOS 15.0, *) {
-//                                          AsyncImage(url: URL(string: i.strMealThumb ))
-//                                          { image in
-//                                              image.resizable()
-//                                          } placeholder: {
-//                                              ProgressView()
-//                                          }
-//                                          .frame(width: 107, height: 115)
-//                                          .cornerRadius(15)
-//                                          //TODO: shadow
-//                                          //.shadow(color: Color.black.opacity(0.3), radius: 20, x: -10, y: 10)
-//
-//                                        } else {
-//                                          fatalError("Oh no! Upgrade your phone")
-//                                        }
+                                      AsyncImage(url: URL(string: i.strMealThumb)!,
+                                                 placeholder: { Text("Loading...") })
+                                        .frame(width: 107, height: 115)
+                                        .cornerRadius(15)
                                       }
                                     .sheet(isPresented: $showingSheet) {
                                       RecipeDetailsView(recipe: i)

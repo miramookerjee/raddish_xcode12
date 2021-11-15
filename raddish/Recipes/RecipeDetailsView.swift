@@ -17,15 +17,10 @@ struct RecipeDetailsView: View {
     var body: some View {
       NavigationView {
         VStack{
-            if #available(iOS 15.0, *) {
-//              AsyncImage(url: URL(string: recipe.strMealThumb ))
-//              { image in
-//                  image.resizable()
-//              } placeholder: {
-//                  ProgressView()
-//              }
-//              .frame(width: 107, height: 115)
-//              .cornerRadius(15)
+          AsyncImage(url: URL(string: recipe.strMealThumb)!,
+                     placeholder: { Text("Loading...") })
+            .frame(width: 107, height: 115)
+            .cornerRadius(15)
               //TODO: shadow
               //.shadow(color: Color.black.opacity(0.3), radius: 20, x: -10, y: 10)
               Menu("Add to Meal Plan") {
@@ -39,18 +34,16 @@ struct RecipeDetailsView: View {
               }
               
           }
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-              Button("Back") {
-                  mode.wrappedValue.dismiss()
-              }
+          .toolbar {
+              ToolbarItem(placement: .navigationBarLeading) {
+                Button("Back") {
+                    mode.wrappedValue.dismiss()
+                }
 
-            }
-        }
-      .navigationBarTitle(recipe.strMeal)
+              }
+          }
+        .navigationBarTitle(recipe.strMeal)
       }
-      
     }
   
   private func addToMealPlan(_ dayOfWeek: String) {
