@@ -39,34 +39,11 @@ struct DayOfWeekView: View {
           showingDetailSheet.toggle()
         }
         label: {
-//              if #available(iOS 15.0, *) {
-//                AsyncImage(url: URL(string: i.displayimageURL()))
-//                { image in
-//                    image.resizable()
-//                } placeholder: {
-//                    ProgressView()
-//                }
-//                .overlay(DeleteButton(mealItem: i, meals: viewModel.$meals, onDelete: delet) , alignment: .topTrailing)
-//
-//                .frame(width: 107, height: 115)
-//                .cornerRadius(15)
-//                //TODO: shadow
-//                //.shadow(color: Color.black.opacity(0.3), radius: 20, x: -10, y: 10)
-//
-//              } else {
-//                fatalError("Oh no! Upgrade your phone")
-//                }
-          
-//            downloadImage(from: URL(string: i.displayimageURL()) ?? URL("https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"))
-          AsyncImage(
-            url: URL(string: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")!,
-            placeholder: {Text("Loading ...")}
-                  ).aspectRatio(contentMode: .fit)
-//              URLImage(url: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")
-//                .frame(width: 107, height: 115)
-//                .cornerRadius(15)
+          AsyncImage(url: URL(string: i.displayimageURL())!,
+                     placeholder: { Text("Loading...") })
+            .frame(width: 107, height: 115)
+            .cornerRadius(15)
           }
-
         .sheet(isPresented: $showingDetailSheet) {
           RecipeDetailsView(recipe: Recipe(strMeal: i.displayName(), strInstructions: "", strMealThumb: i.displayimageURL()), viewModel: viewModel)
       }
