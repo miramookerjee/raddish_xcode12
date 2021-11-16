@@ -33,6 +33,7 @@
 		06EAD32C273A0E28004E1928 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD32B273A0E28004E1928 /* RecipesView.swift */; };
 		06EAD331273A0E3E004E1928 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD330273A0E3E004E1928 /* Recipe.swift */; };
 		06EAD336273A0E4C004E1928 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD335273A0E4C004E1928 /* RecipeDetailsView.swift */; };
+		F3C09CD827432E87002B91BB /* MealDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C09CD727432E87002B91BB /* MealDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		06EAD32B273A0E28004E1928 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		06EAD330273A0E3E004E1928 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		06EAD335273A0E4C004E1928 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
+		F3C09CD727432E87002B91BB /* MealDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 				06EAD2F1273A0C55004E1928 /* Meal.swift */,
 				06EAD2F9273A0C68004E1928 /* MealPlanContentView.swift */,
 				06410E17273B01CF009CFE41 /* DayOfWeekView.swift */,
+				F3C09CD727432E87002B91BB /* MealDetailsView.swift */,
 			);
 			path = "Meal Plan";
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				06EAD322273A0DFA004E1928 /* ContentView.swift in Sources */,
 				06EAD309273A0D4A004E1928 /* AnyGestureRecognizer.swift in Sources */,
 				06EAD331273A0E3E004E1928 /* Recipe.swift in Sources */,
+				F3C09CD827432E87002B91BB /* MealDetailsView.swift in Sources */,
 				06EAD2FF273A0CAB004E1928 /* SceneDelegate.swift in Sources */,
 				06EAD31D273A0DE2004E1928 /* AddPantryItem.swift in Sources */,
 				06EAD2C3273A0BC0004E1928 /* Persistence.swift in Sources */,
