@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DayOfWeekView: View {
+struct RecipeInMealPlanView: View {
     var i: MealItem
     @State var showingSheet: Bool
     @State var showingDetailSheet: Bool
