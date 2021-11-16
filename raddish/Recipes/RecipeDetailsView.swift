@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeDetailsView: View {
     var recipe: Recipe
-    @ObservedObject var viewModel = ViewModel()
+    @ObservedObject var viewModel: ViewModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -17,7 +17,7 @@ struct RecipeDetailsView: View {
     var body: some View {
       NavigationView {
         VStack{
-          AsyncImage(url: URL(string: recipe.strMealThumb)!,
+            AsyncImage(url: URL(string: recipe.strMealThumb)!,
                      placeholder: { Text("Loading...") })
             .frame(width: 107, height: 115)
             .cornerRadius(15)

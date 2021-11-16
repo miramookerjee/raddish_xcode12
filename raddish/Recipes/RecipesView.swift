@@ -7,7 +7,7 @@ import SwiftUI
 struct RecipesView: View {
     
   @State private var showingSheet = false
-    @ObservedObject var viewModel = ViewModel()
+    @ObservedObject var viewModel: ViewModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     var body: some View {
         VStack{
@@ -31,7 +31,8 @@ struct RecipesView: View {
                                       .cornerRadius(15)
                                   }
                                   .sheet(isPresented: $showingSheet) {
-                                    RecipeDetailsView(recipe: i)
+                                    // PROF H LOOK HERE
+                                    RecipeDetailsView(recipe: i, viewModel: viewModel)
                                 }
                                   Text(i.strMeal)
                                 }

@@ -11,7 +11,7 @@ struct DayOfWeekView: View {
     var i: MealItem
     @State var showingSheet: Bool
     @State var showingDetailSheet: Bool
-    var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     //var image: Image
   
   // source: https://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
