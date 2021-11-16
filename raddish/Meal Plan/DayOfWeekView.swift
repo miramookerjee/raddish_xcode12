@@ -11,7 +11,7 @@ struct DayOfWeekView: View {
     var i: MealItem
     @State var showingSheet: Bool
     @State var showingDetailSheet: Bool
-    var viewModel: ViewModel
+  var viewModel: ViewModel
   
     var body: some View {
       VStack {

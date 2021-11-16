@@ -12,7 +12,7 @@ import UIKit
 
 struct AddPantryItem: View {
 
-  var viewModel: ViewModel
+  @ObservedObject var viewModel: ViewModel
   @Environment(\.presentationMode) var mode: Binding<PresentationMode>
 
   @State var name: String = ""
