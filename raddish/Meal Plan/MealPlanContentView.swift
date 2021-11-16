@@ -44,7 +44,7 @@ struct DeleteButton: View {
 struct MealPlanContentView: View {
     @State var showingSheet = false
     @State var showingDetailSheet = false
-    var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     //var indexSet = IndexSet(viewModel.recipes)
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
 //
