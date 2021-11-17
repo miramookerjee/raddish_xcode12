@@ -11,12 +11,12 @@ import SwiftUI
 import UIKit
 
 struct AddPantryItem: View {
+  @ObservedObject var viewModel: ViewModel
     let dateFormatter: DateFormatter = {
            let formatter = DateFormatter()
            formatter.dateStyle = .long
            return formatter
        }()
-  var viewModel: ViewModel
   @Environment(\.presentationMode) var mode: Binding<PresentationMode>
 
   @State var name: String = ""
@@ -48,15 +48,9 @@ struct AddPantryItem: View {
       }) {
         Text("Done")
       }
-      
+  
     )
   }
 }
 
-/*
-  // MARK: View Helper Functions
-  func buttonText() -> String {
-    return image == nil ? "Add Contact Picture" : "Change Contact Picture"
-  }
-}
- */
+
