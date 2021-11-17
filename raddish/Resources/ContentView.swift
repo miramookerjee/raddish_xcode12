@@ -29,7 +29,6 @@ struct ContentView: View {
         .tabItem {Label("Recipes", systemImage: "list.bullet.rectangle.portrait.fill")}
       }
     }
-
 }
 
 struct ContentView_Previews: PreviewProvider {
