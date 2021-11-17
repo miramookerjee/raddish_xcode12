@@ -15,7 +15,6 @@ class ViewModel: ObservableObject {
   let appDelegate: AppDelegate = AppDelegate()
   @Published var pantry = [PantryItem]()
   @Published var recipes = [Recipe]()
-  //@Published var meals: [UUID: MealItem]
   @Published var meals = [MealItem] ()
   var recipesToPopulate = ["Arrabiata", "Soup", "sandwich", "salad"]
   
@@ -37,20 +36,19 @@ class ViewModel: ObservableObject {
         }
 
         let recipeInstance = Recipe(strMeal: result.meals[0].strMeal, strInstructions: result.meals[0].strInstructions, strMealThumb: result.meals[0].strMealThumb);
+        print(recipeInstance.strInstructions)
         self.recipes.append(recipeInstance)
 
       }
       task.resume()
-
-      
     }
   }
 
   func savePantryItem(name: String?, expiration: NSDate?, date: Date?) {
     // create a new Pantry Item object
     let newPantryItem = PantryItem()
-    // add it to the `contacts` array
     
+    // add it to the `contacts` array
     if let nameTemp = name {
       if nameTemp != "" {
         newPantryItem.name = nameTemp
@@ -93,7 +91,6 @@ class ViewModel: ObservableObject {
      request.returnsObjectsAsFaults = false
      do {
        let result = try context.fetch(request)
-       print(result)
        for data in result as! [NSManagedObject] {
          let newPantryItem = PantryItem()
          newPantryItem.name = data.value(forKey: "name") as? String ?? ""
@@ -185,7 +182,6 @@ class ViewModel: ObservableObject {
      request.returnsObjectsAsFaults = false
      do {
        let result = try context.fetch(request)
-       print(result)
        for data in result as! [NSManagedObject] {
          let newMealItem = MealItem()
          newMealItem.day_of_week = data.value(forKey: "day_of_week") as? String ?? ""
@@ -252,10 +248,5 @@ class ViewModel: ObservableObject {
       }
 
     meals.remove(at: meals.firstIndex(of: mealItem) ?? -1)
-  }
-  
-
-
-   
-   
+  }   
 }

@@ -27,7 +27,6 @@ struct AddPantryItem: View {
           .padding(.leading)
         TextField("name", text: $name)
           .padding(.trailing)
-      
         Text("date:")
           .fontWeight(.bold)
           .padding(.leading)
@@ -47,15 +46,9 @@ struct AddPantryItem: View {
       }) {
         Text("Done")
       }
-      
+  
     )
   }
 }
 
-/*
-  // MARK: View Helper Functions
-  func buttonText() -> String {
-    return image == nil ? "Add Contact Picture" : "Change Contact Picture"
-  }
-}
- */
+
