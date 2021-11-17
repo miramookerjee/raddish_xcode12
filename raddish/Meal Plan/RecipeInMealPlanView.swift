@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DayOfWeekView: View {
+struct RecipeInMealPlanView: View {
     var i: MealItem
     @State var showingSheet: Bool
     @State var showingDetailSheet: Bool
@@ -23,24 +23,12 @@ struct DayOfWeekView: View {
                      placeholder: { Text("Loading...") })
             .frame(width: 107, height: 115)
             .cornerRadius(15)
-        }
+          }
         .sheet(isPresented: $showingDetailSheet) {
-          MealDetailsView(recipe: Recipe(strMeal: i.displayName(), strInstructions: "", strMealThumb: i.displayimageURL()), viewModel: viewModel)
-        }
+          RecipeDetailsView(recipe: Recipe(strMeal: i.displayName(), strInstructions: "", strMealThumb: i.displayimageURL()), viewModel: viewModel)
+      }
         //Button(Text("Delete"), action: viewModel.deleteMealItem(i))
         Text(i.displayName())
-        Button("Delete", action: { deleteMeal(meal: i) })
       }
     }
-  
-  private func deleteMeal(meal: MealItem) {
-    viewModel.deleteMealItem(mealItem: meal)
-    viewModel.updateMealItems()
-  }
 }
-
-//struct DayOfWeekView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DayOfWeekView()
-//    }
-//}

@@ -225,7 +225,12 @@
 				06EAD2F1273A0C55004E1928 /* Meal.swift */,
 				069A557A2744753200F14865 /* RecipeInMealPlanView.swift */,
 				06EAD2F9273A0C68004E1928 /* MealPlanContentView.swift */,
+<<<<<<< HEAD
+				06410E17273B01CF009CFE41 /* DayOfWeekView.swift */,
+				F3C09CD727432E87002B91BB /* MealDetailsView.swift */,
+=======
 				069A55822744758400F14865 /* WeekView.swift */,
+>>>>>>> main
 			);
 			path = "Meal Plan";
 			sourceTree = "<group>";
