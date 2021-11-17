@@ -12,7 +12,6 @@
 		069A55882744883400F14865 /* PantryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A55872744883400F14865 /* PantryContentView.swift */; };
 		069A558D27448F9900F14865 /* RecipeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A558C27448F9900F14865 /* RecipeSectionView.swift */; };
 		06BC4C45273CC7D9007C016A /* RecipesModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC4C44273CC7D9007C016A /* RecipesModalView.swift */; };
-		06BC4C4A273CCE47007C016A /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC4C49273CCE47007C016A /* URLImage.swift */; };
 		06BC4C54273CD1E9007C016A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC4C53273CD1E9007C016A /* ImageLoader.swift */; };
 		06BC4C59273CD299007C016A /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BC4C58273CD299007C016A /* AsyncImageView.swift */; };
 		06EAD2BA273A0BBF004E1928 /* raddishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD2B9273A0BBF004E1928 /* raddishApp.swift */; };
@@ -61,7 +60,6 @@
 		069A55872744883400F14865 /* PantryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryContentView.swift; sourceTree = "<group>"; };
 		069A558C27448F9900F14865 /* RecipeSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSectionView.swift; sourceTree = "<group>"; };
 		06BC4C44273CC7D9007C016A /* RecipesModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesModalView.swift; sourceTree = "<group>"; };
-		06BC4C49273CCE47007C016A /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		06BC4C53273CD1E9007C016A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		06BC4C58273CD299007C016A /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		06EAD2B6273A0BBF004E1928 /* raddish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = raddish.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +145,6 @@
 				06EAD2ED273A0BCE004E1928 /* Recipes */,
 				06EAD2EC273A0BC8004E1928 /* Pantry */,
 				06EAD2BF273A0BC0004E1928 /* Preview Content */,
-				06BC4C49273CCE47007C016A /* URLImage.swift */,
 				06BC4C53273CD1E9007C016A /* ImageLoader.swift */,
 				06BC4C58273CD299007C016A /* AsyncImageView.swift */,
 			);
@@ -363,7 +360,6 @@
 				06EAD2F2273A0C55004E1928 /* Meal.swift in Sources */,
 				06EAD313273A0DAB004E1928 /* Pantry.swift in Sources */,
 				06BC4C45273CC7D9007C016A /* RecipesModalView.swift in Sources */,
-				06BC4C4A273CCE47007C016A /* URLImage.swift in Sources */,
 				06EAD32C273A0E28004E1928 /* RecipesView.swift in Sources */,
 				06BC4C59273CD299007C016A /* AsyncImageView.swift in Sources */,
 				069A55882744883400F14865 /* PantryContentView.swift in Sources */,

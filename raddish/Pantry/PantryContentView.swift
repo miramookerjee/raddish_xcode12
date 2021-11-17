@@ -40,7 +40,6 @@ struct PantryContentView: View {
       }
     }
   
-  
   private func addItem() {
     withAnimation {
         let newItem = Item(context: viewContext)
