@@ -46,7 +46,7 @@ struct DeleteButton: View {
     
     if self.editMode?.wrappedValue == .active {
       Button(action: { removeMeals(meal) }) {
-        Image(systemName: "minus.circle").font(.system(size: 26))
+        Image(systemName: "minus").font(Font.body.weight(.bold))
       }
       .frame(width: 25, height: 25)
       .background(Color.red)
