@@ -22,9 +22,6 @@ struct RecipeDetailsView: View {
                        placeholder: { Text("Loading...") })
               .frame(width: 107, height: 115)
               .cornerRadius(15)
-              //.padding(.top, 150)
-                //TODO: shadow
-                //.shadow(color: Color.black.opacity(0.3), radius: 20, x: -10, y: 10)
                 Menu("Add to Meal Plan") {
                   Button("Saturday", action: {addToMealPlan("Saturday")})
                   Button("Friday", action: {addToMealPlan("Friday")})
@@ -34,6 +31,10 @@ struct RecipeDetailsView: View {
                   Button("Monday", action: {addToMealPlan("Monday")})
                   Button("Sunday", action: {addToMealPlan("Sunday")})
                 }
+            Text("Instructions:")
+              .bold()
+              .frame(maxWidth: .infinity, alignment: .leading)
+              .padding()
             Text(recipe.strInstructions)
               .fixedSize(horizontal: false, vertical: true)
               .padding()
