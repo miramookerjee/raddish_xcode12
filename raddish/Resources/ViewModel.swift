@@ -237,10 +237,10 @@ class ViewModel: ObservableObject {
       do {
         let result = try context.fetch(request)
         for data in result as! [NSManagedObject] {
+          print(data)
           if ((mealItem.imageURL == data.value(forKey: "imageURL") as? String)
               && (mealItem.name == data.value(forKey: "name") as? String)
               && (mealItem.day_of_week == data.value(forKey: "day_of_week") as? String)
-              && (mealItem.id == data.value(forKey: "id") as? UUID)
           )
            {
             context.delete(data)

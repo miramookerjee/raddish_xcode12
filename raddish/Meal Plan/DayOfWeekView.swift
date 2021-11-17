@@ -11,7 +11,7 @@ struct DayOfWeekView: View {
     var i: MealItem
     @State var showingSheet: Bool
     @State var showingDetailSheet: Bool
-  var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
   
     var body: some View {
       VStack {
@@ -29,12 +29,13 @@ struct DayOfWeekView: View {
         }
         //Button(Text("Delete"), action: viewModel.deleteMealItem(i))
         Text(i.displayName())
-        Button("Delete", action: deleteMeal(meal: i))
+        Button("Delete", action: { deleteMeal(meal: i) })
       }
     }
   
   private func deleteMeal(meal: MealItem) {
     viewModel.deleteMealItem(mealItem: meal)
+    viewModel.updateMealItems()
   }
 }
 
