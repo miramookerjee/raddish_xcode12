@@ -32,14 +32,12 @@ struct RecipeDetailsView: View {
                 Button("Monday", action: {addToMealPlan("Monday")})
                 Button("Sunday", action: {addToMealPlan("Sunday")})
               }
-              
           }
           .toolbar {
               ToolbarItem(placement: .navigationBarLeading) {
                 Button("Back") {
                     mode.wrappedValue.dismiss()
                 }
-
               }
           }
         .navigationBarTitle(recipe.strMeal)
@@ -54,11 +52,3 @@ struct RecipeDetailsView: View {
   }
 }
 
-/*
-struct RecipeDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-      let recipeInstance = Recipe(strMeal: "Arrabiata", strInstructions: "No", strMealThumb: result.meals[0].strMealThumb);
-      RecipeDetailsView(recipe: )
-    }
-}
-*/
