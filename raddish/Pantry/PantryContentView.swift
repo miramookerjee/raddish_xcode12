@@ -12,6 +12,7 @@ struct PantryContentView: View {
     var viewModel: ViewModel
     @Environment(\.managedObjectContext) var viewContext
     var items: FetchedResults<Item>
+    @State private var showAddView = false
   
     var body: some View {
       NavigationView {
@@ -31,6 +32,12 @@ struct PantryContentView: View {
                 EditButton()
             }
             ToolbarItem {
+//                Button(action: {self.showAddView.toggle()})
+//                       {
+//                          Image(systemName:"plus")
+//                       }.sheet(isPresented: $showAddView) {
+//                        AddPantryItem(viewModel: viewModel, showAddView: self.$showAddView)
+//                        }
                 NavigationLink(destination: AddPantryItem(viewModel: viewModel)) {
                     Label("Add Item", systemImage: "plus")
                 }
