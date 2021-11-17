@@ -36,6 +36,7 @@ class ViewModel: ObservableObject {
         }
 
         let recipeInstance = Recipe(strMeal: result.meals[0].strMeal, strInstructions: result.meals[0].strInstructions, strMealThumb: result.meals[0].strMealThumb);
+        print(recipeInstance.strInstructions)
         self.recipes.append(recipeInstance)
 
       }
@@ -90,7 +91,6 @@ class ViewModel: ObservableObject {
      request.returnsObjectsAsFaults = false
      do {
        let result = try context.fetch(request)
-       print(result)
        for data in result as! [NSManagedObject] {
          let newPantryItem = PantryItem()
          newPantryItem.name = data.value(forKey: "name") as? String ?? ""
@@ -182,7 +182,6 @@ class ViewModel: ObservableObject {
      request.returnsObjectsAsFaults = false
      do {
        let result = try context.fetch(request)
-       print(result)
        for data in result as! [NSManagedObject] {
          let newMealItem = MealItem()
          newMealItem.day_of_week = data.value(forKey: "day_of_week") as? String ?? ""
