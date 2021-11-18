@@ -14,7 +14,7 @@ class MealItem: Identifiable, Hashable {
   var day_of_week: String?
   var name: String?
   var imageURL: String?
-  var id = UUID()
+  var id = UUID().uuidString
 
 
   init(day_of_week: String? = nil, name: String? = nil, imageURL: String? = nil) {

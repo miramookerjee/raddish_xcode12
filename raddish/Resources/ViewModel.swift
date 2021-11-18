@@ -188,6 +188,7 @@ class ViewModel: ObservableObject {
          newMealItem.day_of_week = data.value(forKey: "day_of_week") as? String ?? ""
          newMealItem.name = data.value(forKey: "name") as? String ?? ""
          newMealItem.imageURL = data.value(forKey: "imageURL") as? String ?? ""
+         newMealItem.id = data.value(forKey: "id") as? String ?? ""
          meals.append(newMealItem)
        }
      } catch {
@@ -234,12 +235,8 @@ class ViewModel: ObservableObject {
       do {
         let result = try context.fetch(request)
         for data in result as! [NSManagedObject] {
-          if ((mealItem.imageURL == data.value(forKey: "imageURL") as? String)
-              && (mealItem.name == data.value(forKey: "name") as? String)
-              && (mealItem.day_of_week == data.value(forKey: "day_of_week") as? String)
-              && (mealItem.id == data.value(forKey: "id") as? UUID)
-          )
-           {
+          if ((mealItem.id == data.value(forKey: "id") as? String)) {
+            print("here")
             context.delete(data)
             try context.save()
           }
