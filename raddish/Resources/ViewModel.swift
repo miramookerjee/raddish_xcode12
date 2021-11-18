@@ -44,6 +44,12 @@ class ViewModel: ObservableObject {
       task.resume()
     }
   }
+    
+    func ingredientImages(ingredient: String) -> String{
+        let url = "https://www.themealdb.com/images/ingredients/\(ingredient).png"
+        return  url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Image Not Available"
+        
+    }
 
   func savePantryItem(name: String?, expiration: NSDate?, date: Date?) {
     // create a new Pantry Item object

@@ -17,7 +17,7 @@ struct PantryContentView: View {
     var body: some View {
       List {
         ForEach(viewModel.pantry) { pantryItem in
-          NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
+          NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem, viewModel: viewModel)) {
             PantryItemRow(pantryItem: pantryItem)
           }
         }
