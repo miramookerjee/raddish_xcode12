@@ -21,11 +21,19 @@ struct ContentView: View {
 
     var body: some View {
       TabView {
-        MealPlanContentView(viewModel: viewModel)
-            .tabItem {Label("Home", systemImage: "house.fill")}
-        PantryContentView(viewModel: viewModel, viewContext: _viewContext, items: items)
+        NavigationView {
+          MealPlanContentView(viewModel: viewModel)
+        }
+        .tabItem {Label("Home", systemImage: "house.fill")}
+        
+        NavigationView {
+          PantryContentView(viewModel: viewModel, viewContext: _viewContext, items: items)
+        }
         .tabItem {Label("Pantry", systemImage: "leaf.fill")}
-        RecipesView(viewModel: viewModel)
+        
+        NavigationView {
+          RecipesView(viewModel: viewModel)
+        }
         .tabItem {Label("Recipes", systemImage: "list.bullet.rectangle.portrait.fill")}
       }
     }

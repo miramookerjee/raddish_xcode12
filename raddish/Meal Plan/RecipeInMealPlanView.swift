@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RecipeInMealPlanView: View {
   var i: MealItem
-  @State var showingSheet: Bool
   @State var showingDetailSheet: Bool
   @ObservedObject var viewModel: ViewModel
 
