@@ -9,8 +9,6 @@ import SwiftUI
 
 struct WeekView: View {
     var day: String
-    var delete: Optional<(IndexSet) -> Void>
-    @State var showingSheet: Bool
     @State var showingDetailSheet: Bool
     @ObservedObject var viewModel: ViewModel
   
@@ -21,7 +19,7 @@ struct WeekView: View {
               EditButton()
                 ForEach(viewModel.meals, id: \.self) { i in
                   if (i.day_of_week == day) {
-                    RecipeInMealPlanView(i: i, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
+                    RecipeInMealPlanView(i: i, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
                   }
                 }
             }

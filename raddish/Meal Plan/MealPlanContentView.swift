@@ -18,35 +18,33 @@ struct MealPlanContentView: View {
     }
 
     var body: some View {
-      NavigationView {
-          VStack{
-              List {
-                WeekView(day: "Sunday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
-                .listStyle(GroupedListStyle())
-                
-                WeekView(day: "Monday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
-                
-                WeekView(day: "Tuesday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
-                
-                WeekView(day: "Wednesday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
-                
-                WeekView(day: "Thursday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
-                
-                WeekView(day: "Friday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
-                
-                WeekView(day: "Saturday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
-          }
+      VStack{
+          List {
+            WeekView(day: "Sunday", showingDetailSheet: showingDetailSheet, viewModel: viewModel)
+            .listStyle(GroupedListStyle())
+            
+            WeekView(day: "Monday", showingDetailSheet: showingDetailSheet, viewModel: viewModel)
+            
+            WeekView(day: "Tuesday", showingDetailSheet: showingDetailSheet, viewModel: viewModel)
+            
+            WeekView(day: "Wednesday", showingDetailSheet: showingDetailSheet, viewModel: viewModel)
+            
+            WeekView(day: "Thursday", showingDetailSheet: showingDetailSheet, viewModel: viewModel)
+            
+            WeekView(day: "Friday", showingDetailSheet: showingDetailSheet, viewModel: viewModel)
+            
+            WeekView(day: "Saturday", showingDetailSheet: showingDetailSheet, viewModel: viewModel)
       }
-      .onAppear(perform: {
-        self.viewModel.updateMealItems()
-      })
-//      .toolbar {
-//          ToolbarItem(placement: .navigationBarLeading) {
-//              EditButton()
-//          }
-//      }
-      .navigationBarTitle("Meal Plan")
     }
+    .onAppear(perform: {
+      self.viewModel.updateMealItems()
+    })
+    .navigationBarTitle("Meal Plan")
+    .navigationBarItems(trailing:
+      NavigationLink(destination: RecipesView(viewModel: viewModel)) {
+        Text("Add")
+      }
+    )
   }
 }
 

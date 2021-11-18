@@ -14,30 +14,28 @@ struct PantryContentView: View {
     var items: FetchedResults<Item>
   
     var body: some View {
-      NavigationView {
-        List {
-          ForEach(viewModel.pantry) { pantryItem in
-            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
-              PantryItemRow(pantryItem: pantryItem)
-            }
+      List {
+        ForEach(viewModel.pantry) { pantryItem in
+          NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
+            PantryItemRow(pantryItem: pantryItem)
           }
-          .onDelete(perform: delete)
         }
-        .onAppear(perform: {
-          self.viewModel.updatePantryItems()
-        })
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton()
-            }
-            ToolbarItem {
-                NavigationLink(destination: AddPantryItem(viewModel: viewModel)) {
-                    Label("Add Item", systemImage: "plus")
-                }
-            }
-        }
-        .navigationBarTitle("Pantry")
+        .onDelete(perform: delete)
       }
+      .onAppear(perform: {
+        self.viewModel.updatePantryItems()
+      })
+      .toolbar {
+          ToolbarItem(placement: .navigationBarTrailing) {
+              EditButton()
+          }
+          ToolbarItem {
+              NavigationLink(destination: AddPantryItem(viewModel: viewModel)) {
+                  Label("Add Item", systemImage: "plus")
+              }
+          }
+      }
+      .navigationBarTitle("Pantry")
     }
   
   private func addItem() {
