@@ -9,9 +9,10 @@ import SwiftUI
 
 
 struct PantryContentView: View {
-    var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     @Environment(\.managedObjectContext) var viewContext
     var items: FetchedResults<Item>
+    @State private var showAddView = false
   
     var body: some View {
       List {

@@ -24,7 +24,8 @@ class ViewModel: ObservableObject {
       
       let url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + recipe
       
-      let task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
+      let task = URLSession.shared.dataTask(with: URL(string: url)!)
+                   { (data, response, error) in
           guard let data = data else {
             print("Error: No data to decode")
             return
