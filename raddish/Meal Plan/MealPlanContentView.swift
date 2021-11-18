@@ -21,6 +21,9 @@ struct MealPlanContentView: View {
       NavigationView {
           VStack{
               List {
+                WeekView(day: "Sunday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
+                .listStyle(GroupedListStyle())
+                
                 WeekView(day: "Monday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
                 
                 WeekView(day: "Tuesday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
@@ -32,20 +35,17 @@ struct MealPlanContentView: View {
                 WeekView(day: "Friday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
                 
                 WeekView(day: "Saturday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
-                
-                WeekView(day: "Sunday",  delete: delete, showingSheet: showingSheet, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
-                .listStyle(GroupedListStyle())
           }
-          .onAppear(perform: {
-            self.viewModel.updateMealItems()
-          })
-          .toolbar {
-              ToolbarItem(placement: .navigationBarLeading) {
-                  EditButton()
-              }
-          }
-          .navigationBarTitle("Meal Plan")
       }
+      .onAppear(perform: {
+        self.viewModel.updateMealItems()
+      })
+//      .toolbar {
+//          ToolbarItem(placement: .navigationBarLeading) {
+//              EditButton()
+//          }
+//      }
+      .navigationBarTitle("Meal Plan")
     }
   }
 }
