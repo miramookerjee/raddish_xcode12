@@ -236,7 +236,6 @@ class ViewModel: ObservableObject {
         let result = try context.fetch(request)
         for data in result as! [NSManagedObject] {
           if ((mealItem.id == data.value(forKey: "id") as? String)) {
-            print("here")
             context.delete(data)
             try context.save()
           }

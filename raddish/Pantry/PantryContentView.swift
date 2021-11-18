@@ -15,36 +15,28 @@ struct PantryContentView: View {
     @State private var showAddView = false
   
     var body: some View {
-      NavigationView {
-        List {
-          ForEach(viewModel.pantry) { pantryItem in
-            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
-              PantryItemRow(pantryItem: pantryItem)
-            }
+      List {
+        ForEach(viewModel.pantry) { pantryItem in
+          NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
+            PantryItemRow(pantryItem: pantryItem)
           }
-          .onDelete(perform: delete)
         }
-        .onAppear(perform: {
-          self.viewModel.updatePantryItems()
-        })
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton()
-            }
-            ToolbarItem {
-//                Button(action: {self.showAddView.toggle()})
-//                       {
-//                          Image(systemName:"plus")
-//                       }.sheet(isPresented: $showAddView) {
-//                        AddPantryItem(viewModel: viewModel, showAddView: self.$showAddView)
-//                        }
-                NavigationLink(destination: AddPantryItem(viewModel: viewModel)) {
-                    Label("Add Item", systemImage: "plus")
-                }
-            }
-        }
-        .navigationBarTitle("Pantry")
+        .onDelete(perform: delete)
       }
+      .onAppear(perform: {
+        self.viewModel.updatePantryItems()
+      })
+      .toolbar {
+          ToolbarItem(placement: .navigationBarTrailing) {
+              EditButton()
+          }
+          ToolbarItem {
+              NavigationLink(destination: AddPantryItem(viewModel: viewModel)) {
+                  Label("Add Item", systemImage: "plus")
+              }
+          }
+      }
+      .navigationBarTitle("Pantry")
     }
   
   private func addItem() {
