@@ -39,6 +39,7 @@ class ViewModel: ObservableObject {
           strMeal: result.meals[0].strMeal,
           strInstructions: result.meals[0].strInstructions,
           strMealThumb: result.meals[0].strMealThumb,
+          /*
           ingredients: [
             result.meals[0].strIngredient1,
             result.meals[0].strIngredient2,
@@ -83,6 +84,7 @@ class ViewModel: ObservableObject {
             result.meals[0].strMeasure19,
             result.meals[0].strMeasure20
           ],
+ */
           strIngredient1: result.meals[0].strIngredient1,
           strIngredient2: result.meals[0].strIngredient2,
           strIngredient3: result.meals[0].strIngredient3,

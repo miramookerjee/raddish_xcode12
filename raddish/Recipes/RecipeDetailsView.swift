@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+// https://www.hackingwithswift.com/forums/swiftui/coloured-menu-items/7929
+
+struct AddToMealPlanMenuStyle : MenuStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        Menu(configuration)
+            .background(Color.green)
+            .cornerRadius(15)
+            .foregroundColor(.black)
+    }
+}
+
 struct RecipeDetailsView: View {
     var recipe: Recipe
     @ObservedObject var viewModel: ViewModel
@@ -16,12 +27,13 @@ struct RecipeDetailsView: View {
   
     var body: some View {
       ScrollView {
-      VStack{
+        VStack(alignment: .leading){
             AsyncImage(url: URL(string: recipe.strMealThumb)!,
                      placeholder: { Text("Loading...") })
-            .frame(width: 107, height: 115)
-            .cornerRadius(15)
-              Menu("Add to Meal Plan") {
+              .frame(width: 107, height: 115)
+              .cornerRadius(15)
+              .padding(.leading)
+            Menu("Add to Meal Plan") {
                 Button("Sunday", action: {addToMealPlan("Sunday")})
                 Button("Monday", action: {addToMealPlan("Monday")})
                 Button("Tuesday", action: {addToMealPlan("Tuesday")})
@@ -30,13 +42,17 @@ struct RecipeDetailsView: View {
                 Button("Friday", action: {addToMealPlan("Friday")})
                 Button("Saturday", action: {addToMealPlan("Saturday")})
               }
+            .padding()
+            .menuStyle(AddToMealPlanMenuStyle())
           Text("Ingredients:")
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
-          
+            .padding(.leading)
+          IngredientRow(ingredient: recipe.strIngredient1 ?? "", measure: recipe.strMeasure1 ?? "")
           Text("Instructions:")
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading)
           Text(recipe.strInstructions)
             .fixedSize(horizontal: false, vertical: true)
             .padding(.leading)
