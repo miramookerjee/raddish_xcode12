@@ -12,6 +12,8 @@ struct Recipe: Hashable, Codable {
     let strMeal: String
     let strInstructions: String
     let strMealThumb: String
+    let ingredients: [String?]
+    let measures: [String?]
     let strIngredient1: String?
     let strIngredient2: String?
     let strIngredient3: String?
@@ -52,12 +54,15 @@ struct Recipe: Hashable, Codable {
     let strMeasure18: String?
     let strMeasure19: String?
     let strMeasure20: String?
+
   
   enum CodingKeys : String, CodingKey {
     
     case strMeal
     case strInstructions
     case strMealThumb
+    case ingredients
+    case measures
     case strIngredient1
     case strIngredient2
     case strIngredient3
@@ -98,6 +103,7 @@ struct Recipe: Hashable, Codable {
     case strMeasure18
     case strMeasure19
     case strMeasure20
+
   }
   
 }

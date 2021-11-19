@@ -33,6 +33,7 @@ struct RecipeDetailsView: View {
           Text("Ingredients:")
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
+          
           Text("Instructions:")
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)

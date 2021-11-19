@@ -27,6 +27,7 @@ struct RecipeInMealPlanView: View {
         RecipeDetailsView(
           recipe: Recipe(
             strMeal: i.displayName(), strInstructions: "", strMealThumb: i.displayimageURL(),
+            ingredients: [], measures: [],
             strIngredient1: "", strIngredient2: "", strIngredient3: "", strIngredient4: "",
             strIngredient5: "", strIngredient6: "", strIngredient7: "", strIngredient8: "",
             strIngredient9: "", strIngredient10: "", strIngredient11: "",strIngredient12: "",
@@ -37,6 +38,7 @@ struct RecipeInMealPlanView: View {
             strMeasure9: "", strMeasure10: "", strMeasure11: "", strMeasure12: "",
             strMeasure13: "", strMeasure14: "", strMeasure15: "", strMeasure16: "",
             strMeasure17: "", strMeasure18: "", strMeasure19: "", strMeasure20: ""
+  
             ) ,
           viewModel: viewModel
         )
