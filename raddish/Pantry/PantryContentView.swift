@@ -15,6 +15,10 @@ struct PantryContentView: View {
     @State private var showAddView = false
   
     var body: some View {
+//        NavigationLink(destination: AddPantryItem(viewModel: viewModel), isActive: $showAddView) {
+//            EmptyView()
+//            //Label("Add Item", systemImage: "plus")
+//        }
       List {
         ForEach(viewModel.pantry) { pantryItem in
           NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem, viewModel: viewModel)) {
@@ -31,14 +35,14 @@ struct PantryContentView: View {
               EditButton()
           }
           ToolbarItem {
-              NavigationLink(destination: AddPantryItem(viewModel: viewModel)) {
-                  Label("Add Item", systemImage: "plus")
-              }
+            NavigationLink(destination: AddPantryItem(viewModel: viewModel)) {
+                              Label("Add Item", systemImage: "plus")
+                          }
           }
       }
       .navigationBarTitle("Pantry")
     }
-  
+    
   private func addItem() {
     withAnimation {
         let newItem = Item(context: viewContext)
