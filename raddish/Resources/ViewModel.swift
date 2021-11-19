@@ -50,6 +50,32 @@ class ViewModel: ObservableObject {
         return  url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Image Not Available"
         
     }
+    
+    func retrieveMealswithIng (ingredient: String) -> String{
+        let url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
+        let task = URLSession.shared.dataTask(with: URL(string: url)!)
+                     { (data, response, error) in
+            guard let data = data else {
+              print("Error: No data to decode")
+              return
+            }
+          
+            guard let result = try? JSONDecoder().decode(Result.self, from: data) else {
+              print("Error: Couldn't decode data into a result")
+              return
+          }
+            
+          print(result)
+            
+
+//          let mealIngredientInstance = Recipe(strMeal: result.meals[0].strMeal, strInstructions: result.meals[0].strInstructions, strMealThumb: result.meals[0].strMealThumb);
+          //print(recipeInstance.strInstructions)
+          //self.recipes.append(recipeInstance)
+
+        }
+        task.resume()
+        return "Hello"
+    }
 
   func savePantryItem(name: String?, expiration: NSDate?, date: Date?) {
     // create a new Pantry Item object
