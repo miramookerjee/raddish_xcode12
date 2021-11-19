@@ -30,13 +30,16 @@ struct RecipeDetailsView: View {
                 Button("Friday", action: {addToMealPlan("Friday")})
                 Button("Saturday", action: {addToMealPlan("Saturday")})
               }
+          Text("Ingredients:")
+            .bold()
+            .frame(maxWidth: .infinity, alignment: .leading)
           Text("Instructions:")
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding()
           Text(recipe.strInstructions)
             .fixedSize(horizontal: false, vertical: true)
-            .padding()
+            .padding(.leading)
+            .padding(.trailing)
           }
       }
       .navigationBarTitle(recipe.strMeal)

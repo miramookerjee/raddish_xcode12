@@ -12,7 +12,6 @@ struct Recipe: Hashable, Codable {
     let strMeal: String
     let strInstructions: String
     let strMealThumb: String
-  /*
     let strIngredient1: String?
     let strIngredient2: String?
     let strIngredient3: String?
@@ -54,29 +53,11 @@ struct Recipe: Hashable, Codable {
     let strMeasure19: String?
     let strMeasure20: String?
   
-    var category: Category
-    enum Category: String, CaseIterable, Codable {
-        case monday = "Monday"
-        case tuesday = "Tuesday"
-        case wednesday = "Wednesday"
-        case thursday = "Thursday"
-        case friday = "Friday"
-        case saturday = "Saturday"
-        case sunday = "Sunday"
-    }
-
-    private var imageName: String
-    var image: Image {
-        Image(imageName)
-    }
-   */
-  
   enum CodingKeys : String, CodingKey {
     
     case strMeal
     case strInstructions
     case strMealThumb
-    /*
     case strIngredient1
     case strIngredient2
     case strIngredient3
@@ -117,9 +98,6 @@ struct Recipe: Hashable, Codable {
     case strMeasure18
     case strMeasure19
     case strMeasure20
-    case category
-    case imageName
-     */
   }
   
 }

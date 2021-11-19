@@ -35,7 +35,51 @@ class ViewModel: ObservableObject {
             return
         }
 
-        let recipeInstance = Recipe(strMeal: result.meals[0].strMeal, strInstructions: result.meals[0].strInstructions, strMealThumb: result.meals[0].strMealThumb);
+        let recipeInstance = Recipe(
+          strMeal: result.meals[0].strMeal,
+          strInstructions: result.meals[0].strInstructions,
+          strMealThumb: result.meals[0].strMealThumb,
+          strIngredient1: result.meals[0].strIngredient1,
+          strIngredient2: result.meals[0].strIngredient2,
+          strIngredient3: result.meals[0].strIngredient3,
+          strIngredient4: result.meals[0].strIngredient4,
+          strIngredient5: result.meals[0].strIngredient5,
+          strIngredient6: result.meals[0].strIngredient6,
+          strIngredient7: result.meals[0].strIngredient7,
+          strIngredient8: result.meals[0].strIngredient8,
+          strIngredient9: result.meals[0].strIngredient9,
+          strIngredient10: result.meals[0].strIngredient10,
+          strIngredient11: result.meals[0].strIngredient11,
+          strIngredient12: result.meals[0].strIngredient12,
+          strIngredient13: result.meals[0].strIngredient13,
+          strIngredient14: result.meals[0].strIngredient14,
+          strIngredient15: result.meals[0].strIngredient15,
+          strIngredient16: result.meals[0].strIngredient16,
+          strIngredient17: result.meals[0].strIngredient17,
+          strIngredient18: result.meals[0].strIngredient18,
+          strIngredient19: result.meals[0].strIngredient19,
+          strIngredient20: result.meals[0].strIngredient20,
+          strMeasure1: result.meals[0].strMeasure1,
+          strMeasure2: result.meals[0].strMeasure2,
+          strMeasure3: result.meals[0].strMeasure3,
+          strMeasure4: result.meals[0].strMeasure4,
+          strMeasure5: result.meals[0].strMeasure5,
+          strMeasure6: result.meals[0].strMeasure6,
+          strMeasure7: result.meals[0].strMeasure7,
+          strMeasure8: result.meals[0].strMeasure8,
+          strMeasure9: result.meals[0].strMeasure9,
+          strMeasure10: result.meals[0].strMeasure10,
+          strMeasure11: result.meals[0].strMeasure11,
+          strMeasure12: result.meals[0].strMeasure12,
+          strMeasure13: result.meals[0].strMeasure13,
+          strMeasure14: result.meals[0].strMeasure14,
+          strMeasure15: result.meals[0].strMeasure15,
+          strMeasure16: result.meals[0].strMeasure16,
+          strMeasure17: result.meals[0].strMeasure17,
+          strMeasure18: result.meals[0].strMeasure18,
+          strMeasure19: result.meals[0].strMeasure19,
+          strMeasure20: result.meals[0].strMeasure20
+        );
         print(recipeInstance.strInstructions)
         self.recipes.append(recipeInstance)
 
