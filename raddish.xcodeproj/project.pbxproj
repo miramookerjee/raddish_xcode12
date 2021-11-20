@@ -35,6 +35,7 @@
 		06EAD32C273A0E28004E1928 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD32B273A0E28004E1928 /* RecipesView.swift */; };
 		06EAD331273A0E3E004E1928 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD330273A0E3E004E1928 /* Recipe.swift */; };
 		06EAD336273A0E4C004E1928 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD335273A0E4C004E1928 /* RecipeDetailsView.swift */; };
+		F33683222749BFB5001C348C /* clean_expiration.csv in Resources */ = {isa = PBXBuildFile; fileRef = F33683212749BFB5001C348C /* clean_expiration.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		06EAD32B273A0E28004E1928 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		06EAD330273A0E3E004E1928 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		06EAD335273A0E4C004E1928 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
+		F33683212749BFB5001C348C /* clean_expiration.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = clean_expiration.csv; path = ../../../../../../../../Users/estebanv/Downloads/clean_expiration.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 		06EAD2EF273A0BDE004E1928 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F33683212749BFB5001C348C /* clean_expiration.csv */,
 				06EAD2B9273A0BBF004E1928 /* raddishApp.swift */,
 				06EAD2BD273A0BC0004E1928 /* Assets.xcassets */,
 				06EAD2C2273A0BC0004E1928 /* Persistence.swift */,
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06EAD2C1273A0BC0004E1928 /* Preview Assets.xcassets in Resources */,
+				F33683222749BFB5001C348C /* clean_expiration.csv in Resources */,
 				06EAD2BE273A0BC0004E1928 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
