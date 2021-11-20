@@ -22,9 +22,13 @@ struct PantryItemDetail: View {
             .cornerRadius(15)
       Text("Expires in __ days")
       Text(pantryItem.displayName())
-      Text(viewModel.retrieveMealswithIng(ingredient: pantryItem.displayName()))
-        .frame(width: width, height: width, alignment: .center)
-        .padding()
+        List {
+            ForEach(viewModel.$mealIngredients) {meal in
+                NavigationLink(destination: RecipeDetailsView(recipe: meal)) {
+                    MealIngredientView(mealIngredient: meal)
+                }
+            }
+        }
       Spacer()
     }.navigationBarTitle(pantryItem.displayName())
   }

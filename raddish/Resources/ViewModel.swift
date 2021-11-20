@@ -16,9 +16,12 @@ class ViewModel: ObservableObject {
   @Published var pantry = [PantryItem]()
   @Published var recipes = [Recipe]()
   @Published var meals = [MealItem] ()
+  @Published var mealIngredients = [MealIngredient] ()
   var recipesToPopulate = ["Arrabiata", "Soup", "sandwich", "salad"]
   
-  func populateRecipes() {
+//Separate this function of populating the recipes array from the actual URL
+    //that does the tasks and does the URLSession stuff
+func populateRecipes() {
     self.recipes = [ ]
     for recipe in recipesToPopulate {
       
@@ -51,7 +54,7 @@ class ViewModel: ObservableObject {
         
     }
     
-    func retrieveMealswithIng (ingredient: String) -> String{
+    func retrieveMealswithIng (ingredient: String){
         let url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
         let task = URLSession.shared.dataTask(with: URL(string: url)!)
                      { (data, response, error) in
@@ -59,22 +62,18 @@ class ViewModel: ObservableObject {
               print("Error: No data to decode")
               return
             }
+            
           
-            guard let result = try? JSONDecoder().decode(Result.self, from: data) else {
+            guard let result = try? JSONDecoder().decode(MealIngredientResult.self, from: data) else {
               print("Error: Couldn't decode data into a result")
               return
           }
             
-          print(result)
-            
-
-//          let mealIngredientInstance = Recipe(strMeal: result.meals[0].strMeal, strInstructions: result.meals[0].strInstructions, strMealThumb: result.meals[0].strMealThumb);
-          //print(recipeInstance.strInstructions)
-          //self.recipes.append(recipeInstance)
-
+            for meal in result.meals {
+                self.mealIngredients.append(MealIngredient(strMeal: meal.strMeal, strMealThumb: meal.strMealThumb))
+            }
         }
         task.resume()
-        return "Hello"
     }
 
   func savePantryItem(name: String?, expiration: NSDate?, date: Date?) {

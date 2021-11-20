@@ -29,16 +29,19 @@ class PantryItem: Identifiable {
 
 struct MealIngredient: Hashable, Codable {
     let strMeal: String
-    let strInstructions: String
-    let idMeal: String
+    let strMealThumb: String
+    enum CodingKeys: String, CodingKey {
+        case strMeal
+        case strMealThumb
+    }
   }
 
 struct MealIngredientResult: Decodable {
-  var mealIngredient: [MealIngredient]
+  var meals: [MealIngredient]
   
   
   enum CodingKeys : String, CodingKey {
-    case mealIngredient
+    case meals
     
   }
   
