@@ -35,6 +35,7 @@
 		06EAD32C273A0E28004E1928 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD32B273A0E28004E1928 /* RecipesView.swift */; };
 		06EAD331273A0E3E004E1928 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD330273A0E3E004E1928 /* Recipe.swift */; };
 		06EAD336273A0E4C004E1928 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD335273A0E4C004E1928 /* RecipeDetailsView.swift */; };
+		9EED7808274AE99E00F49E87 /* MealIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EED7807274AE99E00F49E87 /* MealIngredientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		06EAD32B273A0E28004E1928 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		06EAD330273A0E3E004E1928 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		06EAD335273A0E4C004E1928 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
+		9EED7807274AE99E00F49E87 /* MealIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealIngredientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				06EAD312273A0DAB004E1928 /* Pantry.swift */,
+				9EED7807274AE99E00F49E87 /* MealIngredientView.swift */,
 				06EAD317273A0DCD004E1928 /* PantryItemRow.swift */,
 				06EAD31C273A0DE2004E1928 /* AddPantryItem.swift */,
 				06EAD326273A0E0C004E1928 /* PantryItemDetail.swift */,
@@ -380,6 +383,7 @@
 				06EAD327273A0E0C004E1928 /* PantryItemDetail.swift in Sources */,
 				06EAD30E273A0D75004E1928 /* AppDelegate.swift in Sources */,
 				06EAD2C6273A0BC0004E1928 /* raddish.xcdatamodeld in Sources */,
+				9EED7808274AE99E00F49E87 /* MealIngredientView.swift in Sources */,
 				06EAD318273A0DCD004E1928 /* PantryItemRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

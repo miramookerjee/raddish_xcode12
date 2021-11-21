@@ -26,3 +26,26 @@ class PantryItem: Identifiable {
     return name ?? "n/a"
   }
 }
+
+struct MealIngredient: Hashable, Codable, Identifiable {
+    //var id: ObjectIdentifier
+    //var idMeal: ObjectIdentifier
+    let strMeal: String
+    let strMealThumb: String
+    enum CodingKeys: String, CodingKey {
+        //case idMeal
+        case strMeal
+        case strMealThumb
+    }
+  }
+
+struct MealIngredientResult: Decodable {
+  var meals: [MealIngredient]
+  
+  
+  enum CodingKeys : String, CodingKey {
+    case meals
+    
+  }
+  
+}

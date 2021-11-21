@@ -44,11 +44,6 @@ struct AddPantryItem: View {
     }.padding()
     .navigationBarTitle("New Pantry Item")
     .navigationBarItems(trailing:
-//                            NavigationLink(destination: PantryContentView(viewModel: viewModel, items: items)) {
-//                                    Text("Done")
-//                            }.simultaneousGesture(TapGesture().onEnded{
-//                                self.viewModel.savePantryItem(name: self.name, expiration: NSDate(), date: date)
-//                            })
       Button(action: {
         self.viewModel.savePantryItem(name: self.name, expiration: NSDate(), date: date)
         self.mode.wrappedValue.dismiss()
