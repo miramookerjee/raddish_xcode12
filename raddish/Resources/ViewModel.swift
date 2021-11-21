@@ -16,7 +16,7 @@ class ViewModel: ObservableObject {
   @Published var pantry = [PantryItem]()
   @Published var recipes = [Recipe]()
   @Published var meals = [MealItem] ()
-  //@Published var mealIngredients = [MealIngredient] ()
+  @Published var mealIngredients = [MealIngredient] ()
   var recipesToPopulate = ["Arrabiata", "Soup", "sandwich", "salad"]
   
   func populateRecipes() {
@@ -59,8 +59,7 @@ class ViewModel: ObservableObject {
         
     }
     
-    func retrieveMealswithIng (ingredient: String) -> Array<MealIngredient> {
-        var mealIngredients = [MealIngredient] ()
+    func retrieveMealswithIng (ingredient: String){
         let url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
         let task = URLSession.shared.dataTask(with: URL(string: url)!)
                      { (data, response, error) in
@@ -76,11 +75,10 @@ class ViewModel: ObservableObject {
           }
             
             for meal in result.meals {
-                mealIngredients.append(MealIngredient(id:meal.id,strMeal: meal.strMeal, strMealThumb: meal.strMealThumb))
+                self.mealIngredients.append(MealIngredient(id:meal.id,strMeal: meal.strMeal, strMealThumb: meal.strMealThumb))
             }
         }
         task.resume()
-        return mealIngredients;
     }
 
   func savePantryItem(name: String?, expiration: NSDate?, date: Date?) {

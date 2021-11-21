@@ -25,17 +25,22 @@ struct PantryItemDetail: View {
       Text(ingredient)
         .frame(width: width, height: width, alignment: .center)
         .padding()
-//       List {
-//        ForEach(viewModel.retrieveMealswithIng(ingredient: ingredient)) {meal in
-//            NavigationLink(destination: RecipeDetailsView(recipe: viewModel.createRecipe(recipe:meal.strMeal), viewModel: viewModel)) {
-//                    //MealIngredientView(mealIngredient: meal)
-//                    Text(meal.strMeal)
-//                }
-//            }
-//        }
-        ForEach((viewModel.retrieveMealswithIng(ingredient: ingredient)), id: \.self) { meal in
-                Text("\(meal.strMeal)")
+       List {
+        ForEach(viewModel.mealIngredients) {meal in
+            NavigationLink(meal.strMeal, destination: RecipeDetailsView(recipe: viewModel.createRecipe(recipe:meal.strMeal), viewModel: viewModel))
+            //{
+                    //MealIngredientView(mealIngredient: meal)
+                    //Label(meal.strMeal)
+            //}
             }
+        }
+       .onAppear(perform: {
+         self.viewModel.retrieveMealswithIng(ingredient: ingredient)
+       })
+//        viewModel.retrieveMealswithIng(ingredient: ingredient)
+//        ForEach(viewModel.mealIngredients, id: \.self) { meal in
+//                Text("\(meal.strMeal)")
+//            }
       Spacer()
     }.navigationBarTitle(pantryItem.displayName())
   }

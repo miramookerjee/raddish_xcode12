@@ -47,7 +47,7 @@ struct PantryContentView: View {
       }
     }
   
-  private func addItem() {
+private func addItem() {
     withAnimation {
         let newItem = Item(context: viewContext)
         newItem.expiration = Date()
@@ -79,7 +79,7 @@ struct PantryContentView: View {
   }
 
   func delete(at offsets: IndexSet) {
-  viewModel.deletePantryItem(atOffsets: offsets)
+    viewModel.deletePantryItem(atOffsets: offsets)
   }
   
   private let itemFormatter: DateFormatter = {
