@@ -17,7 +17,7 @@ struct AddPantryItem: View {
 
   @State var name: String = ""
   @State var expiration: Date?
-  @State var date: Date?
+  @State var date = Date()
 
   var body: some View {
     VStack {
@@ -27,14 +27,15 @@ struct AddPantryItem: View {
           .padding(.leading)
         TextField("name", text: $name)
           .padding(.trailing)
-        Text("date:")
-          .fontWeight(.bold)
-          .padding(.leading)
-        //DatePicker(
-            //"Start Date",
-            //selection: $expiration ?? Date() as Date?,
-            //displayedComponents: [.date]
-           //)
+//        Text("date:")
+//          .fontWeight(.bold)
+//          .padding(.leading)
+        DatePicker(
+            "Purchase Date",
+            selection: $date,
+            in: ...Date(),
+            displayedComponents: [.date]
+           )
       }.padding()
       Spacer()
     }.padding()
@@ -50,5 +51,3 @@ struct AddPantryItem: View {
     )
   }
 }
-
-

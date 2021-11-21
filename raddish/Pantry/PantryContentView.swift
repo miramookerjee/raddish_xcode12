@@ -9,14 +9,19 @@ import SwiftUI
 
 
 struct PantryContentView: View {
-    var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     @Environment(\.managedObjectContext) var viewContext
     var items: FetchedResults<Item>
+    @State private var showAddView = false
   
     var body: some View {
+//        NavigationLink(destination: AddPantryItem(viewModel: viewModel), isActive: $showAddView) {
+//            EmptyView()
+//            //Label("Add Item", systemImage: "plus")
+//        }
       List {
         ForEach(viewModel.pantry) { pantryItem in
-          NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
+          NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem, viewModel: viewModel)) {
             PantryItemRow(pantryItem: pantryItem)
           }
         }
@@ -30,14 +35,14 @@ struct PantryContentView: View {
               EditButton()
           }
           ToolbarItem {
-              NavigationLink(destination: AddPantryItem(viewModel: viewModel)) {
-                  Label("Add Item", systemImage: "plus")
-              }
+            NavigationLink(destination: AddPantryItem(viewModel: viewModel)) {
+                              Label("Add Item", systemImage: "plus")
+                          }
           }
       }
       .navigationBarTitle("Pantry")
     }
-  
+    
   private func addItem() {
     withAnimation {
         let newItem = Item(context: viewContext)

@@ -38,3 +38,23 @@ class PantryItem: Identifiable {
     return dateFormatter.string(from: expiration ?? Date())
   }
 }
+
+struct MealIngredient: Hashable, Codable {
+    let strMeal: String
+    let strMealThumb: String
+    enum CodingKeys: String, CodingKey {
+        case strMeal
+        case strMealThumb
+    }
+  }
+
+struct MealIngredientResult: Decodable {
+  var meals: [MealIngredient]
+  
+  
+  enum CodingKeys : String, CodingKey {
+    case meals
+    
+  }
+  
+}
