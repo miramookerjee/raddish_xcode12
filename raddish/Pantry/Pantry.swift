@@ -12,11 +12,11 @@ class PantryItem: Identifiable {
   
   // MARK: Properties
   var name: String?
-  var expiration: NSDate?
+  var expiration: Date?
   var date: Date?
 
 
-  init(name: String? = nil, expiration: NSDate? = nil, date: Date? = nil) {
+  init(name: String? = nil, expiration: Date? = nil, date: Date? = nil) {
     self.name = name
     self.expiration = expiration
     self.date = date
@@ -24,5 +24,17 @@ class PantryItem: Identifiable {
 
   func displayName() -> String {
     return name ?? "n/a"
+  }
+  
+  func displayDate() -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM/dd/YY"
+    return dateFormatter.string(from: date ?? Date())
+  }
+  
+  func displayExpDate() -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM/dd/YY"
+    return dateFormatter.string(from: expiration ?? Date())
   }
 }

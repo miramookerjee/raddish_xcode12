@@ -15,11 +15,8 @@ struct PantryItemDetail: View {
 
   var body: some View {
     VStack {
-      Text(pantryItem.displayName()
-      )
-        .frame(width: width, height: width, alignment: .center)
-        .padding()
-      Spacer()
+      Text("Date added: " + pantryItem.displayDate())
+      Text("Expiration date: " + pantryItem.displayExpDate())
     }.navigationBarTitle(pantryItem.displayName())
   }
 }
