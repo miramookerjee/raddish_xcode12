@@ -30,10 +30,12 @@ class PantryItem: Identifiable {
 struct MealIngredient: Hashable, Codable, Identifiable {
     //var id: ObjectIdentifier
     //var idMeal: ObjectIdentifier
+    var id: String
     let strMeal: String
     let strMealThumb: String
     enum CodingKeys: String, CodingKey {
         //case idMeal
+        case id = "idMeal"
         case strMeal
         case strMealThumb
     }

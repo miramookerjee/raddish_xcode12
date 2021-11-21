@@ -16,35 +16,42 @@ class ViewModel: ObservableObject {
   @Published var pantry = [PantryItem]()
   @Published var recipes = [Recipe]()
   @Published var meals = [MealItem] ()
-  @Published var mealIngredients = [MealIngredient] ()
+  //@Published var mealIngredients = [MealIngredient] ()
   var recipesToPopulate = ["Arrabiata", "Soup", "sandwich", "salad"]
   
   func populateRecipes() {
     self.recipes = [ ]
     for recipe in recipesToPopulate {
-      
-      let url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + recipe
-      
-      let task = URLSession.shared.dataTask(with: URL(string: url)!)
-                   { (data, response, error) in
-          guard let data = data else {
-            print("Error: No data to decode")
-            return
-          }
-        
-          guard let result = try? JSONDecoder().decode(Result.self, from: data) else {
-            print("Error: Couldn't decode data into a result")
-            return
-        }
-
-        let recipeInstance = Recipe(strMeal: result.meals[0].strMeal, strInstructions: result.meals[0].strInstructions, strMealThumb: result.meals[0].strMealThumb);
-        print(recipeInstance.strInstructions)
+        let recipeInstance = createRecipe(recipe: recipe)
         self.recipes.append(recipeInstance)
-
-      }
-      task.resume()
     }
   }
+    
+    func createRecipe(recipe:String) -> Recipe {
+        var recipeInstance = Recipe(strMeal: "Chick-Fil-A Sandwich", strInstructions: "Make the sandwich", strMealThumb: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")
+        
+        let basic_url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + recipe
+        
+        let url = basic_url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Recipe Not Available"
+        
+        let task = URLSession.shared.dataTask(with: URL(string: url)!)
+                     { (data, response, error) in
+            guard let data = data else {
+              print("Error: No data to decode")
+              return
+            }
+          
+            guard let result = try? JSONDecoder().decode(Result.self, from: data) else {
+              print("Error: Couldn't decode data into a result")
+              return
+          }
+          recipeInstance = Recipe(strMeal: result.meals[0].strMeal, strInstructions: result.meals[0].strInstructions, strMealThumb: result.meals[0].strMealThumb);
+
+          }
+          task.resume()
+          return recipeInstance;
+
+    }
   
   func ingredientImages(ingredient: String) -> String{
         let url = "https://www.themealdb.com/images/ingredients/\(ingredient).png"
@@ -52,7 +59,8 @@ class ViewModel: ObservableObject {
         
     }
     
-    func retrieveMealswithIng (ingredient: String){
+    func retrieveMealswithIng (ingredient: String) -> Array<MealIngredient> {
+        var mealIngredients = [MealIngredient] ()
         let url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
         let task = URLSession.shared.dataTask(with: URL(string: url)!)
                      { (data, response, error) in
@@ -68,10 +76,11 @@ class ViewModel: ObservableObject {
           }
             
             for meal in result.meals {
-                self.mealIngredients.append(MealIngredient(strMeal: meal.strMeal, strMealThumb: meal.strMealThumb))
+                mealIngredients.append(MealIngredient(id:meal.id,strMeal: meal.strMeal, strMealThumb: meal.strMealThumb))
             }
         }
         task.resume()
+        return mealIngredients;
     }
 
   func savePantryItem(name: String?, expiration: NSDate?, date: Date?) {
