@@ -16,15 +16,19 @@ class ViewModel: ObservableObject {
   @Published var pantry = [PantryItem]()
   @Published var recipes = [Recipe]()
   @Published var meals = [MealItem] ()
+  @Published var mealIngredients = [MealIngredient] ()
   var recipesToPopulate = ["Arrabiata", "Soup", "sandwich", "salad"]
   
-  func populateRecipes() {
+//Separate this function of populating the recipes array from the actual URL
+    //that does the tasks and does the URLSession stuff
+func populateRecipes() {
     self.recipes = [ ]
     for recipe in recipesToPopulate {
       
       let url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + recipe
       
-      let task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
+      let task = URLSession.shared.dataTask(with: URL(string: url)!)
+                   { (data, response, error) in
           guard let data = data else {
             print("Error: No data to decode")
             return
@@ -43,6 +47,34 @@ class ViewModel: ObservableObject {
       task.resume()
     }
   }
+    
+    func ingredientImages(ingredient: String) -> String{
+        let url = "https://www.themealdb.com/images/ingredients/\(ingredient).png"
+        return  url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Image Not Available"
+        
+    }
+    
+    func retrieveMealswithIng (ingredient: String){
+        let url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
+        let task = URLSession.shared.dataTask(with: URL(string: url)!)
+                     { (data, response, error) in
+            guard let data = data else {
+              print("Error: No data to decode")
+              return
+            }
+            
+          
+            guard let result = try? JSONDecoder().decode(MealIngredientResult.self, from: data) else {
+              print("Error: Couldn't decode data into a result")
+              return
+          }
+            
+            for meal in result.meals {
+                self.mealIngredients.append(MealIngredient(strMeal: meal.strMeal, strMealThumb: meal.strMealThumb))
+            }
+        }
+        task.resume()
+    }
 
   func savePantryItem(name: String?, expiration: NSDate?, date: Date?) {
     // create a new Pantry Item object

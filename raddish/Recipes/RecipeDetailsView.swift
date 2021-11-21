@@ -44,9 +44,11 @@ struct RecipeDetailsView: View {
   
   private func addToMealPlan(_ dayOfWeek: String) {
     self.viewModel.saveMealItem(day_of_week: dayOfWeek, name: recipe.strMeal, imageURL: recipe.strMealThumb)
+    self.viewModel.updateMealItems()
     self.mode.wrappedValue.dismiss()
     //UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true)
-    //RecipesView.mode.wrappedValue.dismiss()
+     //RecipesView.mode.wrappedValue.dismiss()
+    //self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
   }
 }
 
