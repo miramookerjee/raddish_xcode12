@@ -21,7 +21,6 @@ struct MealPlanContentView: View {
       VStack{
           List {
             WeekView(day: "Sunday", showingDetailSheet: showingDetailSheet, viewModel: viewModel)
-            .listStyle(GroupedListStyle())
             
             WeekView(day: "Monday", showingDetailSheet: showingDetailSheet, viewModel: viewModel)
             

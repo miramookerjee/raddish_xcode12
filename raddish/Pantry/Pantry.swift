@@ -37,6 +37,16 @@ class PantryItem: Identifiable {
     dateFormatter.dateFormat = "MM/dd/YY"
     return dateFormatter.string(from: expiration ?? Date())
   }
+  
+  func displayExpDays() -> String {
+    let days = Calendar.current.dateComponents([.day], from: Date(), to: expiration!).day! + 1
+    
+    if days == 1 {
+      return "Expires in \(days) day"
+    }
+    
+    return "Expires in \(days) days"
+  }
 }
 
 struct MealIngredient: Hashable, Codable {
