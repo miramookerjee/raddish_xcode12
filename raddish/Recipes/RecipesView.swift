@@ -13,13 +13,14 @@ struct RecipesView: View {
     var body: some View {
       VStack{
         List {
-          RecipeSectionView(sectionTitle: "Ingredients Expiring Soon", showingSheet: showingSheet, viewModel: viewModel)
-          RecipeSectionView(sectionTitle: "Past Favorites", showingSheet: showingSheet, viewModel: viewModel)
-          RecipeSectionView(sectionTitle: "Explore", showingSheet: showingSheet, viewModel: viewModel)
+          RecipeSectionView(sectionTitle: "Ingredients Expiring Soon", recipesList: viewModel.recipesIngExpSoon, showingSheet: showingSheet, viewModel: viewModel)
+          RecipeSectionView(sectionTitle: "Past Favorites", recipesList: viewModel.recipes, showingSheet: showingSheet, viewModel: viewModel)
+          RecipeSectionView(sectionTitle: "Explore", recipesList: viewModel.recipes, showingSheet: showingSheet, viewModel: viewModel)
         }
         .listStyle(GroupedListStyle())
         .onAppear(perform: {
           self.viewModel.populateRecipes()
+          self.viewModel.populateRecipesIngExpSoon()
         })
       }
       .navigationBarTitle("Recipes")

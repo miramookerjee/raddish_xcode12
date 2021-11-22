@@ -34,6 +34,7 @@ struct PantryContentView: View {
           .onDelete(perform: delete)
         }
       }
+      .listStyle(GroupedListStyle())
       .onAppear(perform: {
         self.viewModel.updatePantryItems()
       })
