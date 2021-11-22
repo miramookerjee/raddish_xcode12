@@ -16,7 +16,7 @@ struct AddPantryItem: View {
   @Environment(\.presentationMode) var mode: Binding<PresentationMode>
 
   @State var name: String = ""
-  @State var expiration: NSDate?
+  @State var expiration: Date?
   @State var date = Date()
 
   var body: some View {
@@ -31,7 +31,7 @@ struct AddPantryItem: View {
 //          .fontWeight(.bold)
 //          .padding(.leading)
         DatePicker(
-            "Purchase Date",
+            "",
             selection: $date,
             in: ...Date(),
             displayedComponents: [.date]
@@ -42,7 +42,7 @@ struct AddPantryItem: View {
     .navigationBarTitle("New Pantry Item")
     .navigationBarItems(trailing:
       Button(action: {
-      self.viewModel.savePantryItem(name: self.name, expiration: Date() as NSDate, date: Date())
+        self.viewModel.savePantryItem(name: self.name, expiration: self.viewModel.getIngExp(self.name, self.date), date: self.date)
       self.mode.wrappedValue.dismiss()
       }) {
         Text("Done")

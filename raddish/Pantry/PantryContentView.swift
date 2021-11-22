@@ -15,18 +15,26 @@ struct PantryContentView: View {
     @State private var showAddView = false
   
     var body: some View {
-//        NavigationLink(destination: AddPantryItem(viewModel: viewModel), isActive: $showAddView) {
-//            EmptyView()
-//            //Label("Add Item", systemImage: "plus")
-//        }
       List {
-        ForEach(viewModel.pantry) { pantryItem in
-          NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem, viewModel: viewModel)) {
-            PantryItemRow(pantryItem: pantryItem)
+        Section(header: Text("Expiring Soon")) {
+          ForEach(viewModel.fetchItemsExpiringSoon()) { pantryItem in
+            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem, viewModel: viewModel)) {
+              PantryItemRow(pantryItem: pantryItem)
+            }
           }
+          .onDelete(perform: delete)
         }
-        .onDelete(perform: delete)
+        
+        Section(header: Text("All")) {
+          ForEach(viewModel.pantry) { pantryItem in
+            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem, viewModel: viewModel)) {
+              PantryItemRow(pantryItem: pantryItem)
+            }
+          }
+          .onDelete(perform: delete)
+        }
       }
+      .listStyle(GroupedListStyle())
       .onAppear(perform: {
         self.viewModel.updatePantryItems()
       })
