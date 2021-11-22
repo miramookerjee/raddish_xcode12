@@ -18,7 +18,7 @@ class ViewModel: ObservableObject {
   @Published var meals = [MealItem]()
   @Published var mealIngredients = [MealIngredient]()
   @Published var recipesIngExpSoon = [Recipe]()
-  var recipesToPopulate = ["Arrabiata", "Soup", "sandwich", "salad"]
+  var recipesToPopulate = ["Arrabiata", "Soup", "sandwich", "salad", "chicken"]
   var expiration_data = ["Juice":21,"Butter":30,"Buttermilk":7,"Parmesan":30,"Cream":3,"Eggnog":3,"Eggs":21,"Kefir":7,"Milk":7,"Yogurt":7,"Tofu":7,"Caviar":7,"Surimi":3,"Shrimp":1,"Crab":1,"Lobster":1,"Beef":3,"Giblets":21,"Apples":2,"Apricots":3,"Avocados":2,"Bananas":1,"Berries":7,"Coconuts":7,"Grapes":3,"Kiwi":3,"Melons":7,"Papaya":3,"Peaches":3,"Pears":7,"Artichokes":3,"Asparagus":3,"Beans":7,"Bok Choy":3,"Broccoli":3,"Brussels":3,"Cauliflower":7,"Cabbage":21,"Carrots":7,"Celery":1,"Corn":4,"Cucumbers":3,"Eggplant":7,"Garlic":7,"Ginger":1,"Leeks":7,"Lettuce":2,"Mushrooms":2,"Okra":60,"Onions":7,"Parsley":4,"Peppers":7,"Potatoes":10,"Radishes":14,"Rutabagas":4,"Squash":14,"Turnips":2,"Tomatoes":60,"Burritos":360,"Fish":120,"Guacamole":60,"Ice":180,"Pancakes":30,"Sausages":30,"Sherbet":360,"Tempeh":3,"Chicken":3,"Pate":21,"Cheese":7,"Cheesecake":180,"Biscuit":360,"Cornmeal":540,"Cornstarch":30,"Flour":300,"Frosting":540,"Chocolate":360,"Cocoa":360,"Ketchup":60,"Horseradish":360,"Mayonnaise":360,"Mustard":300,"Olives":360,"Pickles":60,"Salsa":180,"Crackers":180,"Extracts":540,"Gelatin":730,"Gravy":360,"Honey":120,"Jams":360,"Jerky":60,"Lentils":180,"Marshmallows":180,"Molasses":730,"Oils":730,"Nuts":360,"Peanut":60,"Peas":360,"Pectin":60,"Popcorn":180,"Pudding":240,"Rice":1095,"Sauce":1095,"Shortening":360,"Soda":90,"Soup":60,"Spaghetti":120,"Spices":360,"Paprika":360,"Sugar":540,"Syrup":730,"Tapioca":180,"Tea":360,"Vinegar":2,"Yeast":2,"Water":1,"Bread":30,"Cakes":3,"Cookies":1]
 
 //Separate this function of populating the recipes array from the actual URL
@@ -36,18 +36,19 @@ func populateRecipes() {
             return
           }
         
-          guard let result = try? JSONDecoder().decode(Result.self, from: data) else {
+          guard let result = try? JSONDecoder().decode(RecipeResult.self, from: data) else {
             print("Error: Couldn't decode data into a result")
             return
         }
 
         let recipeInstance = Recipe(strMeal: result.meals[0].strMeal, strInstructions: result.meals[0].strInstructions, strMealThumb: result.meals[0].strMealThumb);
-        print(recipeInstance.strInstructions)
         self.recipes.append(recipeInstance)
 
       }
       task.resume()
     }
+  
+    print(self.recipes)
   }
   
   func populateRecipesIngExpSoon() {
@@ -62,10 +63,12 @@ func populateRecipes() {
     }
     
     print(ingExpSoon)
-  
+    
+    var recipeIDs: [String] = []
+    
     for ingredient in ingExpSoon {
       
-      let url = "www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
+      let url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
       
       let task = URLSession.shared.dataTask(with: URL(string: url)!)
                    { (data, response, error) in
@@ -74,18 +77,41 @@ func populateRecipes() {
             return
           }
         
-          guard let result = try? JSONDecoder().decode(Result.self, from: data) else {
+          guard let result = try? JSONDecoder().decode(RecipeIDResult.self, from: data) else {
+            print("Error: Couldn't decode data into a result")
+            return
+        }
+        recipeIDs.append(result.meals[0].idMeal)
+      }
+      task.resume()
+    }
+    
+    print(recipeIDs)
+  
+    for id in recipeIDs {
+      
+      let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id
+      
+      let task = URLSession.shared.dataTask(with: URL(string: url)!)
+                   { (data, response, error) in
+          guard let data = data else {
+            print("Error: No data to decode")
+            return
+          }
+        
+          guard let result = try? JSONDecoder().decode(RecipeResult.self, from: data) else {
             print("Error: Couldn't decode data into a result")
             return
         }
 
         let recipeInstance = Recipe(strMeal: result.meals[0].strMeal, strInstructions: result.meals[0].strInstructions, strMealThumb: result.meals[0].strMealThumb);
-        print(recipeInstance.strInstructions)
-        self.recipes.append(recipeInstance)
+        self.recipesIngExpSoon.append(recipeInstance)
 
       }
       task.resume()
     }
+    
+    print(self.recipesIngExpSoon)
   }
   
   private func cleanIngNameForAPI(ing: String) -> String {
