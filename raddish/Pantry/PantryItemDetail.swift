@@ -26,6 +26,7 @@ struct PantryItemDetail: View {
         .frame(width: width, height: width, alignment: .center)
         .padding()
        List {
+        //prof h: this bug could also be here
         ForEach(viewModel.mealIngredients, id: \.self) { meal in
                         let _ = print(meal.strMeal)
                         Text(meal.strMeal)

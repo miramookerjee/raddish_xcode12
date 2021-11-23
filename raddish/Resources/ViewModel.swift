@@ -74,6 +74,8 @@ class ViewModel: ObservableObject {
               return
           }
             
+            //prof h: there is a bug here
+            
             self.mealIngredients.removeAll()
             
             for meal in result.meals {
