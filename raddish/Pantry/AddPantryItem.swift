@@ -32,7 +32,7 @@ struct AddPantryItem: View {
           .padding(.leading)
         TextField("name", text: $name)
           .padding(.trailing)
-    
+        //PROFH look here: bug occuring here
         DatePicker(
             "Start Date",
             selection: $date,
