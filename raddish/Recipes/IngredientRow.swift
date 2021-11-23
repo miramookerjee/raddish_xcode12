@@ -16,9 +16,11 @@ struct IngredientRow: View {
           .padding()
         Text(measure)
           .padding()
+          .frame(maxWidth: .infinity, alignment: .leading)
       }
       .border(Color.black)
-      .cornerRadius(15)
+      .cornerRadius(5)
+      
       .padding()
     }
 }
