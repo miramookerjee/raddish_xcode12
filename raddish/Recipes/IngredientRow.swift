@@ -12,15 +12,12 @@ struct IngredientRow: View {
   var measure: String
     var body: some View {
       HStack {
-        Text(ingredient)
-          .padding()
         Text(measure)
-          .padding()
-          .frame(maxWidth: .infinity, alignment: .leading)
+        Text(ingredient)
+        .frame(maxWidth: .infinity, alignment: .leading)
       }
       .border(Color.black)
       .cornerRadius(5)
-      
       .padding()
     }
 }
