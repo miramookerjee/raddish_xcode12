@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct PantryContentView: View {
-    @ObservedObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     @Environment(\.managedObjectContext) var viewContext
     var items: FetchedResults<Item>
     @State private var showAddView = false
@@ -18,7 +18,7 @@ struct PantryContentView: View {
       NavigationView {
         List {
           ForEach(viewModel.pantry) { pantryItem in
-            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem, viewModel: viewModel)) {
+            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
               PantryItemRow(pantryItem: pantryItem)
             }
           }
@@ -38,7 +38,7 @@ struct PantryContentView: View {
 //                       }.sheet(isPresented: $showAddView) {
 //                        AddPantryItem(viewModel: viewModel, showAddView: self.$showAddView)
 //                        }
-                NavigationLink(destination: AddPantryItem(viewModel: viewModel)) {
+                NavigationLink(destination: AddPantryItem()) {
                     Label("Add Item", systemImage: "plus")
                 }
             }

@@ -11,7 +11,7 @@ import SwiftUI
 import UIKit
 
 struct AddPantryItem: View {
-  @ObservedObject var viewModel: ViewModel
+  @EnvironmentObject var viewModel: ViewModel
     let dateFormatter: DateFormatter = {
            let formatter = DateFormatter()
            formatter.dateStyle = .long

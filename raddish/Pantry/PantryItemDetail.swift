@@ -11,7 +11,7 @@ import SwiftUI
 struct PantryItemDetail: View {
 
   var pantryItem: PantryItem
-  @ObservedObject var viewModel: ViewModel
+  @EnvironmentObject var viewModel: ViewModel
   let width = UIScreen.main.bounds.width * 0.75
 
   var body: some View {
