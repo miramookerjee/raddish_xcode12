@@ -26,16 +26,21 @@ struct PantryItemDetail: View {
         .frame(width: width, height: width, alignment: .center)
         .padding()
        List {
-        ForEach(viewModel.mealIngredients) {meal in
-            NavigationLink(meal.strMeal, destination: RecipeDetailsView(recipe: viewModel.createRecipe(recipe:meal.strMeal), viewModel: viewModel))
-            //{
-                    //MealIngredientView(mealIngredient: meal)
-                    //Label(meal.strMeal)
-            //}
-            }
+        ForEach(viewModel.mealIngredients, id: \.self) { meal in
+                        let _ = print(meal.strMeal)
+                        Text(meal.strMeal)
+        }
+//        ForEach(viewModel.mealIngredients) {meal in
+//            NavigationLink(meal.strMeal, destination: RecipeDetailsView(recipe: viewModel.createRecipe(recipe:meal.strMeal), viewModel: viewModel))
+//            //{
+//                    //MealIngredientView(mealIngredient: meal)
+//                    //Label(meal.strMeal)
+//            //}
+//            }
         }
        .onAppear(perform: {
-         self.viewModel.retrieveMealswithIng(ingredient: ingredient)
+            self.viewModel.retrieveMealswithIng(ingredient: ingredient)
+            //print(viewModel.retrieveMealswithIng(ingredient: ingredient))
        })
 //        viewModel.retrieveMealswithIng(ingredient: ingredient)
 //        ForEach(viewModel.mealIngredients, id: \.self) { meal in

@@ -36,8 +36,8 @@
             filePath = "raddish/Pantry/PantryItemDetail.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -52,8 +52,8 @@
             filePath = "raddish/Pantry/PantryItemDetail.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -115,8 +115,8 @@
             filePath = "raddish/Pantry/PantryItemDetail.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -131,8 +131,8 @@
             filePath = "raddish/Resources/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "retrieveMealswithIng(ingredient:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -141,23 +141,23 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1654CCAB-0E40-48F0-850F-1EED97C78561"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "raddish/Pantry/PantryItemDetail.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "1654CCAB-0E40-48F0-850F-1EED97C78561 - 8664899fa8749a15"
+                  uuid = "1654CCAB-0E40-48F0-850F-1EED97C78561 - ca5e0518d9de8908"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;raddish.MealIngredient&gt;, Swift.String, SwiftUI.NavigationLink&lt;SwiftUI.Text, raddish.RecipeDetailsView&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0, SwiftUI.Text, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in raddish.PantryItemDetail.body.getter : some"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0, SwiftUI.Text, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.navigationBarTitle&lt;A where A1: Swift.StringProtocol&gt;(A1) -&gt; some&gt;&gt;.0 in raddish.PantryItemDetail.body.getter : some"
                   moduleName = "raddish"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///afs/andrew.cmu.edu/usr24/ankitaku/raddish_xcode12/raddish/Pantry/PantryItemDetail.swift"
@@ -165,14 +165,14 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
                   endingLineNumber = "29"
-                  offsetFromSymbolStart = "174">
+                  offsetFromSymbolStart = "2794">
                </Location>
                <Location
-                  uuid = "1654CCAB-0E40-48F0-850F-1EED97C78561 - 6b23602ffdcb13df"
+                  uuid = "1654CCAB-0E40-48F0-850F-1EED97C78561 - 23da454e3761d1be"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (raddish.MealIngredient) -&gt; SwiftUI.NavigationLink&lt;SwiftUI.Text, raddish.RecipeDetailsView&gt; in closure #2 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;raddish.MealIngredient&gt;, Swift.String, SwiftUI.NavigationLink&lt;SwiftUI.Text, raddish.RecipeDetailsView&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0, SwiftUI.Text, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in raddish.PantryItemDetail.body.getter : some"
+                  symbolName = "closure #2 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;raddish.MealIngredient&gt;, Swift.String, SwiftUI.NavigationLink&lt;SwiftUI.Text, raddish.RecipeDetailsView&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0, SwiftUI.Text, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.navigationBarTitle&lt;A where A1: Swift.StringProtocol&gt;(A1) -&gt; some&gt;&gt;.0 in raddish.PantryItemDetail.body.getter : some"
                   moduleName = "raddish"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///afs/andrew.cmu.edu/usr24/ankitaku/raddish_xcode12/raddish/Pantry/PantryItemDetail.swift"
@@ -180,7 +180,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
                   endingLineNumber = "30"
-                  offsetFromSymbolStart = "349">
+                  offsetFromSymbolStart = "174">
                </Location>
             </Locations>
          </BreakpointContent>

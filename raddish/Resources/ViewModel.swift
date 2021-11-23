@@ -74,6 +74,8 @@ class ViewModel: ObservableObject {
               return
           }
             
+            self.mealIngredients.removeAll()
+            
             for meal in result.meals {
                 self.mealIngredients.append(MealIngredient(id:meal.id,strMeal: meal.strMeal, strMealThumb: meal.strMealThumb))
             }
