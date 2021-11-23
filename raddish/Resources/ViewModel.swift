@@ -16,9 +16,12 @@ class ViewModel: ObservableObject {
   @Published var pantry = [PantryItem]()
   @Published var recipes = [Recipe]()
   @Published var meals = [MealItem] ()
+  @Published var mealIngredients = [MealIngredient] ()
   var recipesToPopulate = ["Arrabiata", "Soup", "sandwich", "salad"]
   
-  func populateRecipes() {
+//Separate this function of populating the recipes array from the actual URL
+    //that does the tasks and does the URLSession stuff
+func populateRecipes() {
     self.recipes = [ ]
     for recipe in recipesToPopulate {
       
@@ -44,6 +47,34 @@ class ViewModel: ObservableObject {
       task.resume()
     }
   }
+    
+    func ingredientImages(ingredient: String) -> String{
+        let url = "https://www.themealdb.com/images/ingredients/\(ingredient).png"
+        return  url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Image Not Available"
+        
+    }
+    
+    func retrieveMealswithIng (ingredient: String){
+        let url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
+        let task = URLSession.shared.dataTask(with: URL(string: url)!)
+                     { (data, response, error) in
+            guard let data = data else {
+              print("Error: No data to decode")
+              return
+            }
+            
+          
+            guard let result = try? JSONDecoder().decode(MealIngredientResult.self, from: data) else {
+              print("Error: Couldn't decode data into a result")
+              return
+          }
+            
+            for meal in result.meals {
+                self.mealIngredients.append(MealIngredient(strMeal: meal.strMeal, strMealThumb: meal.strMealThumb))
+            }
+        }
+        task.resume()
+    }
 
   func savePantryItem(name: String?, expiration: NSDate?, date: Date?) {
     // create a new Pantry Item object
@@ -188,6 +219,7 @@ class ViewModel: ObservableObject {
          newMealItem.day_of_week = data.value(forKey: "day_of_week") as? String ?? ""
          newMealItem.name = data.value(forKey: "name") as? String ?? ""
          newMealItem.imageURL = data.value(forKey: "imageURL") as? String ?? ""
+         newMealItem.id = data.value(forKey: "id") as? String ?? ""
          meals.append(newMealItem)
        }
      } catch {
@@ -234,12 +266,7 @@ class ViewModel: ObservableObject {
       do {
         let result = try context.fetch(request)
         for data in result as! [NSManagedObject] {
-          if ((mealItem.imageURL == data.value(forKey: "imageURL") as? String)
-              && (mealItem.name == data.value(forKey: "name") as? String)
-              && (mealItem.day_of_week == data.value(forKey: "day_of_week") as? String)
-              && (mealItem.id == data.value(forKey: "id") as? UUID)
-          )
-           {
+          if ((mealItem.id == data.value(forKey: "id") as? String)) {
             context.delete(data)
             try context.save()
           }

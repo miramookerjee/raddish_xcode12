@@ -15,40 +15,31 @@ struct RecipeDetailsView: View {
     
   
     var body: some View {
-      NavigationView {
-        ScrollView {
-        VStack{
-              AsyncImage(url: URL(string: recipe.strMealThumb)!,
-                       placeholder: { Text("Loading...") })
-              .frame(width: 107, height: 115)
-              .cornerRadius(15)
-                Menu("Add to Meal Plan") {
-                  Button("Saturday", action: {addToMealPlan("Saturday")})
-                  Button("Friday", action: {addToMealPlan("Friday")})
-                  Button("Thursday", action: {addToMealPlan("Thursday")})
-                  Button("Wednesday", action: {addToMealPlan("Wednesday")})
-                  Button("Tuesday", action: {addToMealPlan("Tuesday")})
-                  Button("Monday", action: {addToMealPlan("Monday")})
-                  Button("Sunday", action: {addToMealPlan("Sunday")})
-                }
-            Text("Instructions:")
-              .bold()
-              .frame(maxWidth: .infinity, alignment: .leading)
-              .padding()
-            Text(recipe.strInstructions)
-              .fixedSize(horizontal: false, vertical: true)
-              .padding()
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                  Button("Back") {
-                      mode.wrappedValue.dismiss()
-                  }
-                }
-            }
-        }
-        .navigationBarTitle(recipe.strMeal)
+      ScrollView {
+      VStack{
+            AsyncImage(url: URL(string: recipe.strMealThumb)!,
+                     placeholder: { Text("Loading...") })
+            .frame(width: 107, height: 115)
+            .cornerRadius(15)
+              Menu("Add to Meal Plan") {
+                Button("Sunday", action: {addToMealPlan("Sunday")})
+                Button("Monday", action: {addToMealPlan("Monday")})
+                Button("Tuesday", action: {addToMealPlan("Tuesday")})
+                Button("Wednesday", action: {addToMealPlan("Wednesday")})
+                Button("Thursday", action: {addToMealPlan("Thursday")})
+                Button("Friday", action: {addToMealPlan("Friday")})
+                Button("Saturday", action: {addToMealPlan("Saturday")})
+              }
+          Text("Instructions:")
+            .bold()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
+          Text(recipe.strInstructions)
+            .fixedSize(horizontal: false, vertical: true)
+            .padding()
+          }
       }
+      .navigationBarTitle(recipe.strMeal)
     }
   
   private func addToMealPlan(_ dayOfWeek: String) {

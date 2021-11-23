@@ -14,30 +14,24 @@ struct RecipeSectionView: View {
   
     var body: some View {
       Section(header: Text(sectionTitle)) {
-          ScrollView(.horizontal) {
-              HStack(alignment: .center, spacing: 20) {
-                  
-                ForEach(viewModel.recipes, id: \.self) { i in
-                      VStack {
-                        Button {
-                          showingSheet.toggle()
-                        }
-                        label: {
-                          AsyncImage(url: URL(string: i.strMealThumb)!,
-                                     placeholder: { Text("Loading...") })
-                            .frame(width: 107, height: 115)
-                            .cornerRadius(15)
-                        }
-                        .sheet(isPresented: $showingSheet) {
-                          // PROF H LOOK HERE
-                          RecipeDetailsView(recipe: i, viewModel: viewModel)
-                      }
-                        Text(i.strMeal)
-                      }
+        ScrollView(.horizontal) {
+            HStack(alignment: .center, spacing: 20) {
+                
+              ForEach(viewModel.recipes, id: \.self) { i in
+                NavigationLink(destination: RecipeDetailsView(recipe: i, viewModel: viewModel)) {
+                  VStack {
+                    AsyncImage(url: URL(string: i.strMealThumb)!,
+                               placeholder: { Text("Loading...") })
+                        .frame(width: 107, height: 115)
+                        .cornerRadius(15)
+                               
+                    Text(i.strMeal)
                   }
+                }
               }
             }
           }
+        }
     }
 }
 
