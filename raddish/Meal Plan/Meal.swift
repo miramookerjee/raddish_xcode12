@@ -14,13 +14,15 @@ class MealItem: Identifiable, Hashable {
   var day_of_week: String?
   var name: String?
   var imageURL: String?
+  var missing_ing:  Bool
   var id = UUID()
 
 
-  init(day_of_week: String? = nil, name: String? = nil, imageURL: String? = nil) {
+    init(day_of_week: String? = nil, name: String? = nil, imageURL: String? = nil, missing_ing: Bool) {
     self.day_of_week = day_of_week
     self.name = name
     self.imageURL = imageURL
+    self.missing_ing = missing_ing
   }
 
   func displayName() -> String {
