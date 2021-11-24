@@ -11,7 +11,7 @@ struct IngredientRow: View {
   var ingredient : String
   var measure: String
     var body: some View {
-      if (measure != "") {
+      if (measure != "" && ingredient != "") {
         HStack {
           Text(measure)
             .padding()
