@@ -48,10 +48,35 @@ struct RecipeDetailsView: View {
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading)
-          IngredientRow(ingredient: recipe.strIngredient1 ?? "", measure: recipe.strMeasure1 ?? "")
-          IngredientRow(ingredient: recipe.strIngredient2 ?? "", measure: recipe.strMeasure2 ?? "")
-          IngredientRow(ingredient: recipe.strIngredient3 ?? "", measure: recipe.strMeasure3 ?? "")
-          IngredientRow(ingredient: recipe.strIngredient4 ?? "", measure: recipe.strMeasure4 ?? "")
+          Group {
+            IngredientRow(ingredient: recipe.strIngredient1 ?? "", measure: recipe.strMeasure1 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient2 ?? "", measure: recipe.strMeasure2 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient3 ?? "", measure: recipe.strMeasure3 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient4 ?? "", measure: recipe.strMeasure4 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient5 ?? "", measure: recipe.strMeasure5 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient6 ?? "", measure: recipe.strMeasure6 ?? "")
+          }
+          Group {
+            IngredientRow(ingredient: recipe.strIngredient7 ?? "", measure: recipe.strMeasure7 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient8 ?? "", measure: recipe.strMeasure8 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient9 ?? "", measure: recipe.strMeasure9 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient10 ?? "", measure: recipe.strMeasure10 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient11 ?? "", measure: recipe.strMeasure11 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient12 ?? "", measure: recipe.strMeasure12 ?? "")
+          }
+          Group {
+            IngredientRow(ingredient: recipe.strIngredient13 ?? "", measure: recipe.strMeasure13 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient14 ?? "", measure: recipe.strMeasure14 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient15 ?? "", measure: recipe.strMeasure15 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient16 ?? "", measure: recipe.strMeasure16 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient17 ?? "", measure: recipe.strMeasure17 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient18 ?? "", measure: recipe.strMeasure18 ?? "")
+          }
+          Group {
+
+            IngredientRow(ingredient: recipe.strIngredient19 ?? "", measure: recipe.strMeasure19 ?? "")
+            IngredientRow(ingredient: recipe.strIngredient20 ?? "", measure: recipe.strMeasure20 ?? "")
+          }
           Text("Instructions:")
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
