@@ -31,7 +31,8 @@ func populateRecipes() {
   }
     
     func createRecipe(recipe:String) -> Recipe {
-        var recipeInstance = Recipe(strMeal: "Chick-Fil-A Sandwich", strInstructions: "Make the sandwich", strMealThumb: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")
+        var recipeInstance = Recipe(strMeal: "Chick-Fil-A Sandwich", strInstructions: "Make the sandwich", strMealThumb: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg", strIngredient1: "", strIngredient2: "", strIngredient3: "", strIngredient4: "", strIngredient5: "", strIngredient6: "", strIngredient7: "", strIngredient8: "", strIngredient9: "", strIngredient10: "", strIngredient11: "", strIngredient12: "", strIngredient13: "", strIngredient14: "", strIngredient15: "", strIngredient16: "", strIngredient17: "", strIngredient18: "", strIngredient19: "", strIngredient20: "", strMeasure1: "", strMeasure2: "", strMeasure3: "", strMeasure4: "", strMeasure5: "", strMeasure6: "", strMeasure7: "", strMeasure8: "", strMeasure9: "", strMeasure10: "", strMeasure11: "", strMeasure12: "", strMeasure13: "", strMeasure14: "", strMeasure15: "", strMeasure16: "", strMeasure17: "", strMeasure18: "", strMeasure19: "", strMeasure20: "");
+//        var recipeInstance = Recipe(strMeal: "Chick-Fil-A Sandwich", strInstructions: "Make the sandwich", strMealThumb: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg", strIngredient1: "", strIngredient2: "", strIngredient3: "", strIngredient4: "", strIngredient5: "", strIngredient6: "", strIngredient7: "", strIngredient8: "", strIngredient9: "", strIngredient10: "", strIngredient11: "", strIngredient12: "", strIngredient13: "", strIngredient14: "", strIngredient15: "", strIngredient16: "", strIngredient17: "", strIngredient18: "", strIngredient19: "", strIngredient20: "", strMeasure1: "", strMeasure2: "", strMeasure3: "", strMeasure4: "", strMeasure5: "", strMeasure6: "", strMeasure7: "", strMeasure8: "", strMeasure9: "", strMeasure10: "", strMeasure11: "", strMeasure12: "", strMeasure13: "", strMeasure14: "", strMeasure15: "", strMeasure16: "", strMeasure17: "", strMeasure18: "", strMeasure19: "", strMeasure20: "")
         let basic_url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + recipe
         
         let url = basic_url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Recipe Not Available"
@@ -47,7 +48,7 @@ func populateRecipes() {
             return
         } 
 
-        let recipeInstance = Recipe(
+        recipeInstance = Recipe(
           strMeal: result.meals[0].strMeal,
           strInstructions: result.meals[0].strInstructions,
           strMealThumb: result.meals[0].strMealThumb,
