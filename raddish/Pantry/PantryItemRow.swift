@@ -12,6 +12,8 @@ struct PantryItemRow: View {
   var body: some View {
     VStack(alignment: .leading) {
       Text(pantryItem.displayName())
+      Text(pantryItem.displayExpDays())
+        .font(.footnote)
     }
   }
 }
