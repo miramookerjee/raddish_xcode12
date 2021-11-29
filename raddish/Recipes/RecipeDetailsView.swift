@@ -7,17 +7,6 @@
 
 import SwiftUI
 
-// https://www.hackingwithswift.com/forums/swiftui/coloured-menu-items/7929
-
-struct AddToMealPlanMenuStyle : MenuStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        Menu(configuration)
-            .background(Color.green)
-            .cornerRadius(15)
-            .foregroundColor(.black)
-    }
-}
-
 struct RecipeDetailsView: View {
     var recipe: Recipe
     @ObservedObject var viewModel: ViewModel
@@ -33,17 +22,25 @@ struct RecipeDetailsView: View {
               .frame(width: 107, height: 115)
               .cornerRadius(15)
               .padding(.leading)
-            Menu("Add to Meal Plan") {
-                Button("Sunday", action: {addToMealPlan("Sunday")})
-                Button("Monday", action: {addToMealPlan("Monday")})
-                Button("Tuesday", action: {addToMealPlan("Tuesday")})
-                Button("Wednesday", action: {addToMealPlan("Wednesday")})
-                Button("Thursday", action: {addToMealPlan("Thursday")})
-                Button("Friday", action: {addToMealPlan("Friday")})
-                Button("Saturday", action: {addToMealPlan("Saturday")})
-              }
-            .padding()
-            .menuStyle(AddToMealPlanMenuStyle())
+          ZStack(alignment: .center) {
+              RoundedRectangle(cornerRadius: 5)
+                .background(Color.green)
+                .shadow(color: Color.gray, radius: 5)
+                .frame(width: 150, height: 50)
+                .padding(.leading)
+              Menu("Add to Meal Plan") {
+                  Button("Sunday", action: {addToMealPlan("Sunday")})
+                  Button("Monday", action: {addToMealPlan("Monday")})
+                  Button("Tuesday", action: {addToMealPlan("Tuesday")})
+                  Button("Wednesday", action: {addToMealPlan("Wednesday")})
+                  Button("Thursday", action: {addToMealPlan("Thursday")})
+                  Button("Friday", action: {addToMealPlan("Friday")})
+                  Button("Saturday", action: {addToMealPlan("Saturday")})
+                }
+              .foregroundColor(Color.white)
+              .padding(.leading)
+              //.menuStyle(AddToMealPlanMenuStyle())
+            }
           Text("Ingredients:")
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)

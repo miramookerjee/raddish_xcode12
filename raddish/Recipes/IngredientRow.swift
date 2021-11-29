@@ -19,9 +19,15 @@ struct IngredientRow: View {
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .border(Color.black)
+        .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+        // https://www.hackingwithswift.com/quick-start/swiftui/how-to-draw-a-border-around-a-view
+        .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                  .stroke()
+                  .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+            )
         .cornerRadius(5)
-        .padding(-1.0)
+        
       }
     }
 }
