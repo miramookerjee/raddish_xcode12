@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct PantryContentView: View {
-    @ObservedObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     @Environment(\.managedObjectContext) var viewContext
     var items: FetchedResults<Item>
     @State private var showAddView = false
@@ -18,7 +18,7 @@ struct PantryContentView: View {
       List {
         Section(header: Text("Expiring Soon")) {
           ForEach(viewModel.fetchItemsExpiringSoon()) { pantryItem in
-            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem, viewModel: viewModel)) {
+            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
               PantryItemRow(pantryItem: pantryItem)
             }
           }
@@ -27,7 +27,7 @@ struct PantryContentView: View {
         
         Section(header: Text("All")) {
           ForEach(viewModel.pantry) { pantryItem in
-            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem, viewModel: viewModel)) {
+            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
               PantryItemRow(pantryItem: pantryItem)
             }
           }
@@ -82,7 +82,7 @@ struct PantryContentView: View {
   }
 
   func delete(at offsets: IndexSet) {
-  viewModel.deletePantryItem(atOffsets: offsets)
+    viewModel.deletePantryItem(atOffsets: offsets)
   }
   
   private let itemFormatter: DateFormatter = {

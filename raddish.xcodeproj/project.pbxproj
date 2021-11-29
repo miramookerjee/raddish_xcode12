@@ -193,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				06EAD312273A0DAB004E1928 /* Pantry.swift */,
+				9EED7807274AE99E00F49E87 /* MealIngredientView.swift */,
 				06EAD317273A0DCD004E1928 /* PantryItemRow.swift */,
 				06EAD31C273A0DE2004E1928 /* AddPantryItem.swift */,
 				06EAD326273A0E0C004E1928 /* PantryItemDetail.swift */,
@@ -401,6 +402,7 @@
 				06EAD327273A0E0C004E1928 /* PantryItemDetail.swift in Sources */,
 				06EAD30E273A0D75004E1928 /* AppDelegate.swift in Sources */,
 				06EAD2C6273A0BC0004E1928 /* raddish.xcdatamodeld in Sources */,
+				9EED7808274AE99E00F49E87 /* MealIngredientView.swift in Sources */,
 				06EAD318273A0DCD004E1928 /* PantryItemRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

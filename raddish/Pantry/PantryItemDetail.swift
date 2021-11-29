@@ -11,7 +11,7 @@ import SwiftUI
 struct PantryItemDetail: View {
 
   var pantryItem: PantryItem
-  @ObservedObject var viewModel: ViewModel
+  @EnvironmentObject var viewModel: ViewModel
   let width = UIScreen.main.bounds.width * 0.75
 
   var body: some View {
@@ -23,13 +23,28 @@ struct PantryItemDetail: View {
       Text("Expires in \(viewModel.daysBetween(start: Date(), end: pantryItem.expiration!)) days")
       Text("Date added: " + pantryItem.displayDate())
       Text("Expiration date: " + pantryItem.displayExpDate())
-//        List {
-//            ForEach(viewModel.$mealIngredients) {meal in
-//              NavigationLink(destination: RecipeDetailsView(recipe: meal)) {
-//                    MealIngredientView(mealIngredient: meal)
-//                }
-//            }
-//        }
+        List {
+         //prof h: this bug could also be here
+         ForEach(viewModel.mealIngredients, id: \.self) { meal in
+                         let _ = print(meal.strMeal)
+                         Text(meal.strMeal)
+         }
+ //        ForEach(viewModel.mealIngredients) {meal in
+ //            NavigationLink(meal.strMeal, destination: RecipeDetailsView(recipe: viewModel.createRecipe(recipe:meal.strMeal), viewModel: viewModel))
+ //            //{
+ //                    //MealIngredientView(mealIngredient: meal)
+ //                    //Label(meal.strMeal)
+ //            //}
+ //            }
+         }
+        .onAppear(perform: {
+            self.viewModel.retrieveMealswithIng(ingredient: pantryItem.displayName())
+             //print(viewModel.retrieveMealswithIng(ingredient: ingredient))
+        })
+ //        viewModel.retrieveMealswithIng(ingredient: ingredient)
+ //        ForEach(viewModel.mealIngredients, id: \.self) { meal in
+ //                Text("\(meal.strMeal)")
+ //            }
       Spacer()
     }.navigationBarTitle(pantryItem.displayName())
   }

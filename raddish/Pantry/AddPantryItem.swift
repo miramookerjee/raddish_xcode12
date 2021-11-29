@@ -11,7 +11,6 @@ import SwiftUI
 import UIKit
 
 struct AddPantryItem: View {
-
   @ObservedObject var viewModel: ViewModel
   @Environment(\.presentationMode) var mode: Binding<PresentationMode>
 
