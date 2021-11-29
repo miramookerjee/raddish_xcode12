@@ -37,6 +37,9 @@
 		06EAD336273A0E4C004E1928 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD335273A0E4C004E1928 /* RecipeDetailsView.swift */; };
 		06FEC30D27556CD1004B8BB2 /* IngredientRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC30C27556CD1004B8BB2 /* IngredientRow.swift */; };
 		06FEC31227556CE8004B8BB2 /* MealIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC31127556CE8004B8BB2 /* MealIngredientView.swift */; };
+		06FEC31727556FCB004B8BB2 /* PantryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC31627556FCB004B8BB2 /* PantryTests.swift */; };
+		06FEC31C27556FF2004B8BB2 /* ServerResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */; };
+		06FEC32127557010004B8BB2 /* MealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC32027557010004B8BB2 /* MealTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,9 @@
 		06EAD335273A0E4C004E1928 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
 		06FEC30C27556CD1004B8BB2 /* IngredientRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientRow.swift; sourceTree = "<group>"; };
 		06FEC31127556CE8004B8BB2 /* MealIngredientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealIngredientView.swift; sourceTree = "<group>"; };
+		06FEC31627556FCB004B8BB2 /* PantryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryTests.swift; sourceTree = "<group>"; };
+		06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseTests.swift; sourceTree = "<group>"; };
+		06FEC32027557010004B8BB2 /* MealTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,9 @@
 			children = (
 				06EAD2D0273A0BC0004E1928 /* raddishTests.swift */,
 				06EAD2D2273A0BC0004E1928 /* Info.plist */,
+				06FEC31627556FCB004B8BB2 /* PantryTests.swift */,
+				06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */,
+				06FEC32027557010004B8BB2 /* MealTests.swift */,
 			);
 			path = raddishTests;
 			sourceTree = "<group>";
@@ -404,7 +413,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06FEC32127557010004B8BB2 /* MealTests.swift in Sources */,
 				06EAD2D1273A0BC0004E1928 /* raddishTests.swift in Sources */,
+				06FEC31C27556FF2004B8BB2 /* ServerResponseTests.swift in Sources */,
+				06FEC31727556FCB004B8BB2 /* PantryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
