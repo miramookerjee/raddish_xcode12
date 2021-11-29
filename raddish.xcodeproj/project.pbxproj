@@ -40,6 +40,7 @@
 		06FEC31727556FCB004B8BB2 /* PantryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC31627556FCB004B8BB2 /* PantryTests.swift */; };
 		06FEC31C27556FF2004B8BB2 /* ServerResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */; };
 		06FEC32127557010004B8BB2 /* MealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC32027557010004B8BB2 /* MealTests.swift */; };
+		06FEC32C275573D3004B8BB2 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC32B275573D3004B8BB2 /* ViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		06FEC31627556FCB004B8BB2 /* PantryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryTests.swift; sourceTree = "<group>"; };
 		06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseTests.swift; sourceTree = "<group>"; };
 		06FEC32027557010004B8BB2 /* MealTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTests.swift; sourceTree = "<group>"; };
+		06FEC32B275573D3004B8BB2 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				06FEC31627556FCB004B8BB2 /* PantryTests.swift */,
 				06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */,
 				06FEC32027557010004B8BB2 /* MealTests.swift */,
+				06FEC32B275573D3004B8BB2 /* ViewModelTests.swift */,
 			);
 			path = raddishTests;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 			files = (
 				06FEC32127557010004B8BB2 /* MealTests.swift in Sources */,
 				06EAD2D1273A0BC0004E1928 /* raddishTests.swift in Sources */,
+				06FEC32C275573D3004B8BB2 /* ViewModelTests.swift in Sources */,
 				06FEC31C27556FF2004B8BB2 /* ServerResponseTests.swift in Sources */,
 				06FEC31727556FCB004B8BB2 /* PantryTests.swift in Sources */,
 			);

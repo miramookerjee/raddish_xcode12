@@ -37,7 +37,7 @@ func populateRecipes() {
           guard let result = try? JSONDecoder().decode(Result.self, from: data) else {
             print("Error: Couldn't decode data into a result")
             return
-        }
+        } 
 
         let recipeInstance = Recipe(
           strMeal: result.meals[0].strMeal,
