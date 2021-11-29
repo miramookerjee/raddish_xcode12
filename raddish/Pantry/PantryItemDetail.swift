@@ -22,13 +22,13 @@ struct PantryItemDetail: View {
             .cornerRadius(15)
       Text("Expires in __ days")
       Text(pantryItem.displayName())
-        List {
-            ForEach(viewModel.$mealIngredients) {meal in
-                NavigationLink(destination: RecipeDetailsView(recipe: meal)) {
-                    MealIngredientView(mealIngredient: meal)
-                }
-            }
-        }
+//        List {
+//            ForEach(viewModel.$mealIngredients) {meal in
+//                NavigationLink(destination: RecipeDetailsView(recipe: meal)) {
+//                    MealIngredientView(mealIngredient: meal)
+//                }
+//            }
+//        }
       Spacer()
     }.navigationBarTitle(pantryItem.displayName())
   }
