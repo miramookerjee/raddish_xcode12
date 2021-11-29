@@ -26,6 +26,7 @@ struct WeekView: View {
             .frame(minHeight: 185)
           }
       }
+      .foregroundColor(Color.black)
     }
 }
 
