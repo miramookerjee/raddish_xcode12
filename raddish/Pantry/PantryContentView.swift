@@ -18,7 +18,7 @@ struct PantryContentView: View {
       List {
         Section(header: Text("Expiring Soon")) {
           ForEach(viewModel.fetchItemsExpiringSoon()) { pantryItem in
-            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem, viewModel: viewModel)) {
+            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
               PantryItemRow(pantryItem: pantryItem)
             }
           }
@@ -27,7 +27,7 @@ struct PantryContentView: View {
         
         Section(header: Text("All")) {
           ForEach(viewModel.pantry) { pantryItem in
-            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem, viewModel: viewModel)) {
+            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
               PantryItemRow(pantryItem: pantryItem)
             }
           }

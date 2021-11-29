@@ -38,7 +38,7 @@ struct PantryItemDetail: View {
  //            }
          }
         .onAppear(perform: {
-             self.viewModel.retrieveMealswithIng(ingredient: ingredient)
+            self.viewModel.retrieveMealswithIng(ingredient: pantryItem.displayName())
              //print(viewModel.retrieveMealswithIng(ingredient: ingredient))
         })
  //        viewModel.retrieveMealswithIng(ingredient: ingredient)

@@ -27,7 +27,7 @@ struct ContentView: View {
         .tabItem {Label("Home", systemImage: "house.fill")}
         
         NavigationView {
-          PantryContentView(viewModel: viewModel, viewContext: _viewContext, items: items)
+          PantryContentView(viewContext: _viewContext, items: items)
         }
         .tabItem {Label("Pantry", systemImage: "leaf.fill")}
         
