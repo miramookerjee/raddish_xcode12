@@ -20,11 +20,12 @@ struct PantryItemDetail: View {
                    placeholder: { Text("Loading...") })
             .frame(width: 107, height: 115)
             .cornerRadius(15)
-      Text("Expires in __ days")
-      Text(pantryItem.displayName())
+      Text("Expires in \(viewModel.daysBetween(start: Date(), end: pantryItem.expiration!)) days")
+      Text("Date added: " + pantryItem.displayDate())
+      Text("Expiration date: " + pantryItem.displayExpDate())
 //        List {
 //            ForEach(viewModel.$mealIngredients) {meal in
-//                NavigationLink(destination: RecipeDetailsView(recipe: meal)) {
+//              NavigationLink(destination: RecipeDetailsView(recipe: meal)) {
 //                    MealIngredientView(mealIngredient: meal)
 //                }
 //            }

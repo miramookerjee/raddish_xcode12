@@ -94,11 +94,14 @@
 		06EAD32B273A0E28004E1928 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		06EAD330273A0E3E004E1928 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		06EAD335273A0E4C004E1928 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD:raddish.xcodeproj/project.pbxproj
+=======
 		06FEC30C27556CD1004B8BB2 /* IngredientRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientRow.swift; sourceTree = "<group>"; };
 		06FEC31127556CE8004B8BB2 /* MealIngredientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealIngredientView.swift; sourceTree = "<group>"; };
 		06FEC31627556FCB004B8BB2 /* PantryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryTests.swift; sourceTree = "<group>"; };
 		06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseTests.swift; sourceTree = "<group>"; };
 		06FEC32027557010004B8BB2 /* MealTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTests.swift; sourceTree = "<group>"; };
+>>>>>>> 4739f901f07d55cb8b81577a6f80323ff060dfb2:raddish.xcodeproj/project.pbxproj.orig
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +136,11 @@
 				06EAD2CF273A0BC0004E1928 /* raddishTests */,
 				06EAD2DA273A0BC0004E1928 /* raddishUITests */,
 				06EAD2B7273A0BBF004E1928 /* Products */,
+<<<<<<< HEAD:raddish.xcodeproj/project.pbxproj
+				F3C36C88274B096800AF590F /* Recovered References */,
+=======
 				06FEC30527556A29004B8BB2 /* Recovered References */,
+>>>>>>> 4739f901f07d55cb8b81577a6f80323ff060dfb2:raddish.xcodeproj/project.pbxproj.orig
 			);
 			sourceTree = "<group>";
 		};
@@ -244,7 +251,11 @@
 			path = "Meal Plan";
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD:raddish.xcodeproj/project.pbxproj
+		F3C36C88274B096800AF590F /* Recovered References */ = {
+=======
 		06FEC30527556A29004B8BB2 /* Recovered References */ = {
+>>>>>>> 4739f901f07d55cb8b81577a6f80323ff060dfb2:raddish.xcodeproj/project.pbxproj.orig
 			isa = PBXGroup;
 			children = (
 			);
