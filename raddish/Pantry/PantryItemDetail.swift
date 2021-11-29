@@ -25,7 +25,7 @@ struct PantryItemDetail: View {
       Text("Expiration date: " + pantryItem.displayExpDate())
 //        List {
 //            ForEach(viewModel.$mealIngredients) {meal in
-//                NavigationLink(destination: RecipeDetailsView(recipe: meal)) {
+//              NavigationLink(destination: RecipeDetailsView(recipe: meal)) {
 //                    MealIngredientView(mealIngredient: meal)
 //                }
 //            }
