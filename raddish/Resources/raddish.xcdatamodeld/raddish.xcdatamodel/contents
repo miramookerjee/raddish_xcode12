@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="expiration" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -9,10 +9,51 @@
         <attribute name="day_of_week" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="imageURL" optional="YES" attributeType="String"/>
+        <attribute name="ingredient1" optional="YES" attributeType="String"/>
+        <attribute name="ingredient2" optional="YES" attributeType="String"/>
+        <attribute name="ingredient3" optional="YES" attributeType="String"/>
+        <attribute name="ingredient4" optional="YES" attributeType="String"/>
+        <attribute name="ingredient5" optional="YES" attributeType="String"/>
+        <attribute name="ingredient6" optional="YES" attributeType="String"/>
+        <attribute name="ingredient7" optional="YES" attributeType="String"/>
+        <attribute name="ingredient8" optional="YES" attributeType="String"/>
+        <attribute name="ingredient9" optional="YES" attributeType="String"/>
+        <attribute name="ingredient10" optional="YES" attributeType="String"/>
+        <attribute name="ingredient11" optional="YES" attributeType="String"/>
+        <attribute name="ingredient12" optional="YES" attributeType="String"/>
+        <attribute name="ingredient13" optional="YES" attributeType="String"/>
+        <attribute name="ingredient14" optional="YES" attributeType="String"/>
+        <attribute name="ingredient15" optional="YES" attributeType="String"/>
+        <attribute name="ingredient16" optional="YES" attributeType="String"/>
+        <attribute name="ingredient17" optional="YES" attributeType="String"/>
+        <attribute name="ingredient18" optional="YES" attributeType="String"/>
+        <attribute name="ingredient19" optional="YES" attributeType="String"/>
+        <attribute name="ingredient20" optional="YES" attributeType="String"/>
+        <attribute name="instructions" optional="YES" attributeType="String"/>
+        <attribute name="measure1" optional="YES" attributeType="String"/>
+        <attribute name="measure2" optional="YES" attributeType="String"/>
+        <attribute name="measure3" optional="YES" attributeType="String"/>
+        <attribute name="measure4" optional="YES" attributeType="String"/>
+        <attribute name="measure5" optional="YES" attributeType="String"/>
+        <attribute name="measure6" optional="YES" attributeType="String"/>
+        <attribute name="measure7" optional="YES" attributeType="String"/>
+        <attribute name="measure8" optional="YES" attributeType="String"/>
+        <attribute name="measure9" optional="YES" attributeType="String"/>
+        <attribute name="measure10" optional="YES" attributeType="String"/>
+        <attribute name="measure11" optional="YES" attributeType="String"/>
+        <attribute name="measure12" optional="YES" attributeType="String"/>
+        <attribute name="measure13" optional="YES" attributeType="String"/>
+        <attribute name="measure14" optional="YES" attributeType="String"/>
+        <attribute name="measure15" optional="YES" attributeType="String"/>
+        <attribute name="measure16" optional="YES" attributeType="String"/>
+        <attribute name="measure17" optional="YES" attributeType="String"/>
+        <attribute name="measure18" optional="YES" attributeType="String"/>
+        <attribute name="measure19" optional="YES" attributeType="String"/>
+        <attribute name="measure20" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="74"/>
-        <element name="Meal" positionX="-45" positionY="27" width="128" height="89"/>
+        <element name="Meal" positionX="-45" positionY="27" width="128" height="704"/>
     </elements>
 </model>
