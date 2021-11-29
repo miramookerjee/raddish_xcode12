@@ -27,9 +27,7 @@ struct AddPantryItem: View {
           .padding(.leading)
         TextField("name", text: $name)
           .padding(.trailing)
-//        Text("date:")
-//          .fontWeight(.bold)
-//          .padding(.leading)
+        //PROFH look here: bug occuring here
         DatePicker(
             "Purchase Date",
             selection: $date,

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MealIngredientDetailView: View {
+struct MealIngredientView: View {
     var mealIngredient: MealIngredient
     var body: some View {
         VStack(alignment: .leading) {

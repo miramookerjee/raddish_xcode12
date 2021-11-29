@@ -35,7 +35,11 @@
 		06EAD32C273A0E28004E1928 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD32B273A0E28004E1928 /* RecipesView.swift */; };
 		06EAD331273A0E3E004E1928 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD330273A0E3E004E1928 /* Recipe.swift */; };
 		06EAD336273A0E4C004E1928 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EAD335273A0E4C004E1928 /* RecipeDetailsView.swift */; };
-		F3C09CD827432E87002B91BB /* MealDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C09CD727432E87002B91BB /* MealDetailsView.swift */; };
+		06FEC30D27556CD1004B8BB2 /* IngredientRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC30C27556CD1004B8BB2 /* IngredientRow.swift */; };
+		06FEC31227556CE8004B8BB2 /* MealIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC31127556CE8004B8BB2 /* MealIngredientView.swift */; };
+		06FEC31727556FCB004B8BB2 /* PantryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC31627556FCB004B8BB2 /* PantryTests.swift */; };
+		06FEC31C27556FF2004B8BB2 /* ServerResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */; };
+		06FEC32127557010004B8BB2 /* MealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC32027557010004B8BB2 /* MealTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +94,11 @@
 		06EAD32B273A0E28004E1928 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		06EAD330273A0E3E004E1928 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		06EAD335273A0E4C004E1928 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
-		F3C09CD727432E87002B91BB /* MealDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsView.swift; sourceTree = "<group>"; };
+		06FEC30C27556CD1004B8BB2 /* IngredientRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientRow.swift; sourceTree = "<group>"; };
+		06FEC31127556CE8004B8BB2 /* MealIngredientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealIngredientView.swift; sourceTree = "<group>"; };
+		06FEC31627556FCB004B8BB2 /* PantryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryTests.swift; sourceTree = "<group>"; };
+		06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseTests.swift; sourceTree = "<group>"; };
+		06FEC32027557010004B8BB2 /* MealTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +133,7 @@
 				06EAD2CF273A0BC0004E1928 /* raddishTests */,
 				06EAD2DA273A0BC0004E1928 /* raddishUITests */,
 				06EAD2B7273A0BBF004E1928 /* Products */,
+				06FEC30527556A29004B8BB2 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +175,9 @@
 			children = (
 				06EAD2D0273A0BC0004E1928 /* raddishTests.swift */,
 				06EAD2D2273A0BC0004E1928 /* Info.plist */,
+				06FEC31627556FCB004B8BB2 /* PantryTests.swift */,
+				06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */,
+				06FEC32027557010004B8BB2 /* MealTests.swift */,
 			);
 			path = raddishTests;
 			sourceTree = "<group>";
@@ -182,6 +194,7 @@
 		06EAD2EC273A0BC8004E1928 /* Pantry */ = {
 			isa = PBXGroup;
 			children = (
+				06FEC31127556CE8004B8BB2 /* MealIngredientView.swift */,
 				06EAD312273A0DAB004E1928 /* Pantry.swift */,
 				06EAD317273A0DCD004E1928 /* PantryItemRow.swift */,
 				06EAD31C273A0DE2004E1928 /* AddPantryItem.swift */,
@@ -194,6 +207,7 @@
 		06EAD2ED273A0BCE004E1928 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
+				06FEC30C27556CD1004B8BB2 /* IngredientRow.swift */,
 				06EAD32B273A0E28004E1928 /* RecipesView.swift */,
 				06EAD330273A0E3E004E1928 /* Recipe.swift */,
 				06EAD335273A0E4C004E1928 /* RecipeDetailsView.swift */,
@@ -225,14 +239,16 @@
 				06EAD2F1273A0C55004E1928 /* Meal.swift */,
 				069A557A2744753200F14865 /* RecipeInMealPlanView.swift */,
 				06EAD2F9273A0C68004E1928 /* MealPlanContentView.swift */,
-<<<<<<< HEAD
-				06410E17273B01CF009CFE41 /* DayOfWeekView.swift */,
-				F3C09CD727432E87002B91BB /* MealDetailsView.swift */,
-=======
 				069A55822744758400F14865 /* WeekView.swift */,
->>>>>>> main
 			);
 			path = "Meal Plan";
+			sourceTree = "<group>";
+		};
+		06FEC30527556A29004B8BB2 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,8 +391,8 @@
 				06EAD309273A0D4A004E1928 /* AnyGestureRecognizer.swift in Sources */,
 				069A557B2744753200F14865 /* RecipeInMealPlanView.swift in Sources */,
 				06EAD331273A0E3E004E1928 /* Recipe.swift in Sources */,
-				F3C09CD827432E87002B91BB /* MealDetailsView.swift in Sources */,
 				06EAD2FF273A0CAB004E1928 /* SceneDelegate.swift in Sources */,
+				06FEC31227556CE8004B8BB2 /* MealIngredientView.swift in Sources */,
 				06EAD31D273A0DE2004E1928 /* AddPantryItem.swift in Sources */,
 				06EAD2C3273A0BC0004E1928 /* Persistence.swift in Sources */,
 				06EAD2BA273A0BBF004E1928 /* raddishApp.swift in Sources */,
@@ -385,6 +401,7 @@
 				069A55832744758400F14865 /* WeekView.swift in Sources */,
 				06BC4C54273CD1E9007C016A /* ImageLoader.swift in Sources */,
 				06EAD336273A0E4C004E1928 /* RecipeDetailsView.swift in Sources */,
+				06FEC30D27556CD1004B8BB2 /* IngredientRow.swift in Sources */,
 				06EAD327273A0E0C004E1928 /* PantryItemDetail.swift in Sources */,
 				06EAD30E273A0D75004E1928 /* AppDelegate.swift in Sources */,
 				06EAD2C6273A0BC0004E1928 /* raddish.xcdatamodeld in Sources */,
@@ -396,7 +413,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06FEC32127557010004B8BB2 /* MealTests.swift in Sources */,
 				06EAD2D1273A0BC0004E1928 /* raddishTests.swift in Sources */,
+				06FEC31C27556FF2004B8BB2 /* ServerResponseTests.swift in Sources */,
+				06FEC31727556FCB004B8BB2 /* PantryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
