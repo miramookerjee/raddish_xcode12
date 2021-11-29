@@ -51,68 +51,83 @@ func populateRecipes() {
     print(self.recipes)
   }
   
-  func populateRecipesIngExpSoon() {
-    self.recipesIngExpSoon = [ ]
-    let itemsExpSoon = fetchItemsExpiringSoon()
-    print(itemsExpSoon)
-    var ingExpSoon: [String] = []
-    
-    for item in itemsExpSoon {
-      let cleanName = cleanIngNameForAPI(ing: item.name!)
-      ingExpSoon.append(cleanName)
-    }
-    
-    print(ingExpSoon)
-    
-    var recipeIDs: [String] = []
-    
-    for ingredient in ingExpSoon {
-      
-      let url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
-      
-      let task = URLSession.shared.dataTask(with: URL(string: url)!)
-                   { (data, response, error) in
-          guard let data = data else {
-            print("Error: No data to decode")
-            return
-          }
-        
-          guard let result = try? JSONDecoder().decode(RecipeIDResult.self, from: data) else {
-            print("Error: Couldn't decode data into a result")
-            return
-        }
-        recipeIDs.append(result.meals[0].idMeal)
-      }
-      task.resume()
-    }
-    
-    print(recipeIDs)
+//  func populateRecipesIngExpSoon() {
+//    self.recipesIngExpSoon = [ ]
+//    let itemsExpSoon = fetchItemsExpiringSoon()
+//    print(itemsExpSoon)
+//    var ingExpSoon: [String] = []
+//
+//    for item in itemsExpSoon {
+//      let cleanName = cleanIngNameForAPI(ing: item.name!)
+//      ingExpSoon.append(cleanName)
+//    }
+//
+//    print(ingExpSoon)
+//
+//    var recipeIDs: [String] = []
+//
+//    for ingredient in ingExpSoon {
+//
+//      let url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
+//
+//      let task = URLSession.shared.dataTask(with: URL(string: url)!)
+//                   { (data, response, error) in
+//          guard let data = data else {
+//            print("Error: No data to decode")
+//            return
+//          }
+//
+//          guard let result = try? JSONDecoder().decode(RecipeIDResult.self, from: data) else {
+//            print("Error: Couldn't decode data into a result")
+//            return
+//        }
+//        recipeIDs.append(result.meals[0].idMeal)
+//      }
+//      task.resume()
+//    }
+//
+//    print(recipeIDs)
+//
+//    for id in recipeIDs {
+//
+//      let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id
+//
+//      let task = URLSession.shared.dataTask(with: URL(string: url)!)
+//                   { (data, response, error) in
+//          guard let data = data else {
+//            print("Error: No data to decode")
+//            return
+//          }
+//
+//          guard let result = try? JSONDecoder().decode(RecipeResult.self, from: data) else {
+//            print("Error: Couldn't decode data into a result")
+//            return
+//        }
+//
+//        let recipeInstance = Recipe(strMeal: result.meals[0].strMeal, strInstructions: result.meals[0].strInstructions, strMealThumb: result.meals[0].strMealThumb);
+//        self.recipesIngExpSoon.append(recipeInstance)
+//
+//      }
+//      task.resume()
+//    }
+//
+//    print(self.recipesIngExpSoon)
+//  }
   
-    for id in recipeIDs {
-      
-      let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id
-      
-      let task = URLSession.shared.dataTask(with: URL(string: url)!)
-                   { (data, response, error) in
-          guard let data = data else {
-            print("Error: No data to decode")
-            return
-          }
-        
-          guard let result = try? JSONDecoder().decode(RecipeResult.self, from: data) else {
-            print("Error: Couldn't decode data into a result")
-            return
-        }
-
-        let recipeInstance = Recipe(strMeal: result.meals[0].strMeal, strInstructions: result.meals[0].strInstructions, strMealThumb: result.meals[0].strMealThumb);
-        self.recipesIngExpSoon.append(recipeInstance)
-
-      }
-      task.resume()
-    }
-    
-    print(self.recipesIngExpSoon)
-  }
+//  func collectRecipesIngExpSoon() {
+//    let group = DispatchGroup()
+//    var recipeIDs = Set<String>()
+//
+//    group.enter()
+//    userService.fetchRecipe { recipe in
+//      recipeIDs.insert(recipe.id)
+//      group.leave()
+//    }
+//
+//    group.notify(queue: DispatchQueue.global()) {
+//        self.populateRecipesIngExpSoon(recipeIDs)
+//      }
+//  }
   
   private func cleanIngNameForAPI(ing: String) -> String {
     var result = ""
