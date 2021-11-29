@@ -37,6 +37,7 @@
             BlueprintName = "raddishTests"
             ReferencedContainer = "container:raddish.xcodeproj">
          </BuildableReference>
+<<<<<<< HEAD
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "06EAD2B5273A0BBF004E1928"
@@ -44,6 +45,8 @@
             BlueprintName = "raddish"
             ReferencedContainer = "container:raddish.xcodeproj">
          </BuildableReference>
+=======
+>>>>>>> 5531f81e20b1279992f79edf13ebd043746e9177
       </CodeCoverageTargets>
       <Testables>
          <TestableReference
@@ -57,7 +60,7 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "06EAD2D6273A0BC0004E1928"
