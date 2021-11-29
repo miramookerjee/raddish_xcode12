@@ -46,13 +46,6 @@ class MealTests: XCTestCase {
     XCTAssertEqual(day_of_week, "n/a")
     XCTAssertEqual(imageURL, "n/a")
   }
-  
-  // test saveMealItem
-  
-  // test fetchMealtems()
-  
-  // test updateMealItems()
-  
-  // test updateMealItems()
+
 
 }

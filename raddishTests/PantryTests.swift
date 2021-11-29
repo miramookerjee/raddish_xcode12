@@ -49,13 +49,5 @@ class PantryTests: XCTestCase {
     }
     
 }
-//
-//  // test savePantryItem
-//
-//  // test fetchPantryItems()
-//
-//  // test updatePantryItems()
-//
-//  // test updatePantryItems()
-//
+
 //}
