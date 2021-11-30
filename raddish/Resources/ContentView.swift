@@ -21,18 +21,21 @@ struct ContentView: View {
 
     var body: some View {
       TabView {
-        MealPlanContentView(viewModel: viewModel)
-            .tabItem {Label("Home", systemImage: "house.fill")}
-        PantryContentView(viewModel: viewModel, viewContext: _viewContext, items: items)
+        NavigationView {
+          MealPlanContentView(viewModel: viewModel)
+        }
+        .tabItem {Label("Home", systemImage: "house.fill")}
+        
+        NavigationView {
+          PantryContentView(viewContext: _viewContext, items: items)
+        }
         .tabItem {Label("Pantry", systemImage: "leaf.fill")}
-        RecipesView(viewModel: viewModel)
+        
+        NavigationView {
+          RecipesView(viewModel: viewModel)
+        }
         .tabItem {Label("Recipes", systemImage: "list.bullet.rectangle.portrait.fill")}
       }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+      .environmentObject(viewModel)
     }
 }

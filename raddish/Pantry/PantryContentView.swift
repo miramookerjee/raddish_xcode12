@@ -9,14 +9,23 @@ import SwiftUI
 
 
 struct PantryContentView: View {
-    @ObservedObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     @Environment(\.managedObjectContext) var viewContext
     var items: FetchedResults<Item>
     @State private var showAddView = false
   
     var body: some View {
-      NavigationView {
-        List {
+      List {
+        Section(header: Text("Expiring Soon")) {
+          ForEach(viewModel.fetchItemsExpiringSoon()) { pantryItem in
+            NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
+              PantryItemRow(pantryItem: pantryItem)
+            }
+          }
+          .onDelete(perform: delete)
+        }
+        
+        Section(header: Text("All")) {
           ForEach(viewModel.pantry) { pantryItem in
             NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
               PantryItemRow(pantryItem: pantryItem)
@@ -24,29 +33,23 @@ struct PantryContentView: View {
           }
           .onDelete(perform: delete)
         }
-        .onAppear(perform: {
-          self.viewModel.updatePantryItems()
-        })
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                EditButton()
-            }
-            ToolbarItem {
-//                Button(action: {self.showAddView.toggle()})
-//                       {
-//                          Image(systemName:"plus")
-//                       }.sheet(isPresented: $showAddView) {
-//                        AddPantryItem(viewModel: viewModel, showAddView: self.$showAddView)
-//                        }
-                NavigationLink(destination: AddPantryItem(viewModel: viewModel)) {
-                    Label("Add Item", systemImage: "plus")
-                }
-            }
-        }
-        .navigationBarTitle("Pantry")
       }
+      .onAppear(perform: {
+        self.viewModel.updatePantryItems()
+      })
+      .toolbar {
+          ToolbarItem(placement: .navigationBarTrailing) {
+              EditButton()
+          }
+          ToolbarItem {
+            NavigationLink(destination: AddPantryItem(viewModel: viewModel)) {
+                              Label("Add Item", systemImage: "plus")
+                          }
+          }
+      }
+      .navigationBarTitle("Pantry")
     }
-  
+    
   private func addItem() {
     withAnimation {
         let newItem = Item(context: viewContext)
@@ -79,7 +82,7 @@ struct PantryContentView: View {
   }
 
   func delete(at offsets: IndexSet) {
-  viewModel.deletePantryItem(atOffsets: offsets)
+    viewModel.deletePantryItem(atOffsets: offsets)
   }
   
   private let itemFormatter: DateFormatter = {
