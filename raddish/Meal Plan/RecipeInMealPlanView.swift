@@ -17,7 +17,7 @@ struct RecipeInMealPlanView: View {
     VStack {
       
       NavigationLink(destination: RecipeDetailsView(
-                      recipe: Recipe(
+                        recipe: Recipe( id: i.id, 
                         strMeal: i.displayName(), strInstructions: i.displayInstructions(), strMealThumb: i.displayimageURL(),
                         strIngredient1: i.displayIngredient1(), strIngredient2: i.displayIngredient2(),
                         strIngredient3: i.displayIngredient3(), strIngredient4: i.displayIngredient4(),
