@@ -25,17 +25,17 @@ struct PantryItemDetail: View {
       Text("Expiration date: " + pantryItem.displayExpDate())
         List {
          //prof h: this bug could also be here
-         ForEach(viewModel.mealIngredients, id: \.self) { meal in
-                         let _ = print(meal.strMeal)
-                         Text(meal.strMeal)
-         }
- //        ForEach(viewModel.mealIngredients) {meal in
- //            NavigationLink(meal.strMeal, destination: RecipeDetailsView(recipe: viewModel.createRecipe(recipe:meal.strMeal), viewModel: viewModel))
- //            //{
- //                    //MealIngredientView(mealIngredient: meal)
- //                    //Label(meal.strMeal)
- //            //}
- //            }
+//         ForEach(viewModel.mealIngredients, id: \.self) { meal in
+//                         let _ = print(meal.strMeal)
+//                         Text(meal.strMeal)
+//         }
+         ForEach(viewModel.recipesIng) {recipe in
+            NavigationLink(recipe.strMeal, destination: RecipeDetailsView(recipe: recipe, viewModel: viewModel))
+             //{
+                     //MealIngredientView(mealIngredient: meal)
+                     //Label(meal.strMeal)
+             //}
+             }
          }
         .onAppear(perform: {
             self.viewModel.retrieveMealswithIng(ingredient: pantryItem.displayName())

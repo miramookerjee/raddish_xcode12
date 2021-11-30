@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct Recipe: Hashable, Codable {
+struct Recipe: Hashable, Codable, Identifiable{
+    var id: String
     let strMeal: String
     let strInstructions: String
     let strMealThumb: String
@@ -59,7 +60,7 @@ struct Recipe: Hashable, Codable {
 
   
   enum CodingKeys : String, CodingKey {
-    
+    case id = "idMeal"
     case strMeal
     case strInstructions
     case strMealThumb
