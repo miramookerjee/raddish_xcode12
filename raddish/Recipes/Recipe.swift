@@ -57,7 +57,6 @@ struct Recipe: Hashable, Codable, Identifiable{
     let strMeasure18: String?
     let strMeasure19: String?
     let strMeasure20: String?
-
   
   enum CodingKeys : String, CodingKey {
     case id = "idMeal"
@@ -108,7 +107,6 @@ struct Recipe: Hashable, Codable, Identifiable{
     case strMeasure18
     case strMeasure19
     case strMeasure20
-
   }
   
 }

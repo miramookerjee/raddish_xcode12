@@ -221,7 +221,7 @@ func populateRecipes() {
   
   func daysBetween(start: Date, end: Date) -> Int {
     return Calendar.current.dateComponents([.day], from: start, to: end).day! + 1
-  }
+ 
 
   func savePantryItem(name: String?, expiration: Date?, date: Date?) {
     // create a new Pantry Item object
@@ -321,7 +321,6 @@ func populateRecipes() {
     }
     pantry.remove(atOffsets: atOffsets)
   }
-  
   func saveMealItem(day_of_week: String?, name: String?, imageURL: String?, instructions: String?,
                     ingredient1: String?, ingredient2: String?, ingredient3: String?,
                     ingredient4: String?, ingredient5: String?, ingredient6: String?,
@@ -364,6 +363,14 @@ func populateRecipes() {
         newMealItem.imageURL = nil
       }
     }
+    
+    //Compare all the ingredients in the Pantry with the
+    //ingredients required for this meal
+        
+    let recipe = createRecipe(recipe: newMealItem.name)
+    for pantryItem in self.pantry {
+            
+        }
      
     if let instructionsTemp = instructions {
       if instructionsTemp != "" {
