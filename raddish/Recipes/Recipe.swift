@@ -59,7 +59,6 @@ struct Recipe: Hashable, Codable {
 
   
   enum CodingKeys : String, CodingKey {
-    
     case strMeal
     case strInstructions
     case strMealThumb

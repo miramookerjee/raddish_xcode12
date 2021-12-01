@@ -15,9 +15,10 @@ class ViewModel: ObservableObject {
   let appDelegate: AppDelegate = AppDelegate()
   @Published var pantry = [PantryItem]()
   @Published var recipes = [Recipe]()
-  @Published var meals = [MealItem] ()
-  @Published var mealIngredients = [MealIngredient] ()
-  var recipesToPopulate = ["Arrabiata", "Soup", "sandwich", "salad"]
+  @Published var meals = [MealItem]()
+  @Published var mealIngredients = [MealIngredient]()
+  @Published var recipesIngExpSoon = [Recipe]()
+  var recipesToPopulate = ["Arrabiata", "Soup", "sandwich", "salad", "chicken"]
   var expiration_data = ["Juice":21,"Butter":30,"Buttermilk":7,"Parmesan":30,"Cream":3,"Eggnog":3,"Eggs":21,"Kefir":7,"Milk":7,"Yogurt":7,"Tofu":7,"Caviar":7,"Surimi":3,"Shrimp":1,"Crab":1,"Lobster":1,"Beef":3,"Giblets":21,"Apples":2,"Apricots":3,"Avocados":2,"Bananas":1,"Berries":7,"Coconuts":7,"Grapes":3,"Kiwi":3,"Melons":7,"Papaya":3,"Peaches":3,"Pears":7,"Artichokes":3,"Asparagus":3,"Beans":7,"Bok Choy":3,"Broccoli":3,"Brussels":3,"Cauliflower":7,"Cabbage":21,"Carrots":7,"Celery":1,"Corn":4,"Cucumbers":3,"Eggplant":7,"Garlic":7,"Ginger":1,"Leeks":7,"Lettuce":2,"Mushrooms":2,"Okra":60,"Onions":7,"Parsley":4,"Peppers":7,"Potatoes":10,"Radishes":14,"Rutabagas":4,"Squash":14,"Turnips":2,"Tomatoes":60,"Burritos":360,"Fish":120,"Guacamole":60,"Ice":180,"Pancakes":30,"Sausages":30,"Sherbet":360,"Tempeh":3,"Chicken":3,"Pate":21,"Cheese":7,"Cheesecake":180,"Biscuit":360,"Cornmeal":540,"Cornstarch":30,"Flour":300,"Frosting":540,"Chocolate":360,"Cocoa":360,"Ketchup":60,"Horseradish":360,"Mayonnaise":360,"Mustard":300,"Olives":360,"Pickles":60,"Salsa":180,"Crackers":180,"Extracts":540,"Gelatin":730,"Gravy":360,"Honey":120,"Jams":360,"Jerky":60,"Lentils":180,"Marshmallows":180,"Molasses":730,"Oils":730,"Nuts":360,"Peanut":60,"Peas":360,"Pectin":60,"Popcorn":180,"Pudding":240,"Rice":1095,"Sauce":1095,"Shortening":360,"Soda":90,"Soup":60,"Spaghetti":120,"Spices":360,"Paprika":360,"Sugar":540,"Syrup":730,"Tapioca":180,"Tea":360,"Vinegar":2,"Yeast":2,"Water":1,"Bread":30,"Cakes":3,"Cookies":1]
 
 //Separate this function of populating the recipes array from the actual URL
@@ -26,7 +27,6 @@ func populateRecipes() {
     for recipe in recipesToPopulate {
         createRecipe(recipe:recipe)
     }
-        
 }
     
     func createRecipe(recipe:String){
@@ -97,6 +97,139 @@ func populateRecipes() {
               }
               task.resume()
           }
+  
+  
+  func populateRecipesIngExpSoon(_ recipes: Set<String>) {
+    self.recipesIngExpSoon = [ ]
+
+    for id in recipes {
+      createRecipeExpSoon(recipeID: id)
+    }
+
+  }
+  
+  func createRecipeExpSoon(recipeID: String) {
+    let url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + recipeID
+
+    let task = URLSession.shared.dataTask(with: URL(string: url)!)
+                 { (data, response, error) in
+        guard let data = data else {
+          print("Error: No data to decode")
+          return
+        }
+
+        guard let result = try? JSONDecoder().decode(Result.self, from: data) else {
+          print("Error: Couldn't decode data into a result")
+          return
+      }
+
+      let recipeInstance = Recipe(
+        strMeal: result.meals[0].strMeal,
+        strInstructions: result.meals[0].strInstructions,
+        strMealThumb: result.meals[0].strMealThumb,
+        strIngredient1: result.meals[0].strIngredient1,
+        strIngredient2: result.meals[0].strIngredient2,
+        strIngredient3: result.meals[0].strIngredient3,
+        strIngredient4: result.meals[0].strIngredient4,
+        strIngredient5: result.meals[0].strIngredient5,
+        strIngredient6: result.meals[0].strIngredient6,
+        strIngredient7: result.meals[0].strIngredient7,
+        strIngredient8: result.meals[0].strIngredient8,
+        strIngredient9: result.meals[0].strIngredient9,
+        strIngredient10: result.meals[0].strIngredient10,
+        strIngredient11: result.meals[0].strIngredient11,
+        strIngredient12: result.meals[0].strIngredient12,
+        strIngredient13: result.meals[0].strIngredient13,
+        strIngredient14: result.meals[0].strIngredient14,
+        strIngredient15: result.meals[0].strIngredient15,
+        strIngredient16: result.meals[0].strIngredient16,
+        strIngredient17: result.meals[0].strIngredient17,
+        strIngredient18: result.meals[0].strIngredient18,
+        strIngredient19: result.meals[0].strIngredient19,
+        strIngredient20: result.meals[0].strIngredient20,
+        strMeasure1: result.meals[0].strMeasure1,
+        strMeasure2: result.meals[0].strMeasure2,
+        strMeasure3: result.meals[0].strMeasure3,
+        strMeasure4: result.meals[0].strMeasure4,
+        strMeasure5: result.meals[0].strMeasure5,
+        strMeasure6: result.meals[0].strMeasure6,
+        strMeasure7: result.meals[0].strMeasure7,
+        strMeasure8: result.meals[0].strMeasure8,
+        strMeasure9: result.meals[0].strMeasure9,
+        strMeasure10: result.meals[0].strMeasure10,
+        strMeasure11: result.meals[0].strMeasure11,
+        strMeasure12: result.meals[0].strMeasure12,
+        strMeasure13: result.meals[0].strMeasure13,
+        strMeasure14: result.meals[0].strMeasure14,
+        strMeasure15: result.meals[0].strMeasure15,
+        strMeasure16: result.meals[0].strMeasure16,
+        strMeasure17: result.meals[0].strMeasure17,
+        strMeasure18: result.meals[0].strMeasure18,
+        strMeasure19: result.meals[0].strMeasure19,
+        strMeasure20: result.meals[0].strMeasure20
+      );
+      self.recipesIngExpSoon.append(recipeInstance)
+
+    }
+    task.resume()
+  }
+  
+  func fetchRecipesIngExpSoon() {
+    let group = DispatchGroup()
+    var recipeIDs = Set<String>()
+    
+    let itemsExpSoon = fetchItemsExpiringSoon()
+    print(itemsExpSoon)
+    var ingExpSoon: [String] = []
+
+    for item in itemsExpSoon {
+      let cleanName = cleanIngNameForAPI(ing: item.name!)
+      ingExpSoon.append(cleanName)
+    }
+
+    for ingredient in ingExpSoon {
+      group.enter()
+      
+      let url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
+
+      let task = URLSession.shared.dataTask(with: URL(string: url)!)
+                   { (data, response, error) in
+          guard let data = data else {
+            print("Error: No data to decode")
+            return
+          }
+
+          guard let result = try? JSONDecoder().decode(MealIngredientResult.self, from: data) else {
+            print("Error: Couldn't decode data into a result")
+            return
+        }
+        for recipe in result.meals {
+          recipeIDs.insert(recipe.id)
+        }
+        
+        group.leave()
+      }
+      task.resume()
+    }
+
+    group.notify(queue: DispatchQueue.global()) {
+        self.populateRecipesIngExpSoon(recipeIDs)
+      }
+  }
+  
+  private func cleanIngNameForAPI(ing: String) -> String {
+    var result = ""
+    
+    for c in ing.lowercased() {
+      if c == " " {
+        result.append("_")
+      } else {
+        result.append(c)
+      }
+    }
+    
+    return result
+  }
     
     func ingredientImages(ingredient: String) -> String{
         let url = "https://www.themealdb.com/images/ingredients/\(ingredient).png"
@@ -214,6 +347,7 @@ func populateRecipes() {
       }
     }
     
+    print(expSoon)
     return expSoon
   }
   

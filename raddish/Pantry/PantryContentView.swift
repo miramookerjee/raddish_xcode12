@@ -34,9 +34,7 @@ struct PantryContentView: View {
           .onDelete(perform: delete)
         }
       }
-      .onAppear(perform: {
-        self.viewModel.updatePantryItems()
-      })
+      .listStyle(GroupedListStyle())
       .toolbar {
           ToolbarItem(placement: .navigationBarTrailing) {
               EditButton()

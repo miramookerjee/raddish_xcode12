@@ -37,5 +37,9 @@ struct ContentView: View {
         .tabItem {Label("Recipes", systemImage: "list.bullet.rectangle.portrait.fill")}
       }
       .environmentObject(viewModel)
+      .onAppear(perform: {
+        self.viewModel.updateMealItems()
+        self.viewModel.updatePantryItems()
+      })
     }
 }
