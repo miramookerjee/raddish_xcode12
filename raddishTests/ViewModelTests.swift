@@ -2,7 +2,7 @@
 //  ViewModelTests.swift
 //  raddishTests
 //
-//  Created by Mira Mookerjee on 11/29/21.
+//  Created by Esteban Vazquez Cardona on 12/1/21.
 //
 
 import XCTest
@@ -29,7 +29,27 @@ class ViewModelTests: XCTestCase {
         }
     }
   
-  func testPopulateRecipes() {
+  func testPopulateRecipesIngExpSoon () {
+    
+  }
+  
+  func testCreateRecipeExpSoon() {
+    
+  }
+  
+  func fetchRecipesIngExpSoon() {
+    
+  }
+  
+  func testCleanIngNameForAPI() {
+    
+  }
+  
+  func testDaysBetween() {
+    
+  }
+  
+  func testFetchItemsExpiringSoon() {
     
   }
 
