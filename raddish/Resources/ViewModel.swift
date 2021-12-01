@@ -290,6 +290,7 @@ func populateRecipes() {
         newPantryItem.name = nil
       }
     }
+    
     if let expirationTemp = expiration as Date? {
       newPantryItem.expiration = expirationTemp
     } else {

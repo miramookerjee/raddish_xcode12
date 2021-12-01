@@ -39,7 +39,7 @@ struct AddPantryItem: View {
     .navigationBarTitle("New Pantry Item")
     .navigationBarItems(trailing:
       Button(action: {
-        self.viewModel.savePantryItem(name: self.name, expiration: self.viewModel.getIngExp(self.name, self.date), date: self.date)
+        self.viewModel.savePantryItem(name: self.name.trimmingCharacters(in: .whitespaces), expiration: self.viewModel.getIngExp(self.name, self.date), date: self.date)
       self.mode.wrappedValue.dismiss()
       }) {
         Text("Done")
