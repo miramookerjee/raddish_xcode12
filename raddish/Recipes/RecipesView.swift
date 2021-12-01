@@ -19,8 +19,8 @@ struct RecipesView: View {
         }
         .listStyle(GroupedListStyle())
         .onAppear(perform: {
+          self.viewModel.fetchRecipesIngExpSoon()
           self.viewModel.populateRecipes()
-          self.viewModel.populateRecipesIngExpSoon()
         })
       }
       .navigationBarTitle("Recipes")

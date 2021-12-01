@@ -35,9 +35,6 @@ struct PantryContentView: View {
         }
       }
       .listStyle(GroupedListStyle())
-      .onAppear(perform: {
-        self.viewModel.updatePantryItems()
-      })
       .toolbar {
           ToolbarItem(placement: .navigationBarTrailing) {
               EditButton()
