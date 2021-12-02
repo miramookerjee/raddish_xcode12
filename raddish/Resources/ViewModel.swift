@@ -102,6 +102,7 @@ func populateRecipes() {
           }
     
     func createMealIngRecipe () {
+        // PROF H LOOK HERE!!!!!!!
         self.recipesIng.removeAll()
         for meal in self.mealIngredients {
             let recipe = meal.strMeal
@@ -179,6 +180,7 @@ func populateRecipes() {
     }
     
     func retrieveMealswithIng (ingredient: String){
+      //PROF H LOOK HERE!!!!!
         let basic_url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
         
         let url = basic_url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Recipe Not Available"
