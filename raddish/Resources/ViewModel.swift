@@ -226,6 +226,69 @@ func populateRecipes() {
                     return
                 }
             }
+            if (meal.ingredient2 != "") {
+                let ingredient2 = meal.displayIngredient2()
+                if (!(pantryItems.contains(ingredient2))) {
+                    meal.missingIng = true
+                    return
+                }
+            }
+            if (meal.ingredient3 != "") {
+                let ingredient3 = meal.displayIngredient3()
+                if (!(pantryItems.contains(ingredient3))) {
+                    meal.missingIng = true
+                    return
+                }
+            }
+            if (meal.ingredient4 != "") {
+                let ingredient4 = meal.displayIngredient4()
+                if (!(pantryItems.contains(ingredient4))) {
+                    meal.missingIng = true
+                    return
+                }
+            }
+            if (meal.ingredient5 != "") {
+                let ingredient5 = meal.displayIngredient5()
+                if (!(pantryItems.contains(ingredient5))) {
+                    meal.missingIng = true
+                    return
+                }
+            }
+            if (meal.ingredient6 != "") {
+                let ingredient6 = meal.displayIngredient6()
+                if (!(pantryItems.contains(ingredient6))) {
+                    meal.missingIng = true
+                    return
+                }
+            }
+            if (meal.ingredient7 != "") {
+                let ingredient7 = meal.displayIngredient7()
+                if (!(pantryItems.contains(ingredient7))) {
+                    meal.missingIng = true
+                    return
+                }
+            }
+            if (meal.ingredient8 != "") {
+                let ingredient8 = meal.displayIngredient8()
+                if (!(pantryItems.contains(ingredient8))) {
+                    meal.missingIng = true
+                    return
+                }
+            }
+            if (meal.ingredient9 != "") {
+                let ingredient9 = meal.displayIngredient9()
+                if (!(pantryItems.contains(ingredient9))) {
+                    meal.missingIng = true
+                    return
+                }
+            }
+            if (meal.ingredient10 != "") {
+                let ingredient10 = meal.displayIngredient10()
+                if (!(pantryItems.contains(ingredient10))) {
+                    meal.missingIng = true
+                    return
+                }
+            }
             
         }
     }
