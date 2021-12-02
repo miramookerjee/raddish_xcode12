@@ -208,6 +208,7 @@ func populateRecipes() {
         }
         
         group.leave()
+
       }
       task.resume()
     }

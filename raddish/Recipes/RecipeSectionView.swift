@@ -27,6 +27,7 @@ struct RecipeSectionView: View {
                         .cornerRadius(15)
                                
                     Text(i.strMeal)
+                      .foregroundColor(Color.black)
                   }
                 }
               }
