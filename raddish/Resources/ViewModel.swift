@@ -4,7 +4,6 @@
 //
 //  Created by Mira Mookerjee on 10/24/21.
 //
-
 import Foundation
 import Photos
 import SwiftUI
@@ -100,7 +99,9 @@ func populateRecipes() {
               }
               task.resume()
           }
+    
     func createMealIngRecipe () {
+        // PROF H LOOK HERE!!!!!!!
         self.recipesIng.removeAll()
         for meal in self.mealIngredients {
             let recipe = meal.strMeal
@@ -178,6 +179,7 @@ func populateRecipes() {
     }
     
     func retrieveMealswithIng (ingredient: String){
+      //PROF H LOOK HERE!!!!!
         let basic_url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
         
         let url = basic_url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Recipe Not Available"
@@ -220,7 +222,7 @@ func populateRecipes() {
   
   func daysBetween(start: Date, end: Date) -> Int {
     return Calendar.current.dateComponents([.day], from: start, to: end).day! + 1
- 
+  }
 
   func savePantryItem(name: String?, expiration: Date?, date: Date?) {
     // create a new Pantry Item object
@@ -320,6 +322,7 @@ func populateRecipes() {
     }
     pantry.remove(atOffsets: atOffsets)
   }
+  
   func saveMealItem(day_of_week: String?, name: String?, imageURL: String?, instructions: String?,
                     ingredient1: String?, ingredient2: String?, ingredient3: String?,
                     ingredient4: String?, ingredient5: String?, ingredient6: String?,
@@ -362,14 +365,6 @@ func populateRecipes() {
         newMealItem.imageURL = nil
       }
     }
-    
-    //Compare all the ingredients in the Pantry with the
-    //ingredients required for this meal
-        
-    let recipe = createRecipe(recipe: newMealItem.name)
-    for pantryItem in self.pantry {
-            
-        }
      
     if let instructionsTemp = instructions {
       if instructionsTemp != "" {
@@ -869,6 +864,5 @@ func populateRecipes() {
       }
 
     meals.remove(at: meals.firstIndex(of: mealItem) ?? -1)
-  }   
-}
+  }
 }
