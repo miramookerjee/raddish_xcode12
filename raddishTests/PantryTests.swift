@@ -36,14 +36,14 @@ class PantryTests: XCTestCase {
   }
   
   func testDisplayName() {
-    let pantryItem = PantryItem(name: "Eggs", expiration: NSDate(), date: Date())
+    let pantryItem = PantryItem(name: "Eggs", expiration: NSDate() as Date, date: Date())
     let name = pantryItem.displayName()
     XCTAssertEqual(name, "Eggs")
   }
   
   
     func testNADisplayName() {
-      let pantryItem = PantryItem(name: nil, expiration: NSDate(), date: Date())
+      let pantryItem = PantryItem(name: nil, expiration: NSDate() as Date, date: Date())
       let name = pantryItem.displayName()
       XCTAssertEqual(name, "n/a")
     }
