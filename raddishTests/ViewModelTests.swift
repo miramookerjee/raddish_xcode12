@@ -30,7 +30,9 @@ class ViewModelTests: XCTestCase {
     }
   
   func testPopulateRecipes() {
-    
+    @ObservedObject var viewModel: ViewModel
+    populateRecipes()
+    XCTAssert(viewModel.recipes.length == 4)
   }
 
 }
