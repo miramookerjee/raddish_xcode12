@@ -36,27 +36,35 @@ class ViewModelTests: XCTestCase {
     }
   
   func testPopulateRecipesIngExpSoon () {
+    let seconds = 4.0
     let vm = ViewModel()
     
     // with recipes
     vm.recipesIngExpSoon = []
     let recipes1: Set<String> = ["52940", "52846", "52934"]
     vm.populateRecipesIngExpSoon(recipes1)
-    XCTAssertEqual(vm.recipesIngExpSoon.count, 3)
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+      XCTAssertEqual(vm.recipesIngExpSoon.count, 3)
+    }
 
     // with no recipes
     vm.recipesIngExpSoon = []
     let recipes2: Set<String> = []
     vm.populateRecipesIngExpSoon(recipes2)
-    XCTAssertEqual(vm.recipesIngExpSoon.count, 0)
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+      XCTAssertEqual(vm.recipesIngExpSoon.count, 0)
+    }
   }
   
   func testCreateRecipeExpSoon() {
+    let seconds = 4.0
     let vm = ViewModel()
     
     // recipe id exists (Chicken Marengo)
     vm.createRecipeExpSoon(recipeID: "52920")
-    XCTAssertEqual(vm.recipesIngExpSoon.count, 1)
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+      XCTAssertEqual(vm.recipesIngExpSoon.count, 1)
+    }
     
     // recipe id doesn't exist (id: 1)
     expectation = expectation(description: "Server responds in reasonable time")
@@ -83,18 +91,23 @@ class ViewModelTests: XCTestCase {
   }
   
   func testfetchRecipesIngExpSoon() {
+    let seconds = 2.0
     let vm = ViewModel()
     vm.recipesIngExpSoon = []
-
+    
     // pantry with ing expiring soon
     vm.pantry = [PantryItem(name: "Chicken", expiration: Date.tomorrow, date: Date())]
     vm.fetchRecipesIngExpSoon()
-    XCTAssertNotEqual(vm.recipesIngExpSoon, [])
-
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+      XCTAssertEqual(vm.recipesIngExpSoon.count, 1)
+    }
+    
     // pantry without ingredients exp soon
     vm.pantry = [PantryItem(name: "Chicken", expiration: Date.inAWeek, date: Date())]
     vm.fetchRecipesIngExpSoon()
-    XCTAssertEqual(vm.recipesIngExpSoon, [])
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+      XCTAssertEqual(vm.recipesIngExpSoon, [])
+    }
   }
   
   func testCleanIngNameForAPI() {
