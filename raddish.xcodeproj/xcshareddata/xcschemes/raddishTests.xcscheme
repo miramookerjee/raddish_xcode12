@@ -11,11 +11,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
 <<<<<<< HEAD
+<<<<<<< HEAD
       shouldUseLaunchSchemeArgsEnv = "YES">
 =======
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
 >>>>>>> ingredient_testiing
+=======
+      shouldUseLaunchSchemeArgsEnv = "YES">
+>>>>>>> testing
       <Testables>
          <TestableReference
             skipped = "NO">
