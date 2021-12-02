@@ -44,6 +44,10 @@ class PantryItem: Identifiable, Equatable {
     
     if days == 1 {
       return "Expires in \(days) day"
+    } else if days == 0 {
+      return "Expired yesterday"
+    } else if days < 0 {
+      return "Expired \(days * -1 + 1) days ago"
     }
     
     return "Expires in \(days) days"
