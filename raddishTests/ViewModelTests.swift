@@ -6,6 +6,8 @@
 //
 
 import XCTest
+import Foundation
+@testable import raddish
 
 class ViewModelTests: XCTestCase {
 
@@ -30,9 +32,13 @@ class ViewModelTests: XCTestCase {
     }
   
   func testPopulateRecipes() {
-    @ObservedObject var viewModel: ViewModel
-    populateRecipes()
-    XCTAssert(viewModel.recipes.length == 4)
+    let viewModel = ViewModel()
+    viewModel.populateRecipes()
+    let seconds = 4.0
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+      XCTAssert(viewModel.recipes.count == 4)
+    }
+
   }
 
 }
