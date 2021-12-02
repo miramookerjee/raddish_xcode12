@@ -871,3 +871,4 @@ func populateRecipes() {
     meals.remove(at: meals.firstIndex(of: mealItem) ?? -1)
   }   
 }
+}
