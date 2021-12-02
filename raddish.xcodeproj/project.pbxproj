@@ -39,6 +39,7 @@
 		06FEC31727556FCB004B8BB2 /* PantryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC31627556FCB004B8BB2 /* PantryTests.swift */; };
 		06FEC31C27556FF2004B8BB2 /* ServerResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */; };
 		06FEC32127557010004B8BB2 /* MealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC32027557010004B8BB2 /* MealTests.swift */; };
+		F31CA2BA2757EB9100E940C5 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31CA2B92757EB9100E940C5 /* ViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		06FEC31627556FCB004B8BB2 /* PantryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryTests.swift; sourceTree = "<group>"; };
 		06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseTests.swift; sourceTree = "<group>"; };
 		06FEC32027557010004B8BB2 /* MealTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTests.swift; sourceTree = "<group>"; };
+		F31CA2B92757EB9100E940C5 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				06FEC31627556FCB004B8BB2 /* PantryTests.swift */,
 				06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */,
 				06FEC32027557010004B8BB2 /* MealTests.swift */,
+				F31CA2B92757EB9100E940C5 /* ViewModelTests.swift */,
 			);
 			path = raddishTests;
 			sourceTree = "<group>";
@@ -194,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				06EAD312273A0DAB004E1928 /* Pantry.swift */,
-				9EED7807274AE99E00F49E87 /* MealIngredientView.swift */,
 				06EAD317273A0DCD004E1928 /* PantryItemRow.swift */,
 				06EAD31C273A0DE2004E1928 /* AddPantryItem.swift */,
 				06EAD326273A0E0C004E1928 /* PantryItemDetail.swift */,
@@ -401,7 +403,6 @@
 				06EAD327273A0E0C004E1928 /* PantryItemDetail.swift in Sources */,
 				06EAD30E273A0D75004E1928 /* AppDelegate.swift in Sources */,
 				06EAD2C6273A0BC0004E1928 /* raddish.xcdatamodeld in Sources */,
-				9EED7808274AE99E00F49E87 /* MealIngredientView.swift in Sources */,
 				06EAD318273A0DCD004E1928 /* PantryItemRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-class PantryItem: Identifiable {
+class PantryItem: Identifiable, Equatable {
+  
   
   // MARK: Properties
   var name: String?
@@ -43,9 +44,19 @@ class PantryItem: Identifiable {
     
     if days == 1 {
       return "Expires in \(days) day"
+    } else if days == 0 {
+      return "Expired yesterday"
+    } else if days < 0 {
+      return "Expired \(days * -1 + 1) days ago"
     }
     
     return "Expires in \(days) days"
+  }
+  
+  static func == (lhs: PantryItem, rhs: PantryItem) -> Bool {
+    return lhs.displayName() == rhs.displayName()
+        && lhs.displayExpDate() == rhs.displayExpDate()
+        && lhs.displayDate() == rhs.displayDate()
   }
 }
 
