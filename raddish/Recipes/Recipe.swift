@@ -8,72 +8,65 @@
 import Foundation
 import SwiftUI
 
-struct Recipe: Hashable, Codable {
+struct Recipe: Hashable, Codable, Identifiable{
+    var id: String
     let strMeal: String
     let strInstructions: String
     let strMealThumb: String
-    let strIngredient1: String
-    let strIngredient2: String
-    let strIngredient3: String
-    let strIngredient4: String
-    let strIngredient5: String
-    let strIngredient6: String
-    let strIngredient7: String
-    let strIngredient8: String
-    let strIngredient9: String
-    let strIngredient10: String
-    let strIngredient11: String
-    let strIngredient12: String
-    let strIngredient13: String
-    let strIngredient14: String
-    let strIngredient15: String
-    let strIngredient16: String
-    let strIngredient17: String
-    let strIngredient18: String
-    let strIngredient19: String
-    let strIngredient20: String
-    let strMeasure1: String
-    let strMeasure2: String
-    let strMeasure3: String
-    let strMeasure4: String
-    let strMeasure5: String
-    let strMeasure6: String
-    let strMeasure7: String
-    let strMeasure8: String
-    let strMeasure9: String
-    let strMeasure10: String
-    let strMeasure11: String
-    let strMeasure12: String
-    let strMeasure13: String
-    let strMeasure14: String
-    let strMeasure15: String
-    let strMeasure16: String
-    let strMeasure17: String
-    let strMeasure18: String
-    let strMeasure19: String
-    let strMeasure20: String
-  
-    var category: Category
-    enum Category: String, CaseIterable, Codable {
-        case monday = "Monday"
-        case tuesday = "Tuesday"
-        case wednesday = "Wednesday"
-        case thursday = "Thursday"
-        case friday = "Friday"
-        case saturday = "Saturday"
-        case sunday = "Sunday"
-    }
-
-    private var imageName: String
-    var image: Image {
-        Image(imageName)
-    }
+  /*
+    let ingredients: [String?]
+    let measures: [String?]
+ */
+    let strIngredient1: String?
+    let strIngredient2: String?
+    let strIngredient3: String?
+    let strIngredient4: String?
+    let strIngredient5: String?
+    let strIngredient6: String?
+    let strIngredient7: String?
+    let strIngredient8: String?
+    let strIngredient9: String?
+    let strIngredient10: String?
+    let strIngredient11: String?
+    let strIngredient12: String?
+    let strIngredient13: String?
+    let strIngredient14: String?
+    let strIngredient15: String?
+    let strIngredient16: String?
+    let strIngredient17: String?
+    let strIngredient18: String?
+    let strIngredient19: String?
+    let strIngredient20: String?
+    let strMeasure1: String?
+    let strMeasure2: String?
+    let strMeasure3: String?
+    let strMeasure4: String?
+    let strMeasure5: String?
+    let strMeasure6: String?
+    let strMeasure7: String?
+    let strMeasure8: String?
+    let strMeasure9: String?
+    let strMeasure10: String?
+    let strMeasure11: String?
+    let strMeasure12: String?
+    let strMeasure13: String?
+    let strMeasure14: String?
+    let strMeasure15: String?
+    let strMeasure16: String?
+    let strMeasure17: String?
+    let strMeasure18: String?
+    let strMeasure19: String?
+    let strMeasure20: String?
   
   enum CodingKeys : String, CodingKey {
-    
+    case id = "idMeal"
     case strMeal
     case strInstructions
     case strMealThumb
+    /*
+    case ingredients
+    case measures
+ */
     case strIngredient1
     case strIngredient2
     case strIngredient3
@@ -114,8 +107,6 @@ struct Recipe: Hashable, Codable {
     case strMeasure18
     case strMeasure19
     case strMeasure20
-    case category
-    case imageName
   }
   
 }

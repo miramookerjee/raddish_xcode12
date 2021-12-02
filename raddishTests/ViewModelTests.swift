@@ -1,14 +1,13 @@
 //
-//  raddishTests.swift
+//  ViewModelTests.swift
 //  raddishTests
 //
-//  Created by Mira Mookerjee on 10/24/21.
+//  Created by Mira Mookerjee on 11/29/21.
 //
 
 import XCTest
-@testable import raddish
 
-class raddishTests: XCTestCase {
+class ViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -29,5 +28,9 @@ class raddishTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+  
+  func testPopulateRecipes() {
+    
+  }
 
 }
