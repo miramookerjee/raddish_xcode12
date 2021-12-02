@@ -47,8 +47,11 @@ struct RecipeInMealPlanView: View {
                      placeholder: { Text("Loading...") })
               .frame(width: 107, height: 115)
               .cornerRadius(15)
-                     
-          Text(i.displayName())
+            
+            if (i.missingIng == true) {
+                Text("Ingredient Missing")
+            }
+            Text(i.displayName())
         }
       }
     }

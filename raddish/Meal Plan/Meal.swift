@@ -56,6 +56,7 @@ class MealItem: Identifiable, Hashable {
   var measure18: String?
   var measure19: String?
   var measure20: String?
+  var missingIng: Bool
 
 
   init(day_of_week: String? = nil, name: String? = nil,
@@ -73,7 +74,7 @@ class MealItem: Identifiable, Hashable {
        measure10: String? = nil, measure11: String? = nil, measure12: String? = nil,
        measure13: String? = nil, measure14: String? = nil, measure15: String? = nil,
        measure16: String? = nil, measure17: String? = nil, measure18: String? = nil,
-       measure19: String? = nil, measure20: String? = nil
+       measure19: String? = nil, measure20: String? = nil, missingIng: Bool = false
   ) {
     self.day_of_week = day_of_week
     self.name = name
@@ -119,6 +120,7 @@ class MealItem: Identifiable, Hashable {
     self.measure18 = measure18
     self.measure19 = measure19
     self.measure20 = measure20
+    self.missingIng = false; 
   }
 
   func displayName() -> String {
@@ -296,6 +298,15 @@ class MealItem: Identifiable, Hashable {
   func displayMeasure20() -> String {
     return measure20 ?? ""
   }
+ 
+    func displayMissingIng() -> String {
+        if (missingIng == false) {
+            return "false"
+        }
+        else {
+            return "true"
+        }
+    }
   
   func hash(into hasher: inout Hasher) {
       hasher.combine(id)

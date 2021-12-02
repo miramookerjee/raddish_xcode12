@@ -103,6 +103,7 @@ func populateRecipes() {
     func createMealIngRecipe () {
         // PROF H LOOK HERE!!!!!!!
         self.recipesIng.removeAll()
+        DispatchQueue.main.async {
         for meal in self.mealIngredients {
             let recipe = meal.strMeal
             let basic_url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + recipe
@@ -170,6 +171,7 @@ func populateRecipes() {
             }
             task.resume()
         }
+        }
     }
     
     func ingredientImages(ingredient: String) -> String{
@@ -180,6 +182,7 @@ func populateRecipes() {
     
     func retrieveMealswithIng (ingredient: String){
       //PROF H LOOK HERE!!!!!
+        DispatchQueue.main.async {
         let basic_url = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient
         
         let url = basic_url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Recipe Not Available"
@@ -206,6 +209,25 @@ func populateRecipes() {
             }
         }
         task.resume()
+        }
+    }
+    
+    func checkMealsMissingIng() {
+        var pantryItems = [String]();
+        for pantryItem in pantry {
+            pantryItems.append(pantryItem.displayName())
+        }
+        for meal in meals {
+            //Checks if any of the meals have missing ingredients
+            if (meal.ingredient1 != "") {
+                let ingredient1 = meal.displayIngredient1()
+                if (!(pantryItems.contains(ingredient1))) {
+                    meal.missingIng = true
+                    return
+                }
+            }
+            
+        }
     }
   
   func getIngExp(_ name: String,_ purchDate: Date) -> Date {
