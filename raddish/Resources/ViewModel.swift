@@ -179,7 +179,6 @@ func populateRecipes() {
     var recipeIDs = Set<String>()
     
     let itemsExpSoon = fetchItemsExpiringSoon()
-    print(itemsExpSoon)
     var ingExpSoon: [String] = []
 
     for item in itemsExpSoon {
@@ -217,7 +216,7 @@ func populateRecipes() {
       }
   }
   
-  private func cleanIngNameForAPI(ing: String) -> String {
+  func cleanIngNameForAPI(ing: String) -> String {
     var result = ""
     
     for c in ing.lowercased() {
@@ -265,7 +264,7 @@ func populateRecipes() {
   func getIngExp(_ name: String,_ purchDate: Date) -> Date {
     var result: Date
     
-    if let daysToExp = expiration_data.first(where: { (key, _) in key.range(of: name, options: .caseInsensitive) != nil }) {
+    if let daysToExp = expiration_data.first(where: { (key, _) in key.range(of: name.trimmingCharacters(in: .whitespaces), options: .caseInsensitive) != nil }) {
       result = Calendar.current.date(byAdding: .day, value: daysToExp.value, to: purchDate)!
     } else {
       result = Date()
@@ -348,8 +347,7 @@ func populateRecipes() {
       }
     }
     
-    print(expSoon)
-    return expSoon
+    return expSoon.sorted(by: { $0.expiration! < $1.expiration! })
   }
   
   func updatePantryItems() {
