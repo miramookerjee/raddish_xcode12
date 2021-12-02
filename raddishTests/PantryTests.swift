@@ -47,6 +47,8 @@ class PantryTests: XCTestCase {
       let name = pantryItem.displayName()
       XCTAssertEqual(name, "n/a")
     }
+  
+  
     
 }
 
