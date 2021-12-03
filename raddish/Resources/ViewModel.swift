@@ -95,7 +95,9 @@ func populateRecipes() {
                   strMeasure20: result.meals[0].strMeasure20
                 );
                 print(recipeInstance.strInstructions)
-                self.recipes.append(recipeInstance)
+                DispatchQueue.main.async {
+                    self.recipes.append(recipeInstance)
+                }
               }
               task.resume()
           }
@@ -301,7 +303,9 @@ func populateRecipes() {
                 strMeasure19: result.meals[0].strMeasure19,
                 strMeasure20: result.meals[0].strMeasure20
               );
-              self.recipesIng.append(recipeInstance)
+                DispatchQueue.main.async {
+                    self.recipesIng.append(recipeInstance)
+                }
             }
             task.resume()
         }
@@ -335,11 +339,15 @@ func populateRecipes() {
           }
             //prof h: there is a bug here
             
-            self.mealIngredients.removeAll()
+            DispatchQueue.main.async {
+                self.mealIngredients.removeAll()
+            }
             
             for meal in result.meals {
-                self.mealIngredients.append(MealIngredient(id:meal.id,strMeal: meal.strMeal, strMealThumb: meal.strMealThumb))
-                self.createMealIngRecipe();
+                DispatchQueue.main.async {
+                    self.mealIngredients.append(MealIngredient(id:meal.id,strMeal: meal.strMeal, strMealThumb: meal.strMealThumb))
+                    self.createMealIngRecipe();
+                }
             }
         }
         task.resume()
