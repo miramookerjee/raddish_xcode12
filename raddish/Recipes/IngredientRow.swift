@@ -21,9 +21,18 @@ struct IngredientRow: View {
             .padding()
           Text(measure)
             .padding()
-          Text(ingredient)
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
+          
+          if (viewModel.pantryNames.contains(ingredient)) {
+            Text(ingredient)
+              .padding()
+              .frame(maxWidth: .infinity, alignment: .leading)
+              .foregroundColor(.green)
+          }
+          else {
+            Text(ingredient)
+              .padding()
+              .frame(maxWidth: .infinity, alignment: .leading)
+          }
         }
         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
         // https://www.hackingwithswift.com/quick-start/swiftui/how-to-draw-a-border-around-a-view
