@@ -16,6 +16,7 @@ class ViewModel: ObservableObject {
   @Published var recipes = [Recipe]()
   @Published var meals = [MealItem] ()
   @Published var mealIngredients = [MealIngredient] ()
+  @Published var recipesIngExpSoon = [Recipe]()
   @Published var recipesIng = [Recipe]()
   var recipesToPopulate = ["Arrabiata", "Soup", "sandwich", "salad"]
   var expiration_data = ["Juice":21,"Butter":30,"Buttermilk":7,"Parmesan":30,"Cream":3,"Eggnog":3,"Eggs":21,"Kefir":7,"Milk":7,"Yogurt":7,"Tofu":7,"Caviar":7,"Surimi":3,"Shrimp":1,"Crab":1,"Lobster":1,"Beef":3,"Giblets":21,"Apples":2,"Apricots":3,"Avocados":2,"Bananas":1,"Berries":7,"Coconuts":7,"Grapes":3,"Kiwi":3,"Melons":7,"Papaya":3,"Peaches":3,"Pears":7,"Artichokes":3,"Asparagus":3,"Beans":7,"Bok Choy":3,"Broccoli":3,"Brussels":3,"Cauliflower":7,"Cabbage":21,"Carrots":7,"Celery":1,"Corn":4,"Cucumbers":3,"Eggplant":7,"Garlic":7,"Ginger":1,"Leeks":7,"Lettuce":2,"Mushrooms":2,"Okra":60,"Onions":7,"Parsley":4,"Peppers":7,"Potatoes":10,"Radishes":14,"Rutabagas":4,"Squash":14,"Turnips":2,"Tomatoes":60,"Burritos":360,"Fish":120,"Guacamole":60,"Ice":180,"Pancakes":30,"Sausages":30,"Sherbet":360,"Tempeh":3,"Chicken":3,"Pate":21,"Cheese":7,"Cheesecake":180,"Biscuit":360,"Cornmeal":540,"Cornstarch":30,"Flour":300,"Frosting":540,"Chocolate":360,"Cocoa":360,"Ketchup":60,"Horseradish":360,"Mayonnaise":360,"Mustard":300,"Olives":360,"Pickles":60,"Salsa":180,"Crackers":180,"Extracts":540,"Gelatin":730,"Gravy":360,"Honey":120,"Jams":360,"Jerky":60,"Lentils":180,"Marshmallows":180,"Molasses":730,"Oils":730,"Nuts":360,"Peanut":60,"Peas":360,"Pectin":60,"Popcorn":180,"Pudding":240,"Rice":1095,"Sauce":1095,"Shortening":360,"Soda":90,"Soup":60,"Spaghetti":120,"Spices":360,"Paprika":360,"Sugar":540,"Syrup":730,"Tapioca":180,"Tea":360,"Vinegar":2,"Yeast":2,"Water":1,"Bread":30,"Cakes":3,"Cookies":1]
@@ -125,6 +126,7 @@ func populateRecipes() {
       }
 
       let recipeInstance = Recipe(
+        id: result.meals[0].id,
         strMeal: result.meals[0].strMeal,
         strInstructions: result.meals[0].strInstructions,
         strMealThumb: result.meals[0].strMealThumb,
@@ -355,72 +357,142 @@ func populateRecipes() {
                 let ingredient1 = meal.displayIngredient1()
                 if (!(pantryItems.contains(ingredient1))) {
                     meal.missingIng = true
-                    return
+                    break
                 }
             }
             if (meal.ingredient2 != "") {
                 let ingredient2 = meal.displayIngredient2()
                 if (!(pantryItems.contains(ingredient2))) {
                     meal.missingIng = true
-                    return
+                    break
                 }
             }
             if (meal.ingredient3 != "") {
                 let ingredient3 = meal.displayIngredient3()
                 if (!(pantryItems.contains(ingredient3))) {
                     meal.missingIng = true
-                    return
+                    break
                 }
             }
             if (meal.ingredient4 != "") {
                 let ingredient4 = meal.displayIngredient4()
                 if (!(pantryItems.contains(ingredient4))) {
                     meal.missingIng = true
-                    return
+                    break
                 }
             }
             if (meal.ingredient5 != "") {
                 let ingredient5 = meal.displayIngredient5()
                 if (!(pantryItems.contains(ingredient5))) {
                     meal.missingIng = true
-                    return
+                    break
                 }
             }
             if (meal.ingredient6 != "") {
                 let ingredient6 = meal.displayIngredient6()
                 if (!(pantryItems.contains(ingredient6))) {
                     meal.missingIng = true
-                    return
+                    break
                 }
             }
             if (meal.ingredient7 != "") {
                 let ingredient7 = meal.displayIngredient7()
                 if (!(pantryItems.contains(ingredient7))) {
                     meal.missingIng = true
-                    return
+                    break
                 }
             }
             if (meal.ingredient8 != "") {
                 let ingredient8 = meal.displayIngredient8()
                 if (!(pantryItems.contains(ingredient8))) {
                     meal.missingIng = true
-                    return
+                    break
                 }
             }
             if (meal.ingredient9 != "") {
                 let ingredient9 = meal.displayIngredient9()
                 if (!(pantryItems.contains(ingredient9))) {
                     meal.missingIng = true
-                    return
+                    break
                 }
             }
             if (meal.ingredient10 != "") {
                 let ingredient10 = meal.displayIngredient10()
                 if (!(pantryItems.contains(ingredient10))) {
                     meal.missingIng = true
-                    return
+                    break
                 }
             }
+            if (meal.ingredient11 != "") {
+                let ingredient11 = meal.displayIngredient11()
+                if (!(pantryItems.contains(ingredient11))) {
+                    meal.missingIng = true
+                    break
+                }
+            }
+            if (meal.ingredient12 != "") {
+                let ingredient12 = meal.displayIngredient12()
+                if (!(pantryItems.contains(ingredient12))) {
+                    meal.missingIng = true
+                    break
+                }
+            }
+            if (meal.ingredient13 != "") {
+                let ingredient13 = meal.displayIngredient13()
+                if (!(pantryItems.contains(ingredient13))) {
+                    meal.missingIng = true
+                    break
+                }
+            }
+            if (meal.ingredient14 != "") {
+                let ingredient14 = meal.displayIngredient14()
+                if (!(pantryItems.contains(ingredient14))) {
+                    meal.missingIng = true
+                    break
+                }
+            }
+            if (meal.ingredient15 != "") {
+                let ingredient15 = meal.displayIngredient15()
+                if (!(pantryItems.contains(ingredient15))) {
+                    meal.missingIng = true
+                    break
+                }
+            }
+            if (meal.ingredient16 != "") {
+                let ingredient16 = meal.displayIngredient16()
+                if (!(pantryItems.contains(ingredient16))) {
+                    meal.missingIng = true
+                    break
+                }
+            }
+            if (meal.ingredient17 != "") {
+                let ingredient17 = meal.displayIngredient17()
+                if (!(pantryItems.contains(ingredient17))) {
+                    meal.missingIng = true
+                    break
+                }
+            }
+            if (meal.ingredient18 != "") {
+                let ingredient18 = meal.displayIngredient18()
+                if (!(pantryItems.contains(ingredient18))) {
+                    meal.missingIng = true
+                    break
+                }
+            }
+            if (meal.ingredient19 != "") {
+                let ingredient19 = meal.displayIngredient19()
+                if (!(pantryItems.contains(ingredient19))) {
+                    meal.missingIng = true
+                    break
+                }
+            }
+            if (meal.ingredient20 != "") {
+                let ingredient20 = meal.displayIngredient20()
+                if (!(pantryItems.contains(ingredient20))) {
+                    meal.missingIng = true
+                    break
+                }
+            } 
             
         }
     }

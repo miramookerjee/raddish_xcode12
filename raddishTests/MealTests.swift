@@ -265,6 +265,32 @@ class MealTests: XCTestCase {
     XCTAssertEqual(measure18, "")
     XCTAssertEqual(measure19, "")
     XCTAssertEqual(measure20, "")
+    
+    func testDisplayMissingIng() {
+        let mealItem = MealItem(
+          day_of_week: "Monday", name: "Penne Arrabiata",
+          imageURL: "www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata",
+          ingredient1: nil, ingredient2: nil, ingredient3: nil,
+          ingredient4: nil, ingredient5: nil, ingredient6: nil,
+          ingredient7: nil, ingredient8: nil, ingredient9: nil,
+          ingredient10: nil, ingredient11: nil, ingredient12: nil,
+          ingredient13: nil, ingredient14: nil, ingredient15: nil,
+          ingredient16: nil, ingredient17: nil, ingredient18: nil,
+          ingredient19: nil, ingredient20: nil,
+          measure1: nil, measure2: nil, measure3: nil,
+          measure4: nil, measure5: nil, measure6: nil,
+          measure7: nil, measure8: nil, measure9: nil,
+          measure10: nil, measure11: nil, measure12: nil,
+          measure13: nil, measure14: nil, measure15: nil,
+          measure16: nil, measure17: nil, measure18: nil,
+            measure19: nil, measure20: nil, missingIng: false
+        )
+        let missingFalse = mealItem.displayMissingIng()
+        XCTAssertEqual(missingFalse, "false")
+        mealItem.missingIng = true
+        let missingTrue = mealItem.displayMissingIng()
+        XCTAssertEqual(missingTrue, "true")
+    }
   }
 
 
