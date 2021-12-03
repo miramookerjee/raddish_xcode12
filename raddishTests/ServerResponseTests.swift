@@ -106,5 +106,40 @@ class ServerResponseTests: XCTestCase {
     }
     .resume()
   }
+    
+//Testing the ingredient Images Endpoint
+    func testIngredientImages404() {
+        defer { waitForExpectations(timeout: expired) }
+        let url2 = URL(string: "https://www.themealdb.com/images/ingredients/chickenbreast.png")!
+        URLSession.shared.dataTask(with: url2) { data, response, error in
+
+          XCTAssertNotNil(data)
+          XCTAssertNotNil(response)
+          XCTAssertNil(error)
+          do {
+            let response = try XCTUnwrap(response as? HTTPURLResponse)
+            XCTAssertEqual(response.statusCode, 404)
+
+          } catch { }
+          
+          self.expectation.fulfill()
+        }
+        .resume()
+    }
+    
+//Testing the server with a valid ingredient
+    func testIngredientImagesValid() {
+        defer { waitForExpectations(timeout: expired) }
+
+        let url = URL(string: "https://www.themealdb.com/images/ingredients/chicken.png")!
+        URLSession.shared.dataTask(with: url) { data, response, error in
+          XCTAssertNotNil(data)
+          XCTAssertNotNil(response)
+          XCTAssertNil(error)
+          
+          self.expectation.fulfill()
+        }
+        .resume()
+    }
 
 }

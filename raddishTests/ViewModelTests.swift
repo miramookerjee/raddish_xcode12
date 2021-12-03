@@ -64,10 +64,50 @@ class ViewModelTests: XCTestCase {
       XCTAssertEqual(vm.recipesIngExpSoon.count, 0)
     }
   }
+    
+    func testCreateRecipeBadURL() {
+        //URL doesn't exist
+        expectation = expectation(description: "Server responds in reasonable time")
+        defer { waitForExpectations(timeout: expired) }
+
+        let url = URL(string: "https://www.themealdb.com/api/json/v1/1/search.php")!
+        URLSession.shared.dataTask(with: url) { data, response, error in
+
+          XCTAssertNotNil(data)
+          XCTAssertNotNil(response)
+          XCTAssertNil(error)
+          guard let data = data else {
+              print("Error: No data to decode")
+              return
+            }
+          
+            guard let result = try? JSONDecoder().decode(Result.self, from: data) else {
+              print("Error: Couldn't decode data into a result")
+              self.expectation.fulfill()
+              return
+          }
+        }
+        .resume()
+        let seconds = 4.0
+        let vm = ViewModel()
+        
+        //ingredient does not exist
+        vm.createRecipe(recipe: "")
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+          XCTAssertEqual(vm.recipes.count, 0)
+        }
+    }
   
   func testCreateRecipeExpSoon() {
     let seconds = 4.0
     let vm = ViewModel()
+    
+    //recipe id doesn't exist
+    vm.createRecipeExpSoon(recipeID: "1")
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+      XCTAssertEqual(vm.recipesIngExpSoon.count, 0)
+    }
+    
     
     // recipe id exists (Chicken Marengo)
     vm.createRecipeExpSoon(recipeID: "52920")
@@ -75,6 +115,7 @@ class ViewModelTests: XCTestCase {
       XCTAssertEqual(vm.recipesIngExpSoon.count, 1)
     }
     
+   
     // recipe id doesn't exist (id: 1)
     expectation = expectation(description: "Server responds in reasonable time")
     defer { waitForExpectations(timeout: expired) }
@@ -98,6 +139,119 @@ class ViewModelTests: XCTestCase {
     }
     .resume()
   }
+    
+    func testRetrieveMealswithIngBadURL() {
+        //URL doesn't exist
+        expectation = expectation(description: "Server responds in reasonable time")
+        defer { waitForExpectations(timeout: expired) }
+
+        let url = URL(string: "https://www.themealdb.com/api/json/v1/1/filter.php")!
+        URLSession.shared.dataTask(with: url) { data, response, error in
+
+          XCTAssertNotNil(data)
+          XCTAssertNotNil(response)
+          XCTAssertNil(error)
+          guard let data = data else {
+              print("Error: No data to decode")
+              return
+            }
+          
+            guard let result = try? JSONDecoder().decode(Result.self, from: data) else {
+              print("Error: Couldn't decode data into a result")
+              self.expectation.fulfill()
+              return
+          }
+        }
+        .resume()
+        
+        let seconds = 4.0
+        let vm = ViewModel()
+        //ingredient does not exist
+        vm.retrieveMealswithIng(ingredient: "")
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+          XCTAssertEqual(vm.mealIngredients.count, 0)
+        }
+    }
+    
+    func testRetrieveMealswithIng () {
+        
+        let seconds = 4.0
+        let vm = ViewModel()
+        expectation = expectation(description: "Server responds in reasonable time")
+        
+        // ingredient doesn't exist
+        defer { waitForExpectations(timeout: expired) }
+
+        let url2 = URL(string: "https://www.themealdb.com/api/json/v1/1/filter.php?i=garble")!
+        URLSession.shared.dataTask(with: url2) { data, response, error in
+
+          XCTAssertNotNil(data)
+          XCTAssertNotNil(response)
+          XCTAssertNil(error)
+          guard let data = data else {
+              print("Error: No data to decode")
+              return
+            }
+          
+            guard let result = try? JSONDecoder().decode(Result.self, from: data) else {
+              print("Error: Couldn't decode data into a result")
+              self.expectation.fulfill()
+              return
+          }
+        }
+        .resume()
+        
+        //ingredient does not exist
+        vm.retrieveMealswithIng(ingredient: "garble")
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+          XCTAssertEqual(vm.mealIngredients.count, 0)
+        }
+        
+        //ingredient does exist
+        vm.retrieveMealswithIng(ingredient: "blueberries")
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+          XCTAssertEqual(vm.mealIngredients.count, 2)
+        }
+    }
+    
+    func testIngredientImages() {
+        //Testing the specific ingredientImages function
+        let seconds = 4.0
+        let vm = ViewModel()
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+          //ingredient without a space
+          XCTAssertEqual(vm.ingredientImages(ingredient: "chicken"), "https://www.themealdb.com/images/ingredients/chicken.png")
+          //ingredient with a space
+           XCTAssertEqual(vm.ingredientImages(ingredient: "olive oil"), "https://www.themealdb.com/images/ingredients/olive%oil.png")
+        }
+    }
+    func testCreateMealIngRecipe () {
+        let seconds = 4.0
+        let vm = ViewModel()
+        
+        //nothing in mealIngredient
+        vm.createMealIngRecipe()
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+          XCTAssertEqual(vm.recipesIng.count, 0)
+        }
+        
+        //mealIngredient is already populated with pancakes
+        vm.mealIngredients.append(MealIngredient(id:"52854",strMeal: "Pancakes", strMealThumb: "https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg"))
+        vm.createMealIngRecipe()
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+          XCTAssertEqual(vm.recipesIng.count, 1)
+        }
+        
+        //add a bad MealIngredient
+        vm.mealIngredients.append(MealIngredient(id:"1",strMeal: "Pancakes", strMealThumb: "https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg"))
+        vm.createMealIngRecipe()
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+          XCTAssertEqual(vm.recipesIng.count, 1)
+        }
+        
+    }
   
   func testfetchRecipesIngExpSoon() {
     let seconds = 2.0
@@ -118,6 +272,19 @@ class ViewModelTests: XCTestCase {
       XCTAssertEqual(vm.recipesIngExpSoon, [])
     }
   }
+    
+    func testMissingIngredients() {
+        let vm = ViewModel()
+        let seconds = 2.0
+        vm.pantry = [PantryItem(name: "Chicken", expiration: Date.inAWeek, date: Date())]
+        vm.meals = [MealItem(day_of_week: "Monday", name: "Salmon Avocado Salad", imageURL: "", instructions: "", ingredient1: "Salmon", ingredient2: "Avocado", ingredient3: "Romaine Lettuce", ingredient4: "", ingredient5: "", ingredient6: "", ingredient7: "", ingredient8: "", ingredient9: "", ingredient10: "", ingredient11: "", ingredient12: "", ingredient13: "", ingredient14: "", ingredient15: "", ingredient16: "", ingredient17: "", ingredient18: "", ingredient19: "", ingredient20: "", measure1: "", measure2: "", measure3: "", measure4: "", measure5: "", measure6: "", measure7: "", measure8: "", measure9: "", measure10: "", measure11: "", measure12: "", measure13: "", measure14: "", measure15: "", measure16: "", measure17: "", measure18: "", measure19: "", measure20: "", missingIng: false), MealItem(day_of_week: "Monday", name: "Dry Chicken", imageURL: "", instructions: "", ingredient1: "Chicken", ingredient2: "", ingredient3: "", ingredient4: "", ingredient5: "", ingredient6: "", ingredient7: "", ingredient8: "", ingredient9: "", ingredient10: "", ingredient11: "", ingredient12: "", ingredient13: "", ingredient14: "", ingredient15: "", ingredient16: "", ingredient17: "", ingredient18: "", ingredient19: "", ingredient20: "", measure1: "", measure2: "", measure3: "", measure4: "", measure5: "", measure6: "", measure7: "", measure8: "", measure9: "", measure10: "", measure11: "", measure12: "", measure13: "", measure14: "", measure15: "", measure16: "", measure17: "", measure18: "", measure19: "", measure20: "", missingIng: false)]
+        vm.checkMealsMissingIng()
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            XCTAssertEqual(vm.meals[0].missingIng, true)
+            XCTAssertEqual(vm.meals[1].missingIng, false)
+        }
+        
+    }
   
   func testCleanIngNameForAPI() {
     let vm = ViewModel()
