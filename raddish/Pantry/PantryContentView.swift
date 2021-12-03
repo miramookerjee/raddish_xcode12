@@ -26,7 +26,7 @@ struct PantryContentView: View {
         }
         
         Section(header: Text("All")) {
-          ForEach(viewModel.pantry) { pantryItem in
+          ForEach(viewModel.pantry.sorted(by: { $0.expiration! < $1.expiration! })) { pantryItem in
             NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
               PantryItemRow(pantryItem: pantryItem)
             }
@@ -34,9 +34,7 @@ struct PantryContentView: View {
           .onDelete(perform: delete)
         }
       }
-      .onAppear(perform: {
-        self.viewModel.updatePantryItems()
-      })
+      .listStyle(GroupedListStyle())
       .toolbar {
           ToolbarItem(placement: .navigationBarTrailing) {
               EditButton()

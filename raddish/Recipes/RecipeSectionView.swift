@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecipeSectionView: View {
     var sectionTitle: String
+    var recipesList: [Recipe]
     @State var showingSheet = false
     @ObservedObject var viewModel: ViewModel
   
@@ -17,7 +18,7 @@ struct RecipeSectionView: View {
         ScrollView(.horizontal) {
             HStack(alignment: .center, spacing: 20) {
                 
-              ForEach(viewModel.recipes, id: \.self) { i in
+              ForEach(recipesList, id: \.self) { i in
                 NavigationLink(destination: RecipeDetailsView(recipe: i, viewModel: viewModel)) {
                   VStack {
                     AsyncImage(url: URL(string: i.strMealThumb)!,
@@ -26,6 +27,7 @@ struct RecipeSectionView: View {
                         .cornerRadius(15)
                                
                     Text(i.strMeal)
+                      .foregroundColor(Color.black)
                   }
                 }
               }
