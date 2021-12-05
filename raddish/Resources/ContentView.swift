@@ -34,7 +34,7 @@ struct ContentView: View {
         NavigationView {
           RecipesView(viewModel: viewModel)
         }
-        .tabItem {Label("Recipes", systemImage: "list.bullet.rectangle.portrait.fill")}
+        .tabItem {Label("Recipes", systemImage: "list.bullet.rectangle")}
       }
       .environmentObject(viewModel)
       .onAppear(perform: {
