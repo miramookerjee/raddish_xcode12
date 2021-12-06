@@ -40,6 +40,7 @@ struct ContentView: View {
       .onAppear(perform: {
         self.viewModel.updateMealItems()
         self.viewModel.updatePantryItems()
+        self.viewModel.checkMealsMissingIng()
       })
     }
 }
