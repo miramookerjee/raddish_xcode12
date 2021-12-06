@@ -17,17 +17,22 @@ struct WeekView: View {
           ScrollView(.horizontal) {
             LazyHStack(alignment: .center, spacing: 20) {
               EditButton()
+                .foregroundColor(Color.green)
+              HStack {
+                Divider()
+                  .background(Color.green)
+              }
+              .frame(height: 160)
+              
                 ForEach(viewModel.meals, id: \.self) { i in
                   if (i.day_of_week == day) {
-                    RecipeInMealPlanView(i: i, showingDetailSheet: showingDetailSheet, viewModel: viewModel)
+                    RecipeInMealPlanView(i: i, showingDetailSheet: showingDetailSheet)
                   }
                 }
             }
-            .frame(minHeight: 185)
+            .frame(minHeight: 200)
           }
       }
       .foregroundColor(Color.black)
     }
 }
-
-

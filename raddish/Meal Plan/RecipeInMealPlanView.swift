@@ -11,7 +11,7 @@ import SwiftUI
 struct RecipeInMealPlanView: View {
   var i: MealItem
   @State var showingDetailSheet: Bool
-  @ObservedObject var viewModel: ViewModel
+  @EnvironmentObject var viewModel: ViewModel
 
   var body: some View {
     VStack {
@@ -47,17 +47,53 @@ struct RecipeInMealPlanView: View {
                      placeholder: { Text("Loading...") })
               .frame(width: 107, height: 115)
               .cornerRadius(15)
-            
-            if (i.missingIng == true) {
-                Text("Ingredient Missing")
-            }
+          
             Text(i.displayName())
+              .font(.system(size: 16))
+              .frame(width: 107)
+              .lineLimit(2)
         }
       }
     }
+    .overlay(MissingIngButton(viewModel: viewModel, meal: i), alignment: .topTrailing)
     .overlay(DeleteButton(viewModel: viewModel, meal: i), alignment: .topTrailing)
   }
 }
+
+struct MissingIngButton: View {
+  
+  @State private var showingAlert = false
+  @ObservedObject var viewModel: ViewModel
+  var meal: MealItem
+  
+  var body: some View {
+    
+    if meal.missingIng == true {
+      Button(action: { showingAlert = true }) {
+        Image(systemName: "nosign").font(Font.body.weight(.bold))
+      }
+      .frame(width: 25, height: 25)
+      .background(Color.gray)
+      .foregroundColor(Color.white)
+      .clipShape(Circle())
+      .offset(x: 5, y: -10)
+      .alert(isPresented: $showingAlert) {
+        Alert(
+                    title: Text("Just so you know..."),
+                    message: Text("An ingredient in this recipe is not currently available in your pantry.")
+                )
+        
+      }
+    }
+  }
+  
+  private func showMissingIng () {
+    withAnimation {
+      viewModel.deleteMealItem(mealItem: meal)
+    }
+  }
+}
+
 
 struct DeleteButton: View {
   

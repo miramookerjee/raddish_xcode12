@@ -39,7 +39,6 @@
 		06FEC31727556FCB004B8BB2 /* PantryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC31627556FCB004B8BB2 /* PantryTests.swift */; };
 		06FEC31C27556FF2004B8BB2 /* ServerResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC31B27556FF2004B8BB2 /* ServerResponseTests.swift */; };
 		06FEC32127557010004B8BB2 /* MealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEC32027557010004B8BB2 /* MealTests.swift */; };
-		F31CA2BA2757EB9100E940C5 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31CA2B92757EB9100E940C5 /* ViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
