@@ -19,7 +19,7 @@ struct PantryContentView: View {
         Section(header: Text("Expiring Soon")) {
           ForEach(viewModel.fetchItemsExpiringSoon()) { pantryItem in
             NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
-              PantryItemRow(pantryItem: pantryItem)
+              PantryItemRow(viewModel: viewModel, pantryItem: pantryItem)
             }
           }
           .onDelete(perform: delete)
@@ -28,7 +28,7 @@ struct PantryContentView: View {
         Section(header: Text("All")) {
           ForEach(viewModel.pantry.sorted(by: { $0.expiration! < $1.expiration! })) { pantryItem in
             NavigationLink(destination: PantryItemDetail(pantryItem: pantryItem)) {
-              PantryItemRow(pantryItem: pantryItem)
+              PantryItemRow(viewModel: viewModel, pantryItem: pantryItem)
             }
           }
           .onDelete(perform: delete)

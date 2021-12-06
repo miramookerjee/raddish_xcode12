@@ -15,25 +15,44 @@ struct RecipeSectionView: View {
   
     var body: some View {
       Section(header: Text(sectionTitle)) {
-        ScrollView(.horizontal) {
-            HStack(alignment: .center, spacing: 20) {
-                
+        
+          if recipesList.count != 0 {
+            ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 20) {
               ForEach(recipesList, id: \.self) { i in
                 NavigationLink(destination: RecipeDetailsView(recipe: i, viewModel: viewModel)) {
                   VStack {
                     AsyncImage(url: URL(string: i.strMealThumb)!,
                                placeholder: { Text("Loading...") })
-                        .frame(width: 107, height: 115)
-                        .cornerRadius(15)
+                      .scaledToFill()
+                      .frame(height: 70)
+                      .clipped()
                                
                     Text(i.strMeal)
-                      .foregroundColor(Color.black)
+                      .padding([.leading, .trailing, .bottom], 3)
+                      .font(.system(size: 16))
+                      .foregroundColor(.black)
+                      .multilineTextAlignment(.center)
+                      .lineLimit(2)
+                      .frame(height: 45)
                   }
                 }
+                .background(Color.white)
+                .frame(width: 130, height: 115)
+                .cornerRadius(15)
+                .shadow(radius: 3)
               }
             }
+            .frame(minHeight: 140)
+            }
+          } else {
+            Text("No ingredients in your pantry are expiring soon.")
+              .foregroundColor(Color.gray)
+//              .frame(width: 300)
+              .padding()
           }
-        }
+        
+      }
     }
 }
 

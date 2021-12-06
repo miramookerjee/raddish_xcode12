@@ -35,8 +35,6 @@ struct MealPlanContentView: View {
             WeekView(day: "Saturday", showingDetailSheet: showingDetailSheet, viewModel: viewModel)
       }
     }
-    .onAppear(perform: {
-    })
     .navigationBarTitle("Meal Plan")
     .navigationBarItems(trailing:
       NavigationLink(destination: RecipesView(viewModel: viewModel)) {
