@@ -111,6 +111,8 @@ struct RecipeDetailsView: View {
       measure17: recipe.strMeasure17, measure18: recipe.strMeasure18,
       measure19: recipe.strMeasure19, measure20: recipe.strMeasure20
     )
+    self.viewModel.updateMealItems()
+    self.viewModel.checkMealsMissingIng()
     self.mode.wrappedValue.dismiss()
     //UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true)
      //RecipesView.mode.wrappedValue.dismiss()

@@ -36,8 +36,6 @@ struct MealPlanContentView: View {
       }
     }
     .onAppear(perform: {
-      self.viewModel.updateMealItems()
-      self.viewModel.checkMealsMissingIng()
     })
     .navigationBarTitle("Meal Plan")
     .navigationBarItems(trailing:
