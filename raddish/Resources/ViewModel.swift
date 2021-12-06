@@ -364,140 +364,140 @@ func populateRecipes() {
                 let ingredient1 = meal.displayIngredient1()
                 if (!(pantryItems.contains(ingredient1))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient2 != "") {
                 let ingredient2 = meal.displayIngredient2()
                 if (!(pantryItems.contains(ingredient2))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient3 != "") {
                 let ingredient3 = meal.displayIngredient3()
                 if (!(pantryItems.contains(ingredient3))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient4 != "") {
                 let ingredient4 = meal.displayIngredient4()
                 if (!(pantryItems.contains(ingredient4))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient5 != "") {
                 let ingredient5 = meal.displayIngredient5()
                 if (!(pantryItems.contains(ingredient5))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient6 != "") {
                 let ingredient6 = meal.displayIngredient6()
                 if (!(pantryItems.contains(ingredient6))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient7 != "") {
                 let ingredient7 = meal.displayIngredient7()
                 if (!(pantryItems.contains(ingredient7))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient8 != "") {
                 let ingredient8 = meal.displayIngredient8()
                 if (!(pantryItems.contains(ingredient8))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient9 != "") {
                 let ingredient9 = meal.displayIngredient9()
                 if (!(pantryItems.contains(ingredient9))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient10 != "") {
                 let ingredient10 = meal.displayIngredient10()
                 if (!(pantryItems.contains(ingredient10))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient11 != "") {
                 let ingredient11 = meal.displayIngredient11()
                 if (!(pantryItems.contains(ingredient11))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient12 != "") {
                 let ingredient12 = meal.displayIngredient12()
                 if (!(pantryItems.contains(ingredient12))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient13 != "") {
                 let ingredient13 = meal.displayIngredient13()
                 if (!(pantryItems.contains(ingredient13))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient14 != "") {
                 let ingredient14 = meal.displayIngredient14()
                 if (!(pantryItems.contains(ingredient14))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient15 != "") {
                 let ingredient15 = meal.displayIngredient15()
                 if (!(pantryItems.contains(ingredient15))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient16 != "") {
                 let ingredient16 = meal.displayIngredient16()
                 if (!(pantryItems.contains(ingredient16))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient17 != "") {
                 let ingredient17 = meal.displayIngredient17()
                 if (!(pantryItems.contains(ingredient17))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient18 != "") {
                 let ingredient18 = meal.displayIngredient18()
                 if (!(pantryItems.contains(ingredient18))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient19 != "") {
                 let ingredient19 = meal.displayIngredient19()
                 if (!(pantryItems.contains(ingredient19))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             }
             if (meal.ingredient20 != "") {
                 let ingredient20 = meal.displayIngredient20()
                 if (!(pantryItems.contains(ingredient20))) {
                     meal.missingIng = true
-                    break
+                    continue
                 }
             } 
             
