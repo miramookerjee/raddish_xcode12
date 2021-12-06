@@ -88,14 +88,6 @@ class ViewModelTests: XCTestCase {
           }
         }
         .resume()
-        let seconds = 4.0
-        let vm = ViewModel()
-        
-        //ingredient does not exist
-        vm.createRecipe(recipe: "")
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-          XCTAssertEqual(vm.recipes.count, 0)
-        }
     }
   
   func testCreateRecipeExpSoon() {

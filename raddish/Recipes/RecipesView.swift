@@ -14,7 +14,6 @@ struct RecipesView: View {
       VStack{
         List {
           RecipeSectionView(sectionTitle: "Ingredients Expiring Soon", recipesList: viewModel.recipesIngExpSoon, showingSheet: showingSheet, viewModel: viewModel)
-          RecipeSectionView(sectionTitle: "Past Favorites", recipesList: viewModel.recipes, showingSheet: showingSheet, viewModel: viewModel)
           RecipeSectionView(sectionTitle: "Explore", recipesList: viewModel.recipes, showingSheet: showingSheet, viewModel: viewModel)
         }
         .listStyle(GroupedListStyle())
