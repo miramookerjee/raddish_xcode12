@@ -43,18 +43,35 @@ struct RecipeInMealPlanView: View {
                       viewModel: viewModel)
       ) {
         VStack {
-          AsyncImage(url: URL(string: i.displayimageURL())!,
-                     placeholder: { Text("Loading...") })
-              .frame(width: 107, height: 115)
-              .cornerRadius(15)
+          if i.missingIng == true {
+            AsyncImage(url: URL(string: i.displayimageURL())!,
+                       placeholder: { Text("Loading...") })
+              .scaledToFill()
+              .frame(height: 70)
+              .clipped()
+              .opacity(0.50)
+              .brightness(-0.25)
+          } else {
+            AsyncImage(url: URL(string: i.displayimageURL())!,
+                       placeholder: { Text("Loading...") })
+              .scaledToFill()
+              .frame(height: 70)
+              .clipped()
+          }
           
             Text(i.displayName())
+              .padding(.bottom, 5)
               .font(.system(size: 16))
-              .frame(width: 107)
+              .multilineTextAlignment(.center)
               .lineLimit(2)
+              .frame(height: 45)
         }
       }
     }
+    .background(Color.white)
+    .frame(width: 130, height: 115)
+    .cornerRadius(15)
+    .shadow(radius: 3)
     .overlay(MissingIngButton(viewModel: viewModel, meal: i), alignment: .topTrailing)
     .overlay(DeleteButton(viewModel: viewModel, meal: i), alignment: .topTrailing)
   }

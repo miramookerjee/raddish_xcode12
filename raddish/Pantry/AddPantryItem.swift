@@ -23,19 +23,21 @@ struct AddPantryItem: View {
       HStack {
         Text("name:")
           .fontWeight(.bold)
-          .padding(.leading)
         TextField("name", text: $name)
-          .padding(.trailing)
-        //PROFH look here: bug occuring here
+        
         DatePicker(
             "",
             selection: $date,
             in: ...Date(),
             displayedComponents: [.date]
            )
-      }.padding()
+      }
+      .padding()
+      
+      
+      
       Spacer()
-    }.padding()
+    }
     .navigationBarTitle("New Pantry Item")
     .navigationBarItems(trailing:
       Button(action: {
